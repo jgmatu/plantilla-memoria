@@ -700,7 +700,7 @@ de herramientas para depuración diagnóstico y compilación de su lenguaje de s
 \label{subsec:SysDirectX}
 
 Direct3D utiliza un sistema de coordenadas levógiro. Si se están realizando acciones de transformación de una aplicación 
-basada en un sistema de coordenadas dextrógiro, se debe realizar dos cambios en los datos  pasados ​a Direct3D de las
+basada en un sistema de coordenadas dextrógiro, se debe realizar dos cambios en los datos pasados de Direct3D de las
 geometrías y operaciones de rotación o traslación.
 
 \begin{figure}[hbt!]
@@ -1374,21 +1374,663 @@ para el manejador de eventos de entrada de polling de la interfaz de OpenGL y la
 En el constructor recibe como parámetro la escena creada por el usuario para su posterior renderizado en la ventana de OpenGL.
 La clase motor cuenta con tres métodos públicos; inicialización actualizado y bucle principal.
 
-
-
-\subsection{Arquitectura e implementación del motor gráfico} 
-\label{sec:arquitectura}
-
-
-figura~\ref{fig:arquitectura}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.30, keepaspectratio]{img/Engine.png}
+    \caption{Diagrama de clases de la clase Engine}
+    \label{figura:Blender}
 \end{figure}
 
+La clase escena será la responsable de almacenar el objeto raíz que dará acceso a la estructura de datos en árbol del motor y
+controlar las diferentes etapas de la arquitectura y su orden de ejecución. Desde fuera el usuario podrá añadir objetos de
+juego hijos al objeto de juego raíz para formar el árbol de nodos de la escena. Los objetos de juego hijos a su vez podrán
+tener otros objetos de juego hijos que serán accedidos por la escena de forma recursiva en la etapa de ejecución.
+
+La clase escena también contará con la colección de luces para la iluminación de los materiales de los objetos de juego en
+la escena y las cámaras, que podrán ser utilizadas para cambiar la perspectiva de vista de la escena desde otros objetos de juego.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.30, keepaspectratio]{img/Scene.png}
+    \caption{Diagrama de clases de la clase Scene}
+    \label{figura:Blender}
+\end{figure}
+
+La clase objetos de juego almacena las componentes que definen el objeto de juego, la colección de objetos de juego hijos para generar
+el árbol de escena y el acceso a las luces para iluminar los modelos de los nodos hijos de objetos de juego que sean renderizables.
+
+Todos los objetos de juego cuentan con una componente interna transformada que definen la posición de los nodos de la escena en el
+sistema de coordenadas de OpenGL. 
+
+Los objetos cuentan con métodos para realizar operaciones de posicionamiento, escalado o rotación sobre su transformada que serán
+accesibles de forma pública para definir el comportamiento en el sistema de coordenadas de OpenGL por el usuario.
+
+Existe un método público para calcular la distancia de un objeto de juego, que recibe como parámetro de entrada el identificador
+del objeto de juego del que se quiere saber su distancia dentro del sistema de coordenadas de OpenGL. Este método hará uso de
+un método interno de búsqueda que devolverá como resultado la referencia del objeto de juego para realizar el cálculo de distancia
+entre ambos objetos.
+
+Para poder realizar técnicas gráficas de transparencia en la fase de renderizado se deben realizar el renderizado de los objetos
+que son transparentes con un criterio de ordenación. La clase objetos de juego cuenta con un método interno accesible por la clase
+escena para devolver una lista ordenada de objetos. Esta lista realizará el criterio de ordenación por la distancia relativa a la
+posición de la cámara principal.
+ 
+La clase objetos de juego cuenta también métodos para añadir una cámara al objeto de juego y recibir la lista de cámaras de los
+nodos hijos. Este método es utilizado por la clase escena para almacenar la colección de cámaras de la escena.
+
+La clase objetos cuenta con los métodos de inicialización, actualización y renderizado que serán posteriormente utilizadas para
+llamar a cada una de las componentes en cada una de las etapas de la arquitectura. Estos métodos serán visibles por la clase escena.
+
+Los objetos de juego podrán añadir componentes internas del motor gráfico o componentes externas definidas por el usuario a través
+de un método público para este propósito.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.3, keepaspectratio]{img/GameObject.png}
+    \caption{Diagrama de clases de la clase GameObject}
+    \label{figura:GameObject}
+\end{figure}
+
+La clase componentes está definida como una clase virtual que cuenta con dos métodos virtuales. Los métodos de esta clase son utilizados
+para seguir el patrón de diseño basado en componentes, el método de activación y el método de actualización de las componentes. Todas
+las componentes tendrán acceso al objeto de juego del que forman parte para poder realizar cambios en el comportamiento del objeto.
+
+Las componentes externas serán clases definidas por el usuario que heredarán de la clase virtual componentes y que el usuario deberá
+redefinir sus métodos cuando defina la clase para posteriormente ser añadidas al objeto de juego.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.3, keepaspectratio]{img/Component.png}
+    \caption{Diagrama de clases de la clase Component}
+    \label{figura:Component}
+\end{figure}
+
+Dentro de las componentes internas, la clase encargada de almacenar las matrices de posición para la gestión del árbol de escena dentro
+del sistema de coordenadas es la componente transformada.
+
+La clase transformada guarda las estructura de datos matriciales que se definen en la librería matemática de OpenGL para posicionar los
+objetos en el sistema de coordenadas. La matriz cuenta con una matriz de modelo y otra matriz de modelo global que tienen sentido cuando
+se usan en la estructura de datos en árbol, generando dependencias de posición entre objetos de juego dentro del árbol.
+
+Para realizar la recursividad de las transformadas dentro de la propia clase se utiliza un atributo interno que almacena las transformadas
+de los objetos de juego hijos de ese objeto de juego y realizar los cálculos matriciales dentro de la clase transformada.
+
+El acceso a las matrices de modelo global y la matriz de modelo se realiza de manera pública por el objeto de juego para realizar operaciones
+de rotación, traslación y escalado de las matrices explicadas en la clase objeto de juego.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.2, keepaspectratio]{img/Transform.png}
+    \caption{Diagrama de clases de la clase Transform}
+    \label{figura:Component}
+\end{figure}
+
+La siguiente clase es la componente cámara, esta componente también almacena una transformada para definir la posición de la cámara en el
+sistema de coordenadas de OpenGL y poder realizar los cálculos de la etapa de vértices de los objetos de juego con la posición de la cámara.
+Para realizar los cálculos de la etapa de vértices la cámara devuelve su posición invertida para seguir el modelo de proyección de OpenGL.
+
+Esta clase cuenta con propiedades de la cámara para abrir el ángulo de visión y el aspecto de vista panorámico o en cuatro tercios y cambiar
+la forma de proyección de la cámara ya sea en modo de perspectiva para escenas en 3D o hacer uso de una cámara ortogonal para 
+escenas en 2D.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.2, keepaspectratio]{img/Camera.png}
+    \caption{Diagrama de clases de la clase Camera}
+    \label{figura:Component}
+\end{figure}
+
+La clase de luces se define como una interfaz en C++, es una clase abstracta con un conjunto de métodos virtuales que implementan cada
+tipo de luz, existen luces direccionales, puntuales y focales que heredan de la clase virtual luces.
+
+La clase virtual de luces cuenta con los métodos de posición, dirección, intensidad y distancia que son utilizados por el usuario cada
+vez que cree un tipo de luz. Cada uno de los tipos de luz que heredan de la clase luces realizan operaciones en los métodos de la
+interfaz teniendo en cuenta su naturaleza.
+
+La clase de luces se define como una interfaz en C++, es una clase abstracta con un conjunto de métodos virtuales que implementan cada tipo
+de luz, existen luces direccionales, puntuales y focales que heredan de la clase virtual luces.
+
+La clase virtual de luces cuenta con los métodos de posición, dirección, intensidad y distancia que son utilizados por el usuario cada
+vez que cree un tipo de luz. Cada uno de los tipos de luz que heredan de la clase luces realizan operaciones en los métodos de la
+interfaz teniendo en cuenta su naturaleza.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.08, keepaspectratio]{img/Litght.png}
+    \caption{Diagrama de clases de la clase Litght}
+    \label{figura:Component}
+\end{figure}
+
+Las técnicas de iluminación utilizadas en el motor realizan técnicas de iluminación local en tiempo real utilizando para ello las
+componentes de iluminación del modelo de pong.
+
+\subsection{Modelo de Phong} 
+\label{sec:Modelo de Phong}
+
+El modelo de phong es una técnica de iluminación gráfica para simular el comportamiento de las luces en el mundo real, este modelo
+cuenta con tres componentes de luz para este propósito; componente ambiental, difusa y especular.
+
+La componente ambiental dará iluminación uniforme a todo el material iluminando las partes del objeto que no son influenciadas por
+una fuente de luz de manera directa y poder mostrar la caras ocultas de los objetos.
+
+La componente difusa ilumina las superficies del material que tienen incidencia de manera directa con una fuente de luz, teniendo en
+cuenta la dirección y posición de la fuente de luz, esta componente puede sobreescribir la componente ambiental si queremos que las
+partes del objeto que no son visibles desde ninguna fuente de luz queden ocultas.
+
+La componente especular da el efecto de brillo sobre el material, este efecto se consigue realizando un cálculo exponencial de reflejo
+sobre los fragmentos. La componente especular tiene en cuenta la posición de perspectiva de visión, la posición de la fuente de luz
+y la posición del fragmento.
+
+El valor exponencial afectará a la precisión de brillo en el material. Los fragmentos iluminados por la componente especular serán
+filtrados por el reflejo y cambiará a medida que se mueva la posición del observador dando un mayor realismo a la iluminación del
+material.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5, keepaspectratio]{img/basic_lighting_specular_shininess.png}
+    \caption{Imagen que muestra el modelo de pong con diferentes valores del factor exponencial de la componente especular.}
+    \label{figura:Component}
+\end{figure}
+
+El usuario podrá añadir un conjunto de luces en la escena haciendo uso del modelo de phong, dispondrá de tres tipos de luces para
+iluminar la escena, luces direccionales, luces puntuales y luces de foco. Este conjunto de luces definen el sistema de luces del motor.
+
+
+\subsection{Sistema de luces} 
+\label{sec:Luces}
+
+Las luces direccionales están diseñadas como fuente de luz infinitas, la posición de la luz será descartada y sólo se tendrá en cuenta
+la dirección de la luz. Este tipo de luz puede ser útil para simular la iluminación del sol donde todos los objetos son iluminados de
+la misma manera independientemente de su posición en la escena respecto a la fuente de luz.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5, keepaspectratio]{img/DirectionalLightDiagram.png}
+    \caption{ Diagrama de ejemplo de luz direccional documentación de Unity.}
+    \label{figura:Component}
+\end{figure}
+
+Las luces puntuales están diseñadas como fuentes de luz que iluminan su entorno de manera uniforme desde su posición, estas fuentes de
+luz no tienen dirección. Los objetos son iluminados en la escena teniendo en cuenta la posición de los fragmentos del material respecto
+a la posición de la fuente de luz puntual. El usuario podrá generar hasta 255 luces puntuales dentro de la escena y podrá situarlas en
+cualquier punto de la escena.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5, keepaspectratio]{img/PointLightDiagram.png}
+    \caption{Diagrama de ejemplo de luz puntual documentación de Unity.}
+    \label{figura:PointLightDiagram}
+\end{figure}
+
+Para poder simular la distancia entre las luces puntuales y los materiales de los objetos se ha diseñado un factor de atenuación. Este factor
+de atenuación utiliza una fórmula matemática que decrece de forma cuadrática en función de la distancia entre la fuente de luz y la posición
+de los fragmentos del material.
+
+\begin{equation} \label{distance}
+F_{att} = \frac{1} {(K_{c} + K_{l} \cdot d + K_{q} \cdot d^2)} [0 , 1]
+\end{equation}
+
+La ecuación \ref{distance} calcula la distancia de la fuente de luz al origen de la superificie del material.
+
+Los valores constantes son sacados de una tabla que cambiarán el alcance de las luces puntuales. 
+
+El factor cuadrático de la distancia es utilizado para simular el comportamiento físico de los rayos de luz
+en el mundo real. Si se utiliza este valor escalar con valores entre cero y uno en los fragmentos del material
+se puede variar el valor de intensidad de iluminación en mayor o menor medida sobre los fragmentos de las superficies.
+
+Las luces de foco simulan un foco de luz, este tipo de luz tiene en cuenta su posición y el ángulo de apertura
+del foco. El motor puede simular una luz de foco para iluminar la escena. El usuario podrá configurar el alcance
+de la luz de foco con el factor de atenuación y su ángulo de apertura. Para realizar un mayor realismo de la
+luz de foco existe un parámetro de cutoff que se utiliza para simular los bordes de iluminación del foco de luz.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5, keepaspectratio]{img/SpotLightDiagram.png}
+    \caption{Diagrama de ejemplo de luz puntual documentación de Unity.}
+    \label{figura:SpotLightDiagram}
+\end{figure}
+
+Una vez explicadas las técnicas de iluminación de la escena el siguiente paso es explicar las clases internas
+que determinan los objetos de juego renderizables.
+
+Existe una clase específica Drawer para definir el comportamiento de las componentes renderizables del motor.
+Esta clase cuenta con tres atributos virtuales re definibles; activación, dibujado y añadir vista. Estos tres
+atributos definen el comportamiento de las clases renderizables del motor. Todas las clases renderizables contarán
+por defecto con la clase programa y la clase uniformes.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Drawer.png}
+    \caption{Diagrama de clases de la clase Drawer}
+    \label{figura:Drawer}
+\end{figure}
+
+La componente renderizable que hereda de la clase Drawers almacena la clase de modelo y las funciones para saber si el
+modelo renderizable es o no transparente para el momento del encolado de los objetos de juego y su renderización. Además
+cuenta con una función para añadir la matriz de modelo del objeto de juego en la renderización y posicionar de forma
+correcta el objeto renderizado en la escena.
+
+La clase de renderizado cuenta con un método para actualizar el sistema de luces en la escena y de esta manera poder mover
+la iluminación en los objetos de juego renderizables en tiempo real.
+
+Los objetos renderizables contarán con clases internas del motor gráfico para definir las geometrías y los materiales que
+serán utilizados en las etapas de vértices y de fragmentos del cauce gráfico.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Render.png}
+    \caption{Diagrama de clases de la clase Render}
+    \label{figura:Render}
+\end{figure}
+
+La clase de alto nivel que abstrae de las etapas del cauce gráfico como se puede ver en la definición de la clase de renderizado es
+la clase modelo que se define a continuación.
+
+La clase modelo almacena el conjunto de geometrías, cada una de las geometrías que componen el modelo son almacenadas en la clase
+malla. La clase modelo ya no es una componente del objeto de juego ya que la componente es la clase renderizable que identifica
+si un objeto de juego es o no renderizable y debe pasar por el cauce gráfico. 
+
+La clase modelo almacena una colección de mallas que almacenan las estructuras de datos de los vértices y las propiedades del
+material de cada malla. Incluyendo la definición de las texturas que se almacenan en la clase material.
+
+Para la realización de carga de modelos complejos, la clase modelo almacena el directorio donde se encuentra el modelo y una clase
+de métodos internos para cargar un modelo compuesto de varias geometrías y cargar las texturas del material de cada geometría.
+
+Esta clase contiene el acceso a la librería Assimp, librería utilizada en el motor para realizar la conversión de archivos de otras
+plataformas gráficas a datos entendibles por OpenGL, internamente la clase contiene métodos para el procesamiento de los datos
+recibidos por la librería Assimp y almacenarlos en las estructuras de datos del motor gráfico. 
+
+Existen una serie de métodos de la clase modelo accesibles por la clase de renderizado para definir las etapas de cauce, activación
+y dibujado.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Model.png}
+    \caption{Diagrama de clases de la clase Model}
+    \label{figura:Model}
+\end{figure}
+
+La clase material contiene los datos del  programa de shaders de la etapa de fragmentos estos datos se definen en una estructura de
+datos común para todos los programas de shaders de la etapa de fragmentos del motor gráfico.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Material.png}
+    \caption{Estructura de datos de material definido en el motor gráfico etapa de fragmentos}
+    \label{figura:Material}
+\end{figure}
+
+Esta estructura de datos almacena una colección de texturas difusas, especulares y normales. El material puede hacer uso de una o
+varias texturas para definir las superficie del material. Además haciendo uso de los programas de shaders de usuario, puede definir
+diferentes comportamientos de los fragmentos de forma específica haciendo uso de las texturas definidas en el material de la malla.
+
+La clase de materiales podrá activar y dibujar las texturas del material o decidir si la malla renderizable es o no transparente para
+las técnicas de blending del motor. 
+
+Esta clase tiene su propia clase de uniformes donde se almacena la estructura de datos de la variable uniforme del programa de shaders
+de cualquier material del motor. En esta clase también se almacena la colección de texturas que definen el material del motor para
+su posterior renderizado.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5, keepaspectratio]{img/material_class.png}
+    \caption{Diagrama de clases de la clase Material}
+    \label{figura:material_class}
+\end{figure}
+
+La clase modelo generará los valores de las texturas de la estructura de datos de material de forma dinámica en función del número de
+texturas que definen el material de la malla.
+
+La siguiente definición de clases de bajo nivel almacena los datos del contexto de OpenGL y su máquina de estados y el acceso a la
+interfaz de la librería gráfica de OpenGL, comenzando con la clase de texturas y los tipos de texturas.
+
+\subsection{Tipos de texturas}
+\label{subsec:Texturas}
+
+La clase texturas contiene el identificador de texturas del contexto de OpenGL, cuenta con una constante para definir el directorio
+donde se almacenan las texturas de un proyecto realizado con el motor gráfico, directorio resources. Este directorio debe almacenar el
+nombre del archivo de la imagen 2D para generar la textura. A no ser que la textura sea cargada desde Assimp utilizando un fichero
+con extensión .mtl.
+
+La clase de texturas cuenta con dos métodos estáticos para cargar las texturas del directorio que se especifique como parámetro la ruta
+de la imagen 2D de la textura y almacenarla en el contexto de OpenGL. 
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Texture.png}
+    \caption{Diagrama de clases de la clase Texture}
+    \label{figura:Texture}
+\end{figure}
+
+Existen tres tipos de texturas dentro del motor; texturas difusas, especulares y normales.
+
+Las texturas difusas definen el material básico y los colores de la superficie para los programas de la etapa de fragmentos. Estas
+texturas reaccionan ante una componente de luz difusa siguiendo el modelo de phong.
+
+Las texturas especulares definen las partes brillantes del material desde la perspectiva de la cámara reaccionando sobre la componente
+especular del modelo de pong.
+
+Las texturas normales cambiarán la dirección de los vectores de las componentes normales de la superficie del material en la etapa de
+fragmentos dando la sensación de rugosidad sobre la superficie del material obteniendo un coste de rendimiento menor que definiendo
+esta rugosidad en la geometría del modelo.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.45, keepaspectratio]{img/custom-textures.jpg}
+    \caption{Imagen con la definición de los tipos de texturas del motor, difusa, normal y especular de izquierda a derecha.}
+    \label{figura:Texture}
+\end{figure}
+
+Una vez definido el material la siguiente clase de bajo nivel almacena las geometrías de las etapas previas a la etapa de ensamblado y
+realizando la especificación de vértices de manera transparente para el usuario.
+
+La clase malla    almacena el nombre de la malla a modo de identificador, este identificador es usado por la clase modelo para acceder
+a las mallas del modelo. 
+
+La clase malla contiene todas las funciones de OpenGL para el renderizado de los objetos e iniciar el cauce gráfico, por esta razón
+contiene los identificadores del contexto de OpenGL una vez definidos en la etapa de especificación de vértices VAO VBO y EBO. Estos
+identificadores son devueltos por la librería de OpenGL una vez enviados los datos de primitivas almacenados por la clase malla.
+También cuenta con la referencia a la clase de uniformes y la clase de programa para realizar la activación del cauce.
+
+La clase malla tiene estructurados los atributos de la especificación de vértices en dos vectores uno que almacena los índices de
+orden de ensamblado de las primitivas y otro vector con los atributos de normales posición de vértices y coordenadas de texturas
+definidas en la estructura de datos Vertex.
+
+La malla contiene el vector de texturas que componen en el material de la geometría para su activación en el contexto de OpenGL.
+Esta colección de texturas contará con las texturas del material definidas anteriormente, normal, difusa y especular.
+
+Existen un conjunto de métodos de la clase malla accesibles por la clase modelo para activar y renderizar las mallas del modelo
+y sus texturas en las diferentes etapas del cauce gráfico.
+
+El resto de atributos de la clase malla son utilizados para comunicarse con la librería de OpenGL, realizar la especificación de
+vértices y cambiar la máquina de estados de OpenGL antes del renderizado para realizar las técnicas de blending. Los métodos de
+blending son accesibles por la clase modelo ya que esta clase es la que tiene que decidir si el modelo es transparente u opaco
+para la ordenación de los objetos de juego en el renderizado. 
+
+La clase malla tendrá acceso a las clases de bajo nivel de comunicación con las etapas programables del cauce para poder activar
+los programas de la malla que se quiera realizar su renderizado.
+
+La clase uniformes realiza la abstracción de la librería matemática de OpenGL contiene una serie de mapas con los tipos de datos
+primitivos de la librería matemática. Los mapas utilizarán el nombre de la variable como clave y el valor el tipo de dato primitivo
+de la librería matemática de OpenGL; entero, flotante, vectorial de tres y cuatro dimensiones o matricial de tres o cuatro dimensiones. 
+
+Esta clase almacena los datos de los programas de cada malla para facilitar la actualización de los datos de los programas de
+shaders de cada malla y sus materiales. Cada malla tendrá una instancia de uniformes con los datos de los programas de vértices
+y fragmentos de esa malla.
+
+La clase de programas almacena las instrucciones de los programas de la etapa de vértices y fragmentos, almacena los identificadores
+de los dos programas devueltos por el contexto de OpenGL y un mapa de nombres de la variables uniformes como clave y valor el
+identificador de la variable devuelto por el contexto de OpenGL en el momento de su creación.
+
+La clase programas además cuenta con las funciones para cargar las estructuras de datos comunes del motor gráfico y las funciones
+auxiliares para facilitar al usuario las técnicas de iluminación. En la carpeta utils del motor se encuentran las estructuras de
+datos del material ya explicados y las estructuras de datos de las luces básicas además de las funciones para añadir a los fragmentos
+de la malla los valores de iluminación de forma correcta.
+
+Al generar los programas de shaders de usuario, estos pueden ser cargados desde un fichero de texto o utilizando un string hardcodeado
+dentro de su interfaz de programación.
+
+El usuario podrá crear sus propias variables uniformes en su programa de shaders y estas serán leídas por el motor para añadirlas de
+forma correcta en el contexto de OpenGL. El motor filtra las líneas del programa de shader y parsea el nombre y tipo de las variables
+uniformes añadiendo la variable al mapa de uniformes del motor y posteriormente realizar su declaración y añadir un valor que será
+actualizado en el programa de shaders correspondiente definido por el usuario.
+
+{\Large Sintaxis declaración variables uniformes:  [uniform]    [type]    [name];\par}
+
+La primera palabra es una palabra reservada del lenguaje de shaders de GLSL. La segunda palabra especifica el tipo de variable. El motor
+será capaz de interpretar los tipos básicos del lenguaje; float, int, vec2, vec3, vec4, mat3 y mat4. Qué son los valores que puede mapear
+la clase uniformes. 
+
+\subsection{Skybox}
+\label{subsec:Skybox}
+
+La arquitectura cuenta con una clase de mapa de cubos esta clase es utilizada para simular un entorno dentro de la escena. 
+
+El conjunto de atributos de la clase contienen los identificadores del buffer de vértices del cubo generado internamente y
+los nombres de las texturas que componen las texturas internas que componen el entorno como se puede ver en la siguiente imagen.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.40, keepaspectratio]{img/cubemaps_skybox.png}
+    \caption{Imagen con la definición de los tipos de texturas del motor, difusa, normal y especular de izquierda a derecha.}
+    \label{figura:cubemaps_skybox}
+\end{figure}
+
+La clase Skybox también cuenta con una serie de métodos privados para generar el programa de shaders del Skybox y almacenar la cámara
+activa y utilizarla en la fase de renderizado.
+
+El motor generará de forma interna el programa de shaders necesario para generar un mapa cúbico dentro de la escena. El usuario únicamente
+definirá un objeto de juego al que añadirá un Drawer de tipo Skybox al objeto de juego y posteriormente será renderizado en la escena con
+los ficheros de las texturas que forman el cubo definidos por el usuario.
+
+Para terminar la fase del modelo estático del motor existe una clase de geometrías esta clase es una clase abstracta de la que heredan el
+conjunto de geometrías básicas soportadas por el motor. 
+
+La clase abstracta de geometrías define un método que deben implementar todas las geometrías básicas para devolver la malla de la geometría
+básica. Existen tres tipos de geometrías básicas; planos, esferas y cubos que el usuario podrá utilizar para renderizar objetos de juego con
+geometrías básicas dentro de la escena.
+
+Para realizar los eventos de teclado y reloj existen dos clases, cada una de ellas genera una instancia única dentro de la clase Engine las
+instancias de las clases teclado y reloj serán visibles por la interfaz de usuario para trabajar con el teclado y el reloj del motor desde fuera.
+
+La clase teclado cuenta con un método estático que será utilizado por la clase motor para activar el polling de entrada de datos del teclado
+usando este método como manejador, con ayuda de las funciones de GLFW para este propósito.
+
+Como fase final de la definición de clases del motor se presenta un diagrama de clases, con los atributos de cada clase y sus dependencias
+dentro de la arquitectura.
+
+\section{Definición dinámica de ejecución del motor}
+\label{sec:Dinamica}
+
+Una vez explicado el modelo estático del motor la siguiente fase consiste en entender el modelo dinámico o de ejecución controlado por la
+clase escena; en sus diferentes etapas de definición, activación, actualización y renderizado.
+
+\subsection{Etapa de definición}
+\label{subsec:definicion}
+
+Antes de realizar la ejecución del motor el usuario hará uso de la API para definir una escena, esta etapa previa de definición por el usuario,
+define el árbol de escena y las dependencias entre los objetos de juego. 
+
+En esta etapa también se definen las componentes de los objetos de juego su posición inicial o el uso de componentes externas que serán añadidas
+al objeto de juego. Se realiza la decisión de qué objetos son renderizables con la componente renderizable y en caso de que el objeto de juego
+sea renderizable se añaden las instancias del material, texturas modelo y mallas del modelo. Una vez añadidos los datos de renderizado el usuario
+añade la componente de renderizado al objeto de juego. 
+
+Finalizada la etapa de definición el usuario añadirá la escena en el constructor del motor y llamará a los métodos de inicialización y bucle
+principal del motor. En esta última llamada el programa se quedará ejecutando en el bucle principal hasta que el usuario cierre la ventana de
+OpenGL con algún evento de teclado.
+
+Finalizada la llamada al bucle principal por el usuario, el motor primero ejecutará la etapa de activación, una vez finalizada la inicialización
+el motor entrará dentro del bucle principal y realizará las etapas de actualización y renderizado por cada vuelta del bucle.
+
+\subsection{Etapa de activación}
+\label{subsec:activacion}
+
+En la primera fase de activación la clase motor generará un contexto de OpenGL y una ventana asociada al contexto donde se realizará el renderizado
+de los objetos.
+
+En esta etapa la primera fase es llamar al método de inicialización de la escena. Esta llamada generará la inicialización de todos los objetos
+de juego desde el objeto raíz de manera recursiva.
+
+Cada objeto de juego realizará la llamada al método de activación de las componentes y una vez acabado llamará al objeto de inicialización
+de sus objetos hijos.
+
+En las componentes internas se realiza la funcionalidad específica de cada componente empezando por la componente de transformadas
+encargada del posicionamiento de los objetos en la escena.
+
+Esta activación de posicionamiento de los objetos de la componente transformada define la posición inicial de los objetos de juego
+dentro de la escena. En caso de tener objetos de juego estáticos la activación de una componente externa del objeto de juego que
+defina esta posición inicial mantendrá al objeto de juego en su posición inicial durante todo el procesamiento de la escena.
+
+Las cámaras se inicializan por defecto en un valor (0,0,5) del sistema de coordenadas de OpenGL para poder visualizar los objetos que
+se encuentren en el origen del sistema de coordenadas y mantener una distancia respecto a los objetos de juego que tengan una componente
+cámara simulando una visión en tercera persona del objeto de forma inicial.
+
+Los Drawers realizan la inicialización de objetos renderizables para la preparación del cauce gráfico. Tanto la clase renderizable
+como la clase de Skybox realizan en la primera etapa del cauce la especificación de vértices y la activación de los programas de
+shaders en el contexto de OpenGL.
+
+La clase Skybox realizará la activación del programa de shaders, la carga de la geometría cúbica y las texturas que simulan el entorno
+definido por el usuario. Al cargar la textura del cubo de mapa se indica a OpenGL que se tratan de texturas de cubo que se renderizan
+en las partes internas de la superficie de la geometría. Una vez cargadas la texturas de las caras del cubo se termina la parte de
+activación del Skybox.
+
+En la activación de los objetos renderizables, se comprueba que el objeto cuente con un modelo y un material para su renderizado,
+una vez realizada esta comprobación se realiza la activación del modelo. 
+
+La activación del modelo comprobará todas las mallas del objeto y realizará la asociación de texturas y programas de shaders de cada
+malla del modelo, finalizando con la activación de la geometría y texturas de cada malla.
+
+En la activación de la malla se realiza la etapa del cauce de especificación de vértices. La estructura de datos almacenada en la malla
+cuenta con los valores de los atributos de normales, vértices, coordenadas de textura y tangenciales que serán cargadas en el contexto
+de OpenGL de la geometría definida por el usuario. 
+
+La activación de las texturas llamará una a una las texturas de la malla y cargará la imagen en 2D en el contexto OpenGL con las
+funciones estáticas de carga de texturas de la clase Texturas. 
+
+La librería gráfica de OpenGL devolverá el identificador de cada textura, cada una de ellas almacenadas en el contexto de OpenGL,
+la clase almacenará su identificador para las etapas posteriores del cauce.
+
+Los programas de shaders de la etapa de fragmentos y la etapa de vértices definidos para cada malla será compilado y enlazado en
+ejecución dentro de la GPU utilizando las funciones de la librería gráfica de OpenGL. Si algún programa no compila o no es enlazado
+el motor finalizará con un error de ejecución devolviendo el código de error generado dentro de la librería gráfica. Esto será de
+utilidad para el usuario para depurar los programas de shaders que defina ya que el motor le dará alguna pista de que puede estar
+fallando al generar el programa de shaders.
+
+Una vez finalizada la activación de las mallas de los objetos renderizables, se realiza la activación de las componentes externas
+definidas por el usuario, cualquier operación realizada en el método de activación de las componentes se ejecutará en este momento.
+
+Una vez finalizada la activación de las componentes externas y activación de los Drawers se realiza la etapa de actualización del
+motor gráfico.
+
+\subsection{Etapa de actualización}
+\label{subsec:actualizacion}
+
+En la etapa de actualización el motor gráfico se mantendrá en un bucle hasta que el usuario realice una salida con un evento de teclado
+para cerrar la ventana de OpenGL. 
+
+El bucle realizará una iteración cada diez milisegundos para mantener un control en el posicionamiento de los objetos de manera uniforme.
+El bucle realizará como primera operación la captura de eventos de teclado para su posterior procesamiento.
+ 
+Una vez realizado el poll events se realizará un limpiado del frame buffer en segundo plano de la ventana y posteriormente la actualización
+de la escena.
+
+La finalización del bucle realizará el intercambio de los frame buffer de primer plano por el de segundo plano con los datos de renderizado
+realizados dentro de la actualización de la escena. El buffer en segundo plano volverá a limpiarse y rellenado por la escena de forma iterativa.
+
+La actualización de la escena, se realiza en dos pasos un primer paso de actualización de la escena y el segundo paso de renderización
+de los objetos de juego renderizables.
+
+En la etapa de actualización se llama al objeto raíz utilizando su método de actualización, el método de actualización de los objetos
+de juego llamará a las componentes externas y las componentes internas transformada y cámara.
+
+Las componentes externas ejecutarán el código definido en su método update, realizando actualizaciones en el comportamiento de los objetos
+de juego como realizar cambios de posicionamiento, teniendo en cuenta si los hubiera eventos de teclado o tiempo.
+
+La componente transformada actualizará los valores de sus matrices de modelo global y matriz de modelo. La matriz de modelo global almacena
+la posición del objeto respecto al sistema de coordenadas de OpenGL. La matriz de modelo almacena el valor de posición del objeto de juego
+respecto al objeto de juego padre del que depende en el árbol de escena.
+
+La componente transformada realizará un cálculo matemático para obtener el valor de posición en el sistema de coordenadas de OpenGL,
+teniendo en cuenta su matriz de modelo global y la matriz de modelo de los objetos de juego hijos. La matriz de modelo será reiniciada
+al comenzar las operaciones de posicionamiento para no obtener valores de posicionamiento relativos a posicionamientos anteriores.
+La matriz de modelo global será la que mantenga la posición absoluta y el estado de posicionamiento del objeto durante toda la
+animación de la escena.
+
+\begin{equation} \label{tf_dependency}
+gModel_{child} = gModel_{parent} \cdot model_{child}
+\end{equation}
+
+La ecuación \ref{tf_dependency} representa la dependencia de movimientos y posicionamiento entre los objetos de la escena.
+
+Al realizar esta operación desde el objeto de juego raiz, los objetos de juego estarán posicionados en las posiciones definidas para
+cada uno de ellos teniendo como referencia principal el objeto de juego raíz que en nuestro motor por defecto está situado en origen
+de coordenadas de OpenGL.
+
+La componente cámara actualizará su valor de posicionamiento con los eventos de teclado de la cámara para su movimiento. Si un objeto
+de juego tiene una componente cámara podrá realizarse un seguimiento del objeto de juego y poder simular por ejemplo la visión de una
+cámara en tercera persona, utilizando la misma fórmula aplicada a la matriz de vista de las cámaras.
+
+\begin{equation} \label{tf_dependency}
+gModel_{view} = gModel_{GameObject} \cdot model_{view}
+\end{equation}
+
+La ecuación \ref{tf_dependency} representa la dependencia de movimientos y posicionamiento entre un objeto y la cámara.
+
+Una vez finalizada la etapa de actualización de las componentes cámara, transformada y la llamada al método de actualización
+de las componentes externas comienza la etapa de renderizado del motor controlado por la clase escena.
+
+\subsection{Etapa de renderizado}
+\label{subsec:renderizado}
+
+La etapa de renderizado está definida en tres partes; la actualización de la fuentes de luz para la iluminación de la escena,
+la selección de la cámara activa y la renderización de los objetos renderizables y sus correspondientes modelos.
+
+La actualización de la fuentes de luz actualizará el valor de intensidad en tiempo real, esta actualización se realiza desde
+la componentes externas que tienen acceso a las luces a través de un nombre que el usuario definió cuando las creó, al
+actualizar los valores de intensidad de las luces estos nuevos valores afectarán a la intensidad de iluminación de los materiales. 
+
+Existirá una única cámara activa que el usuario podrá cambiar a través de eventos de teclado. El cambio de la cámara activa
+actualizará los valores de la etapa de vértices con la matriz de vista global de la cámara que ponga en modo activo,
+modificando la perspectiva de vista de la escena y de todos los objetos en base a la nueva cámara activa de la escena.
+
+Una vez elegida la cámara principal se realizará un encolado de los objetos para diferenciar objetos opacos de objetos transparentes. 
+
+Los objetos opacos se renderizan primero sin importar su orden, los objetos transparentes se ordenarán siguiendo un orden
+de distancia relativa a la cámara principal para poder realizar técnicas de blending o transparencia en la escena. Una vez
+ordenados los objetos con materiales transparentes. El orden de renderizado de estos objetos es el dibujado en los objetos
+de juego más cercanos a la cámara principal primero.
+
+La componente interna encargada del fondo de la escena cargará el programa de shaders y la textura cúbica del SkyBox
+que renderiza las tapas internas del cubo que rodean todos lo objetos de juego de la escena, con una función de OpenGL
+para indicar que la textura utilizada es un mapa de cubo y se que debe de renderizarse las texturas en las partes
+internas de la geometría cúbica.
+
+En el caso de que el objeto renderizable no sea un Skybox se ejecutará la clase modelo del objeto de juego, esta clase
+actualizará los datos de programa de fragmentos almacenados en la clase material para cada malla del modelo almacenandose
+en la clase de uniformes.
+
+El modelo llamará una a una a las mallas que lo componen, cada malla realizará el trabajo de actualizar sus datos de material
+del programa de shaders de fragmentos en la clase de uniformes.
+
+Si la malla está compuesta por un material transparente se activará la funcionalidad de blending en la máquina de estados de
+OpenGL una vez determinado la propiedad de transparencia de las malla se ejecutará la llamada a renderizado de cada malla. 
+
+En el momento de renderizado de las mallas del modelo se activarán los programas de vértices y fragmentos utilizados para el
+renderizado de la malla se activarán los datos almacenados en la clase de uniformes serán actualizados en el programa de shaders
+de la malla una vez se halla indicando al contexto de OpenGL el programa de shaders de la malla y se cargarán las texturas a
+utilizar en el contexto de OpenGL desde la clase de materiales.
+
+Por último se cambia en el contexto de OpenGL la definición de primitivas del objeto de juego renderizable anterior y se añade
+el VAO (Vertex Array Object) con la definición de las primitivas de la geometrías del objeto de juego actual en la etapa de
+especificación de vértices y se llama a la función de OpenGL para iniciar el cauce gráfico y la renderización de cada malla.
+Una vez terminada la renderización se mostrará en la ventana de OpenGL el resultado del objeto de juego renderizado.
+
+Esta es la etapa final de renderizado de los objetos de juego renderizables para acabar con la fase de desarrollo e implementación
+del motor hablaremos de los eventos de teclado y reloj que el usuario puede usar para realizar cambios en el comportamiento de
+los objetos de juego.
+
+\subsection{Eventos de teclado y reloj}
+\label{subsec:eventos}
+
+El motor cuenta con una única instancia de teclado, esta instancia mapea el teclado del usuario y mantiene un estado de valores
+booleanos identificando si una tecla ha sido presionada o no. 
+
+A la hora de realizar consultas a la instancia se buscará la tecla que el usuario desea consultar y se mandará un resultado
+booleano diciendo al usuario si la tecla ha sido pulsada y ejecutar instrucciones en caso de que se haya pulsado la tecla
+consultada en una componente externa.
+
+En el caso de los eventos de reloj, la implementación es similar, el usuario puede consultar la marca de tiempo del contexto
+de OpengL y almacenar este valor en una variable para posteriormente comprobar si ha pasado un intervalo de tiempo y ejecutar
+operaciones en la componente externa, realizar una acción o cambiar el comportamiento o animación de un objeto de juego o
+iluminación de la escena. Una vez visto la arquitectura y desarrollo del motor se muestra la fase de resultados.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.80, keepaspectratio]{img/UserEvent.png}
+    \caption{Esquema de ejecución UML de eventos de teclado y reloj desde el usuario a cambio del comportamiento del objeto de juego}
+    \label{figura:UserEvent}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1398,6 +2040,259 @@ figura~\ref{fig:arquitectura}.
 \cleardoublepage
 \chapter{Resultados}
 
+En esta fase presentaremos algunas simulaciones realizadas con el motor con visualizaciones en OpenGL y realizaremos una comparativa
+con el motor gráfico Blender mencionado en antecedentes y estado del arte en la simulación final del sistema solar.
+
+\section{Simulaciones}
+\label{sec:Simulaciones}
+
+La primera simulación está compuesta por tres luces puntuales que iluminan diferentes partes de un cubo, las luces están situadas
+en una posición cercana al cubo y contiene un factor de atenuación bajo. El cubo cuenta con una componente externa que permite
+apagar y encender las luces pulsando una tecla. La componente externa tiene la lógica de un conmutador. Además el cubo rota sobre
+sí mismo dentro de la escena para mostrar las diferentes partes del cubo iluminadas por la escena en la animación.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.50, keepaspectratio]{img/SimpleCube.png}
+    \caption{Ejemplo de uso de luces puntuales y eventos de teclado haciendo uso de las componentes externas del usuario.}
+    \label{figura:SimpleCube}
+\end{figure}
+
+En esta simulación se muestran las ventajas del uso de las componentes externas para que el usuario del motor pueda realizar
+cualquier tipo de simulación con total libertad de uso en el movimiento de los objetos, en el posicionamiento de las luces
+puntuales y el uso del teclado para simular acciones sobre la escena.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.45, keepaspectratio]{img/CubeEvents.png}
+    \caption{Imagen de la escena de cubos con la utilización del teclado para generar un cambio dinámico en la iluminación.}
+    \label{figura:CubeEvents}
+\end{figure}
+
+En la figura 5.2 se puede observar la escena con un suelo y dos cajas y el cambio de iluminación de la luz puntual generado por
+el pulso de una tecla por parte del usuario generando el apagado o el encendido de la luz dentro de la simulación.
+
+La segunda simulación muestra el uso de las texturas normales en un plano y haciendo uso de una luz direccional para mostrar
+el efecto de las texturas normales. El plano rota sobre sí mismo para ver el efecto de las componentes tangenciales de la
+geometría y demostrar que al cambiar la dirección de incidencia de la luz sobre la superficie del plano el efecto de la textura
+normal se mantiene, dando el efecto de rugosidad deseada sobre la superficie.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.75, keepaspectratio]{img/WallDiagram.png}
+    \caption{Esquema de la simulación del muro con texturas normales y uso de vectores tangenciales.}
+    \label{figura:WallDiagram}
+\end{figure}
+
+A continuación se muestra la simulación del motor gráfico del uso de las texturas normales dentro del motor, haciendo uso de un
+material especificado por el usuario para generar la superficie normal sobre el material.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.75, keepaspectratio]{img/WallResult.png}
+    \caption{Imagen de la simulación de un muro haciendo uso de una textura normal simulando rugosidad en la superficie.}
+    \label{figura:WallResult}
+\end{figure}
+
+En la siguiente simulación realizaremos una muestra completa del uso del árbol de transformadas, para ello realizaremos
+una simulación del sistema solar, donde existen dependencias de movimiento entre los diferentes objetos dentro de la
+animación. La luna realizará una rotación y una traslación alrededor de la tierra y la tierra alrededor del sol, otros
+planetas como mercurio y marte rotarán también alrededor del sol. Existirá una luz puntual en el centro de la escena
+simulando la  iluminación del sol y una luz direccional con una intensidad baja para no dejar completamente oscuras
+las caras ocultas de la luna o los planetas.
+
+Para realizar el movimiento de rotación y traslación del planeta tierra respecto al sol se deben realizar dos tipos de
+movimientos diferentes, para ello se hará uso de dos transformadas. Un objeto de juego vacío con la transformada de
+traslación del planeta y otra transformada donde estará almacenada la geometría encargada de la rotación.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.50, keepaspectratio]{img/SolarMove.png}
+    \caption{Esquema de movimiento de traslación y rotación de los planetas del sistema solar}
+    \label{figura:SolarMove}
+\end{figure}
+
+Como se puede ver en el ejemplo, la transformada auxiliar realiza dos operaciones de movimiento, un primer movimiento
+de traslación y un segundo movimiento de rotación. Esta secuencia genera el movimiento de traslación de los planetas.
+El segundo paso es la transformada de la geometría, esta transformada genera el movimiento de rotación del planeta.
+
+Para realizar la dependencia de movimientos de rotación y traslación en la geometría se utiliza el árbol de transformadas
+creado dentro del motor. En el caso del movimiento de la luna los pasos son los mismos pero en lugar de realizar la operación
+respecto a la transformada del sol que coincide con la transformada raíz que define el valor absoluto de las posiciones de los
+objetos en la escena. El movimiento de traslación y rotación se hace respecto a la transformada auxiliar del planeta tierra
+que genera su traslación dentro del sistema solar. La tierra contará con el efecto de nubes que serán simuladas con el uso
+de un objeto transparente, este objeto se sobre pondrá a la esfera de la tierra para que de la sensación de la atmósfera
+terrestre sobre el planeta.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.35, keepaspectratio]{img/Earth.png}
+    \caption{Simulación del planeta tierra junto a la luna y el uso del objeto transparente para simular las nubes y su
+    movimiento sobre el planeta.}
+    \label{figura:Earth}
+\end{figure}
+
+En el caso de los demás planetas las acciones de movimiento son las mismas lo único que deberemos realizar de forma diferente
+será el anillo de saturno ya que deberemos añadir un objeto no esférico dentro de la escena.
+
+Para realizar el anillo de saturno cargaremos un toroide realizado en blender que se exportará en formato .obj dentro de la carpeta
+de modelos del motor. Una vez cargado el anillo se añadirá la componente del anillo para generar movimiento o escalar el toroide
+para que quede acorde con el tamaño del planeta, se añade al árbol de escena cómo hijo de la transformada auxiliar del planeta
+saturno y el anillo queda en la misma posición del planeta completando el modelo completo que consta como podemos observar de
+dos geometrías diferentes.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.35, keepaspectratio]{img/saturno.png}
+    \caption{Planeta Saturno compuesto de sus dos geometrías toroide simulando su anillo y esfera para simular el planeta.}
+    \label{figura:saturno}
+\end{figure}
+
+Una vez posicionados los planetas y añadidas las traslaciones y rotaciones, el siguiente paso de la creación del entorno es generar
+un fondo estelar haciendo uso del la técnica de skybox rodeando la textura a todos los planetas. Cada planeta cuenta con una
+componente cámara añadida al objeto de esta manera es posible realizar el seguimiento de cada planeta de manera independiente.
+Para terminar se muestra una visión general del sistema solar simulado con el motor gráfico desarrollado.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.35, keepaspectratio]{img/SistemaSolar.png}
+    \caption{Imagen del sistema solar mostrando los planetas desde mercurio hasta saturno.}
+    \label{figura:Earth}
+\end{figure}
+
+En la imagen es posible observar los diferentes planetas del sistema solar y el efecto de la luz del sol sobre los planetas al igual que
+el sol está completamente iluminado al diferenciarse de los demás planetas en que este objeto emite una fuente de luz y por tanto no está
+compuesto por el mismo material que los planetas.
+
+En la siguiente simulación veremos el uso de geometrías más complicadas exportadas en el motor con el uso de la librería Assimp del
+motor gráfico. La simulación tratará un entorno virtual simulando un aeropuerto militar. La primera parte de la simulación será cargar
+un avión o una torre de control como se puede comprobar en la siguiente imagen.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Airplane.png}
+    \caption{Ejemplo de carga de modelo geométrico avión de combate haciendo uso de la librería Assimp.}
+    \label{figura:Avion}
+\end{figure}
+
+En la imagen se muestra el uso de la librería assimp del motor para realizar la carga de la geometría de un avión de combate con su
+material correspondiente. La carga de la geometría se realiza a través de los ficheros .obj mientras que los materiales son cargados
+en el motor en los ficheros .mtl. Además el usuario puede realizar la implementación de la reacción del material a la luz en los programas
+de shaders.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Tower.png}
+    \caption{Ejemplo de carga de modelo geométrico torre de control haciendo uso de la librería Assimp.}
+    \label{figura:Avion}
+\end{figure}
+
+El entorno de la simulación de la torre de control y la pista de aterrizaje se puede hacer de igual manera. En este caso la pista de aterrizaje
+utiliza un modelo de plano con una textura añadida de forma manual, mientras que la torre de control cuenta con una geometría y unas texturas
+pre definidas en los ficheros .obj y .mtl del modelo.
+
+Para acabar la simulación del aeropuerto se han añadido un fondo simulando el cielo y la utilización de diferentes objetos de juego para
+simular un conjunto de aviones estacionados en pista haciendo uso del árbol de transformadas y las componentes externas de usuario.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/AirportMultiplePlanes.png}
+    \caption{Simulación de aeropuerto militar con Skybox y uso de las componentes externas y el árbol de transformadas para enseñar un
+    conjunto de aviones de combate aparcados en el aeropuerto.}
+    \label{figura:Avion}
+\end{figure}
+
+\section{Comparativas con Blender}
+\label{sec:BlenderComp}
+
+Para la simulación con blender se simulará un sistema solar realizado dentro de este motor gráfico haciendo uso de un árbol de transformadas,
+uso de texturas difusas, animación con los script de python de blender y uso de luces y Skybox. 
+
+Una vez realizada la  simulación se realizará una comparativa de los frames por segundo de ambos motores gráficos para ver a modo de
+rendimiento quien obtiene mejores resultados haciendo uso del mismo hardware para la ejecución de ambas simulaciones.
+
+Además veremos a modo de funcionalidad y características ambos motores para comprobar cual de los dos es más fácil de manejar a nivel
+de usuario.
+
+\subsection{Sistema solar con animación en Blender}
+\label{subsec:BlenderComp}
+
+En primer lugar se generarán las geometrías de las esferas para simular tanto el sol como los diferentes planetas. Una vez terminada
+la geometría esférica de los planetas y el sol se distinguirá cada planeta por su material que tendrán adjuntados la textura de su
+correspondiente superficie planetaria de esta manera se distinguirá las esferas como planetas del sistema solar. 
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/Geometry.png}
+    \caption{Visualización de la geometría y sus primitivas de vértices de una esfera.}
+    \label{figura:Geometry}
+\end{figure}
+
+En la figura 5.12 se puede ver las primitivas de vértices de la esfera, se ha realizado una subdivisión de los vértices para obtener una mayor
+resolución de la superficie cuando el usuario acerque la cámara al planeta y no sean apreciables los triángulos en la superficie
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/MaterialBlender.png}
+    \caption{Visualización de materiales en blender.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+En la figura 5.13 se visualiza la especificación de materiales en blender aplicando un shader de tipo difuso al que se le añade una
+textura de tipo imagen de esta manera definimos la superficie del objeto con un material similar al usado en el proyecto. En blender
+se puede especificar propiedades como el valor especular, el valor difuso que en nuestro caso hemos añadido como valor de color
+de la superificie la textura de imagen.
+\pagebreak
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.45, keepaspectratio]{img/SceneSolar.png}
+    \caption{Visualización del árbol de escena en blender.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+En la figura 5.14 se observa el árbol de transformadas de la escena donde hemos añadido a la tierra cómo objeto hijo de una transformada
+vacía a la que hemos llamado EarthAux similar a la utilizada en el proyecto. La transformada vacía EarthAux tiene como objeto padre el
+sol, de esta manera podremos realizar el mismo movimiento de traslación realizado en el proyecto para la animación. 
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.20, keepaspectratio]{img/Scripting.png}
+    \caption{Visualización de scripting de la API de python para blender para generar movimientos.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+En la figura 5.15 se observa el uso de la API de python de blender Blender Python, esta API permite al desarrollador acceder a los objetos de la
+escena y a sus matrices global y local, con el acceso a las matrices de los objetos se pueden realizar los movimientos de rotación y
+traslación haciendo uso del árbol de transformadas modificando el valor de la matriz local de modelo y de esta manera mantener las
+dependencias de las posiciones del árbol.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.45, keepaspectratio]{img/AnimationBlender.png}
+    \caption{Visualización de la animación de movimiento de la tierra alrededor del sol.}
+    \label{figura:materialesBlender}
+\end{figure}
+\pagebreak
+
+En la figura 5.16 se presenta la animación de la escena de la tierra alrededor del sol la parte de abajo de ventanas de blender
+muestra el frame actual de la animación la barra amarilla muestra los registros de movimientos del objetos EarthAux y Earth en
+la simulación el movimiento de rotación de la tierra y traslación se puede observar en los dos pasos de la imagen con dos
+capturas diferentes en dos frames diferentes.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/MoonAux.png}
+    \caption{Ejemplo de uso del árbol de transformadas en blender para el movimiento de la luna.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+Para realizar el movimiento de la luna se realiza el mismo procedimiento que para la tierra pero añadiendo la transformada de la
+luna y su transformada auxiliar objetos hijos de la transformada auxiliar de la tierra dando el resultado de la figura 5.17
+
+La siguiente parte a definir una vez visto el árbol de transformadas la definición de las primitivas de la esfera y su material con
+una textura basada en imagen es aplicar un Skybox desde blender para ello se siguen dos etapas diferentes añadir el cubo y definir
+las coordenadas de texturas para el cubo y definir el material del Skybox.
 
 
 
