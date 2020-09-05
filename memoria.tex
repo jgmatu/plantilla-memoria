@@ -171,7 +171,9 @@ y abstracciones de un motor gráfico para videojuegos y entornos virtuales. Se u
 la librería gráfica de OpenGL y se realizará un desarrollo haciendo uso de algoritmos 
 gráficos y un patrón de diseño basado en componentes utilizado en la mayoría de motores
 gráficos actuales. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El motor contará con un árbol de transformadas para gestionar el espacio de coordenadas 
 dentro de una escena con objetos en movimiento. La escena contará con objetos de iluminación 
 y objetos geométricos con materiales. Los objetos geométricos podrán ser cargados desde el 
@@ -199,7 +201,9 @@ This work is formed by some of the characteristics that make up the modules
 and abstractions of a graphics engine for video games and virtual environments. It will be used
 the OpenGL graphic library and a development will be carried out using algorithms
 graphics and a component-based design pattern used in most engines current graphics.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 The engine will have a transform tree to manage the coordinate space
 within a scene with moving objects. The scene will feature lighting objects
 and geometric objects with materials. Geometric objects can be loaded from the
@@ -251,11 +255,15 @@ En este capítulo hablaremos sobre el uso de motores gráficos que hacen uso de 
 para realizar el renderizado por pantalla de los objetos a través de los motores gráficos los usuarios 
 pueden realizar escenas virtuales añadiendo objetos, luces o animación para desarrollar un entorno 
 de realidad virtual, un videojuego, una simulación, una película de animación.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Los motores gráficos facilitan la tarea al desarrollador de generar geometrías o materiales a 
 través de programas que se ejecutan dentro de las tarjetas gráficas programas de shaders de esta
 manera la computación de los vértices de una geometría se realizan de manera paralela dentro de la GPU.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El uso del patrón de diseño basado en componentes externas ayudará de forma significativa la animación 
 de la escena, la generación de eventos temporales y eventos de teclado para la interacción del usuario 
 de la aplicación gráfica desarrollada con el motor.
@@ -267,33 +275,47 @@ El mercado de los videojuegos está marcado por dos tipos de creadores de videoj
 viendo a lo largo de mis investigaciones en este campo. Existen usuarios que no tienen conocimientos 
 previos o una base sobre ingeniería gráfica que cuentan con grandes ideas o proyectos y necesitan de
 ayuda para transcribir sus ideas o mundos dentro de una máquina. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 La otra parte está formada por gente más especializada que cuentan con una base tecnológica en el campo 
 de la computación gráfica y generan gran cantidad de herramientas, servicios o plataformas para la 
 creación de aplicaciones gráficas de forma sencilla e intuitiva. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Estos desarrolladores utilizan las librerías gráficas implementadas por los fabricantes de las tarjetas
 gráficas o GPUs Graphic Processing Unit y que siguen unos estándares a la hora de realizar los drivers
 de las tarjetas, especificados por organizaciones colectivas de empresas en las que se encuentran
 gran parte de los fabricantes. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Actualmente existen diversos motores gráficos en el mercado, siendo los más destacados Unity, Unreal y Blender,
 los cuales facilitan a los usuarios el desarrollo de videojuegos y aplicaciones gráficas, así como una gestión
 de la memoria y los objetos.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 La idea del proyecto es trabajar con las especificaciones gráficas de bajo nivel y ofrecer al usuario un motor
 gráfico con conceptos fáciles de entender, herramientas sencillas y ofrecer un buen rendimiento en el
 renderizado de las aplicaciones en comparativa con otros motores. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El problema presentado en la mayoría de motores gráficos es que suelen tener una curva de aprendizaje difícil
 de entender para usuarios que no estén familiarizados con el uso de programación gráfica aunque su punto fuerte
 suele ser que tienen un buen rendimiento a la hora del desarrollo de las aplicaciones gráficas o su renderizado.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Otros motores sin embargo suelen tener una curva de aprendizaje más fácil de seguir con editores o conceptos más simples,
 sin embargo a la hora de medir el rendimiento de estos motores suelen tener un coste computacional más elevado.
 La idea de este proyecto es la realización de una plataforma sencilla y con una optimización en el rendimiento de la
 plataforma y enseñar los conceptos básicos utilizados en la mayoría de motores gráficos para realizar aplicaciones gráficas.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 La decisión de realizar el motor utilizando la librería gráfica de OpenGL 3.3 es la facilidad de puesta en marcha del
 entorno, los conocimientos previos de OpenGL obtenidos en asignaturas previas y la facilidad de búsqueda de tutoriales
 realizados por la comunidad, al tratarse de una especificación que lleva siendo utilizada desde hace tiempo
@@ -307,17 +329,23 @@ para conseguir el objetivo. Existe un apartado de motivación y contexto donde s
 mercado de los videojuegos está enfocado el proyecto. En el apartado de objetivos se explica una serie de
 hitos a conseguir en el proyecto y finalizados de manera correcta, para terminar el capítulo uno, el
 apartado de estructura de la memoria define la composición de capítulos del documento.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El segundo capítulo describe las tecnologías utilizadas en el desarrollo del proyecto además de otras
 tecnologías a forma de comparativa para explicar las tecnologías utilizadas en el desarrollo y comentar
 otros competidores en el desarrollo de motores gráficos y plataformas para el desarrollo de aplicaciones gráficas. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 La arquitectura e implementación del motor gráfico se explica en el capítulo tres, realiza una definición
 estática del proyecto donde se podrán ver las técnicas gráficas utilizadas y el patrón de diseño basado en
 componentes que forma la estructura principal del motor. La segunda parte del capítulo describe cómo
 funciona de forma dinámica el motor, en este apartado se puede ver la interacción del motor con la tarjeta
 gráfica y la ejecución del renderizado.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El cuarto capítulo muestra diferentes simulaciones realizadas con el motor y uso de blender para realizar
 comparaciones de rendimiento y su facilidad de uso o similitud de ambos motores. Las simulaciones mostrarán
 entornos virtuales explicando las técnicas gráficas que soporta el motor y la funcionalidad completa.
@@ -382,7 +410,26 @@ en el proyecto como subobjetivos se definen a continuación:
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
+En este apartado se especifica las tareas a realizar durante el proyecto el tiempo utilizado para el desarrollo de cada una 
+de las funcionalidades del motor, especificado en un diagrama de grant por sprints de trabajo. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35, keepaspectratio]{img/Schedule.png}
+    \caption{Diagrama de grant de la planifiación temporal del proyecto}
+    \label{figura:khronos}
+\end{figure}
+
+El diagrama muestra el tiempo utilizado para cada sub tarea del proyecto, con el uso de las subtareas se simplifica el 
+desarrollo general. Las columnas indican un sprint que equivale en nuestro caso a una semana de trabajo. Cada semana
+está planificada por 40 horas de trabajo, por tanto la cantidad total de horas invertidas en el proyecto consta de:
+
+\begin{equation} Planificacion_{horas} = NSprints \cdot 40_{horas} = 600_{horas} \end{equation}
+
+El trabajo tiene una estimación de tiempo total de 600 horas dedicando el tiempo necesario a cada uno de los sub
+objetivos pudiéndose alargar en caso de que se encuentren dificultades a la hora de la implementación. Esta es una
+estimación apróximada del alumno dónde según su criterio ha indicado un mayor número de Sprints
+a las tareas con una mayor complejidad de desarrollo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -394,7 +441,9 @@ en el proyecto como subobjetivos se definen a continuación:
 
 En este apartado se hablará de tecnologías utilizadas en el proyecto relacionadas con el campo de investigación
 computacional de HPG High Performance Graphics. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Primero se hablará de cual es concepto de High Performance Graphics dando una introducción a en qué
 campo de investigación están basadas las tecnologías del proyecto, después se hablará de las tecnologías
 y otras similares para realizar comparativas y justificar las utilizadas, como parte final se dará una
@@ -406,13 +455,17 @@ breve introducción de otros motores gráficos que hacen uso de estas tecnologí
 High Performance Graphics (HPG) está compuesto por un foro internacional de investigación de sistemas gráficos
 orientados al rendimiento y utilización de algoritmos innovadores, implementaciones eficientes de arquitecturas
 de hardware orientadas a la computación gráfica de las máquinas. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Los ingenieros e investigadores realizan conferencias sobre los algoritmos su eficiencia y el diseño de nuevo
 hardware orientado a gráficos. Las compañías especializadas en este sector de la industria de las TIC’s, discuten
 entre ellos las complejas interacciones entre el hardware masivamente paralelo, modelos de programación novedosos
 y algoritmos gráficos eficientes para realizar nuevas implementaciones de librerías gráficas que harán uso otros
 desarrolladores.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Dentro de esta sección se comentará las diferentes API’s gráficas que se utilizan de forma masiva en la industria:
 Vulkan, DirectX y OpenGL. Para acabar en la sección de antecedentes se explicarán algunos de los motores gráficos
 más utilizados en la actualidad y algunas de las características comunes con el motor gráfico desarrollado.
@@ -424,12 +477,14 @@ El grupo Khronos es una comunidad abierta, que cuenta con más de 140 compañía
 aceleración avanzados para gráficos 3D realidad aumentada o aprendizaje automático. Los estándares de Khronos incluyen las
 siguientes especificaciones.  Vulkan®, OpenGL®, OpenGL® ES, OpenGL® SC, WebGL ™, SPIR-V ™, OpenCL ™, SYCL ™, OpenVX ™,
 NNEF ™, COLLADA ™, OpenXR ™, 3D Commerce ™ y glTF ™. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Los miembros de la comunidad de Khronos pueden contribuir al desarrollo de las especificaciones y votar en las etapas de
 desarrollo antes del despliegue al público y pueden acelerar el desarrollo de sus plataformas a través del acceso a
 borradores de las especificaciones antes de su salida.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=9cm, keepaspectratio]{img/khronos.jpg}
     \caption{Logotipo del grupo khronos.}
@@ -442,17 +497,23 @@ buena la especificación de la API en calidad y compatibilidad con el estándar 
 La necesidad de realizar un estándar en el desarrollo de tecnologías HPG es necesaria para que todos los fabricantes
 sigan unas normas a la hora de diseñar su hardware o software y que puedan ser compatibles con el software gráfico a la
 hora de salir al mercado. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 La tarea del grupo Khronos es especificar estos estándares a todos los diseñadores de software y hardware. El uso del
 estándar abstrae al usuario del sistema operativo a la hora de realizar el desarrollo de aplicaciones gráficas usando
 la interfaz de la librería de manera directa con el driver que implementa el estándar, sin tener que usar la interfaz
 con el sistema operativo de la máquina. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El grupo Khronos cuenta con especificaciones de librerías gráficas que cubren la aceleración de gráficos desde sistemas
 móviles tablets, sistemas embebidos a supercomputadores y ordenadores de sobremesa o consolas, cada una de estas
 especificaciones está centrada en un tipo de máquina o un subconjunto de ellas. Algunas de las especificaciones del grupo
 Khronos conocidas son OpenGL y Vulkan. Las últimas versiones de estos dos estándares son OpenGL 4.0 y Vulkan 1.2. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Primero se explicará la librería gráfica de Vulkan, seguida de la especificación gráfica de Microsoft DirectX en su última
 versión y por último se hablará en detalle de OpenGL 3.3, librería gráfica utilizada en la implementación del motor.
 
@@ -471,7 +532,9 @@ El problema con la mayoría de estas APIs es que la era en la que se diseñaron 
 limitaba principalmente a la funcionalidad fija configurable. Los programadores tenían que proporcionar los datos de
 vértice en un formato estándar y estaban a merced de los fabricantes de GPU con respecto a las opciones de iluminación,
 sombreado y renderizado.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 A medida que maduraban las arquitecturas de las tarjetas gráficas, comenzaron a ofrecer más y más funcionalidades
 programables. Toda esta nueva funcionalidad tuvo que integrarse de alguna manera con las APIs existentes. Esto resultó
 en abstracciones menos que ideales y muchas conjeturas en el lado del controlador de gráficos para asignar la intención
@@ -479,13 +542,17 @@ del programador a las arquitecturas gráficas modernas. Es por eso que hay tanta
 mejorar el rendimiento en los juegos. Debido a la complejidad de estos controladores, los desarrolladores de aplicaciones
 también deben lidiar con inconsistencias entre los proveedores, como la sintaxis que se acepta para los programas de
 shaders o sombreado. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Además de estas nuevas características, la década pasada también vio una afluencia de dispositivos móviles con hardware
 de gráficos potente. Estas GPU móviles tienen arquitecturas diferentes en función de sus requisitos de energía y espacio.
 Un ejemplo de ello es la representación en mosaico, que se beneficiaría de un rendimiento mejorado al ofrecer al
 programador más control sobre esta funcionalidad. Otra limitación que se origina a partir de la antigüedad de estas API
 es la compatibilidad limitada de múltiples subprocesos, que puede provocar un cuello de botella en el lado de la CPU.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Vulkan resuelve estos problemas al ser diseñado desde cero para arquitecturas gráficas modernas. Reduce la sobrecarga
 del controlador al permitir que los programadores especifiquen claramente su intención utilizando una API más detallada,
 y permite que múltiples hilos creen y envíen comandos de forma paralela. La idea detrás de la API es realizar drivers
@@ -516,7 +583,7 @@ El cauce gráfico es la secuencia de operaciones que llevan los vértices y las 
 los píxeles en los objetivos de renderizado por pantalla. A continuación se muestra una descripción general
 simplificada del cauce gráfico en Vulkan.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, keepaspectratio]{img/vulkan_simplified_pipeline.png}
     \caption{Diagrama del cauce gráfico en Vulkan con las etapas principales del cauce,
@@ -568,13 +635,17 @@ optimizar las operaciones en los recursos de la tarjeta.  La etapa de sombreador
 clase de programas para implementar desde texturizado e iluminación, para dar un valor final de color de los fragmentos.
 Estos programas se ejecutan en muchos núcleos de GPU simultáneamente para procesar muchos objetos y su conjunto de vértices
 y fragmentos en paralelo.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 El pipeline (procesamiento en serie) de gráficos en Vulkan es casi completamente inmutable, por lo que debe recrearse el
 pipeline desde cero si se desea cambiar los sombreados o enlazar diferentes framebuffers. La desventaja es que se deben
 crear varios pipelines que representen todas las diferentes combinaciones de estados que se desean usar en las operaciones
 de renderizado, sin embargo, debido a que todas las operaciones que se realizan en el pipeline se conocen de antemano,
 el driver puede optimizar el renderizado mucho mejor.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 Algunas de las etapas programables son opcionales en función de lo que pretende hacer. Por ejemplo, las etapas de
 teselación y geometría se pueden deshabilitar si solo se está dibujando una geometría simple. Si solo interesan
 los valores de profundidad se puede deshabilitar la etapa de sombreado de fragmentos, que es útil para la generación
@@ -591,14 +662,16 @@ trabajando. La arquitectura de Vulkan está desarrollada por capas y las herrami
 como capas de la API. Grandes compañías de videojuegos como Valve o ID Software están utilizando esta librería
 para el desarrollo de sus videojuegos. Es apreciable el aumento del rendimiento para un mismo hardware y una misma
 aplicación haciendo uso de esta librería gráfica en lugar de otras especificaciones. 
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 En la versión de Vulkan 1.1 se han añadido funcionalidades para protección de memoria restricciones de copia de
 recursos en el renderizado y protección de contenido multimedia o procesamiento de imagen, además de ofrecer
 un conjunto de operaciones paralelas de forma nativa en las etapas de shaders del cauce gráfico. Con estas nuevas
 operaciones paralelas se consiguen nuevas formas de comunicación y compartición de memoria al realizar las operaciones
 en la GPU de forma paralela.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.75, keepaspectratio]{img/vulkan_op.png}
     \caption{Imagen de grupo khronos de las operaciones paralelas soportadas de forma nativa en el lenguaje de shaders de Vulkan.}
@@ -639,7 +712,7 @@ para poder cumplir con el estándar.
 Vulkan introduce una serie de cambios interesantes sobre OpenGL con algunos de los cambios clave de rendimiento y flexibilidad
 que se mencionan. Un cambio más sutil pero igualmente importante para ser entendido es el del sistema de coordenadas.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.75, keepaspectratio]{img/coordinateDiagram.png}
     \caption{Cambio del sistema de coordenadas de OpenGL a la derecha al de Vulkan en la parte izquierda.}
@@ -658,6 +731,7 @@ gl_Position.y = -gl_Position.y
 En OpenGL teníamos un espacio NDC a la izquierda, en Vulkan tenemos un espacio NDC a la derecha (suponiendo que el valor
 de profundidad libre es 1, la función de profundidad es). \begin{equation} GL_LEQUAL / VK_COMPARE_OP_LESS_OR_EQUAL \end{equation}
 
+\vspace{1mm} %5mm vertical space
 
 El otro cambio en el sistema de coordenadas es el eje z, es decir, el rango de profundidad. En OpenGL el valor de profundidad
 es un valor absoluto en un rango de [0, 1]. En Vulkan cambia a un valor relativo al vértice más lejano dentro de la ventana.
@@ -686,7 +760,9 @@ implementando la especificación de DirectX en el driver de sus tarjetas gráfic
 cuenta las tecnologías de las nuevas generaciones de GPUs que aparecen en el mercado, añadiendo nuevas funcionalidades en la
 especificación de la librería, actualmente la versión más reciente de la especificación es la DirectX 12 compatible con la
 especificación Vulkan del grupo Khronos.
-\bigbreak
+
+\vspace{1mm} %5mm vertical space
+
 La tecnología de DirectX está pensada como un conjunto de API’s y cada una de ellas se encarga de realizar un trabajo
 independiente de computación gráfica. La librería DirectX Math se encarga de realizar las operaciones matemáticas
 sobre vectores o matrices de coma flotante. Las librerías Direct2D y Direct3D se encargan de realizar las renderizaciones
@@ -703,9 +779,9 @@ Direct3D utiliza un sistema de coordenadas levógiro. Si se están realizando ac
 basada en un sistema de coordenadas dextrógiro, se debe realizar dos cambios en los datos pasados de Direct3D de las
 geometrías y operaciones de rotación o traslación.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.95, keepaspectratio]{img/leftrght.png}
+    \includegraphics[scale=0.50, keepaspectratio]{img/leftrght.png}
     \caption{Uso de sistema de coordenadas levógiro y dextrógiro. Direct3D hace uso del primero como sistema de coordenadas.}
     \label{figura:khronos}
 \end{figure}
@@ -729,7 +805,7 @@ Estas transformaciones son transformaciones del mundo, transformaciones de vista
 Finalmente, la geometría en el espacio del clip se transforma en coordenadas de píxeles (espacio de pantalla).
 Esta transformación está controlada por la configuración de la ventana gráfica.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.40, keepaspectratio]{img/d3dxfrm61.png}
     \caption{Etapas de transformación de los vértices en el cauce gráfico de OpenGL hasta la coordenada final
@@ -749,7 +825,7 @@ para realizar el recorte o clipping y luego volver a traducirse en un espacio no
 El cauce gráfico programable Direct3D 12 aumenta significativamente el rendimiento de renderizado en comparación
 con las interfaces de programación gráfica de la generación anterior.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.40, keepaspectratio]{img/pipelined123d.png}
     \caption{Diagrama de ilustración del cauce gráfico y estado de los gráficos en Direct3D 12.}
@@ -760,6 +836,8 @@ Un cauce gráfico es un flujo secuencial de entradas y salidas de datos a medida
 Dado el estado de la tubería y las entradas, la GPU realiza una serie de operaciones para crear las imágenes resultantes.
 Una canalización de gráficos contiene shaders, que realizan cálculos y efectos de representación programables, y operaciones
 de funciones fijas. Algunas operaciones del cauce son configurables. 
+
+\vspace{1mm} %5mm vertical space
 
 Una de las diferencias de DirectX 12 respecto a versiones anteriores es el uso de PSO objetos de estado en lugar de la
 máquina de estados global del cauce gráfico para guardar el contexto.
@@ -772,6 +850,8 @@ en una gran cantidad de objetos de alto nivel, los estados de los componentes de
 el rasterizador, el sombreador de píxeles y la fusión de salida se almacenan en un PSO. Un PSO es un objeto de estado de
 canalización unificado que es inmutable después de la creación. 
 
+\vspace{1mm} %5mm vertical space
+
 El PSO seleccionado actualmente se puede cambiar de forma rápida y dinámica, y el hardware y los controladores pueden
 convertir directamente un PSO en instrucciones de hardware y estado nativo, preparando la GPU para el procesamiento
 de gráficos. Para aplicar un PSO, el hardware copia una cantidad mínima de estado precalculado directamente en los
@@ -780,11 +860,13 @@ continuamente el estado del hardware en función de todas las configuraciones de
 aplicables. El resultado es una reducción significativa de la sobrecarga de llamadas de extracción, un mayor rendimiento
 y más llamadas de extracción por trama.
 
+\vspace{1mm} %5mm vertical space
+
 El PSO aplicado actualmente define y conecta todos los sombreadores que se utilizan en la canalización de renderizado.
 El lenguaje de sombreado de alto nivel de Microsoft (HLSL) está precompilado en objetos de sombreado, que luego se utilizan
 en tiempo de ejecución como entrada para objetos de estado de canalización.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.40, keepaspectratio]{img/compute-pipeline.png}
     \caption{El siguiente diagrama ilustra el cauce gráfico Direct3D 12 y su estado.}
@@ -800,12 +882,18 @@ estáticos todavía están disponibles en el cómputo.
 OpenGL es una interfaz de programación que abstrae al desarrollador del hardware o GPU utilizada en su desarrollo.
 OpenGL está pensado como una librería de gráficos para desarrolladores de videojuegos o simuladores de entornos virtuales. 
 
+\vspace{1mm} %5mm vertical space
+
 La librería viene con una serie de funciones que aprovechan las características de las especificaciones del estándar.
 El hardware debe proveer al usuario de un driver que cumpla con las especificaciones de OpenGL para poder aprovechar
 sus características de cómputo gráfico. 
 
+\vspace{1mm} %5mm vertical space
+
 OpenGL funciona en sistemas operativos Linux y MacOS y también funciona en sistemas operativos Windows al ser una
 especificación que debe seguir el fabricante del driver de la tarjeta gráfica y no depender del sistema operativo.
+
+\vspace{1mm} %5mm vertical space
 
 La API OpenGL facilita el desarrollo de aplicaciones multiplataformas pudiendo desplegar el proyecto realizado en
 diferentes entornos hardware que cumplan con la especificación del estándar en algunas o en la totalidad de sus
@@ -823,11 +911,15 @@ del núcleo siendo el segundo el usado en las nuevas especificaciones de la API.
 a partir de OpenGL 3.3, las versiones posteriores únicamente añaden nueva funcionalidad y eficiencia sin cambiar el
 modelo de programación por este motivo se ha decidido realizar el proyecto utilizando la versión de OpenGL 3.3.
 
+\vspace{1mm} %5mm vertical space
+
 Es posible utilizar funcionalidades que soporte el fabricante de la tarjeta gráfica fuera de la especificación de OpenGL
 como extensiones. Cuando una extensión se hace popular o es realmente útil a la hora de realizar un procesamiento o
 técnica gráfica es añadida a la especificación de OpenGL, sin embargo a la hora de la implementación podemos añadir
 extensiones y comprobar que en la plataforma donde se va a utilizar la extensión el driver la soporta y en tal caso
 utilizarla o si no realizar el algoritmo gráfico a la manera antigua o legacy.
+
+\vspace{1mm} %5mm vertical space
 
 OpenGL está pensada como una máquina de estados, esta máquina de estados es lo que se denomina el contexto de OpenGL.
 La máquina de estados está definida como un conjunto de variables que determinan cuál va a ser el comportamiento de OpenGL.
@@ -835,14 +927,20 @@ La idea del uso del contexto es cambiar la máquina de estados a través de vari
 el contexto actual de la máquina de estados. Muchas de las funciones de OpenGL son utilizadas únicamente para realizar un
 cambio en la máquina de estados de la que luego beneficiarse a la hora de realizar la renderización de los objetos.
 
+\vspace{1mm} %5mm vertical space
+
 La especificación de OpenGL debe estar escrita en C, los drivers de los fabricantes de tarjetas gráficas que han seguido
 las especificaciones de OpenGL han desarrollado el driver en C y por tanto no cuentan con características de lenguajes
 de alto nivel, para solucionar este problema OpenGL cuenta con abstracciones para el uso de objetos a través de estructuras de datos.
+
+\vspace{1mm} %5mm vertical space
 
 Para terminar comentar que un objeto de OpenGL que utilizaremos en el desarrollo del proyecto son un subconjunto de estados
 de OpenGL y que representan una entidad como puede ser la ventana de OpenGL donde podemos modificar algunos atributos del
 objeto como su tamaño, la cantidad de colores que soporta la ventana o si la ventana es panorámica o no, entre otras
 propiedades de la entidad ventana.
+
+\vspace{1mm} %5mm vertical space
 
 Una vez explicado OpenGL en el siguiente apartado se define la estructura dinámica de ejecución de OpenGL dentro de la máquina
 de estados y el paso de una estructura de datos de una geometría en 3D a valores entendibles por la pantalla en la fase final
@@ -855,14 +953,18 @@ El cauce gráfico de OpenGL se inicia cuando se quiere renderizar algún objeto 
 pasar de un objeto geométrico 3D a un conjunto de valores RGB como parte final del renderizado se realiza a través de un pipeline
 definido por etapas.
 
+\vspace{1mm} %5mm vertical space
+
 El cauce gráfico está dividido en dos grandes etapas divididas en etapas más especializadas. La primera etapa se pasa de un objeto
 o geometría en un espacio de coordenadas en 3D a un objeto plano 2D. En la segunda etapa del cauce se rellenan los píxeles de la
 pantalla con los colores de la parte final de los objetos ya en 2D de la etapas previas del cauce.
 
+\vspace{1mm} %5mm vertical space
+
 Cada etapa del cauce cuenta con una entrada de datos y una salida procesada que será la entrada de la siguiente etapa del cauce
 hasta obtener un valor final de renderizado y rellenar los píxeles de pantalla con un valor RGB.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.40, keepaspectratio]{img/RenderingPipeline.png}
     \caption{Imagen del cauce gráfico de OpenGL en sus diferentes etapas del cauce gráfico hasta la renderización.}
@@ -888,14 +990,20 @@ En la primera etapa la etapa de especificación de vértices, se define una list
 total de los datos. Estos datos son representados en forma de atributos, como subconjunto de datos, cada subconjunto de datos
 representa un vértice de la primitiva.
 
+\vspace{1mm} %5mm vertical space
+
 El conjunto total de atributos o vértices se denomina VAO (Vertex Array Object). Un ejemplo de definición de primitivas o array de
 vértices puede tener un total de dieciocho valores, si definimos el valor de medida de un atributo en tres unidades, OpenGL
 interpretará que tiene seis vértices dentro buffer de vértices representado por tres datos que en las siguientes etapas del
 cauce se definirá como un vector de tres dimensiones. El valor del conjunto de atributos es arbitrario en esta etapa, es en las
 siguientes etapas de vértices donde esta definición de atributo tiene un sentido espacial.
 
+\vspace{1mm} %5mm vertical space
+
 Una vez terminada la especificación del buffer de vértices en la CPU se realiza el renderizado de vértices con la llamada de
 función de pintar primitivas de OpenGL glDrawArrays y comienzan a procesarse las diferentes etapas del cauce dentro de la GPU.
+
+\vspace{1mm} %5mm vertical space
 
 La siguiente etapa importante del cauce ya dentro del procesamiento de la GPU es la etapa de shaders de vértices, una etapa
 programable del cauce. 
@@ -946,7 +1054,6 @@ habilitado el MSAA (Multiple Sampling Anti Aliasing) en el framebuffer de salida
 en el espacio de la pantalla y una lista de datos arbitrarios que se obtuvieron del vértice o en la etapa de shaders de geometrías
 después de pasar por la etapa de rasterización.
 
-
 \begin{itemize}
   \item En la etapa de shaders de fragmentos se realiza un procesamiento sobre los fragmentos. La salida de la etapa de fragmentos es
   un valor de color dado a cada fragmento, incluyendo un valor de profundidad del fragmento previo.  En esta etapa tenemos control
@@ -981,7 +1088,7 @@ Por convención, OpenGL es un sistema dextrógiro. Lo que esto básicamente dice
 positivo está hacia arriba y el eje z positivo está hacia atrás. Pensando en la pantalla como el centro de los 3 ejes y el eje z positivo
 que atraviesa la pantalla hacia el usuario del ordenador. Los ejes se dibujan de la siguiente manera:
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.40, keepaspectratio]{img/coordinate_systems_right_handed.png}
     \caption{Sistema de coordenadas en OpenGL}
@@ -1016,12 +1123,16 @@ para gráficos compatible con la especificación OpenGL, GLM (OpenGL Mathematics
 Esta es una herramienta para generar cargadores de funciones OpenGL. Selecciona el lenguaje, las versiones
 de OpenGL / OpenGL ES, los perfiles principales o compatibles, y los genera en un fichero de cabecera.
 
+\vspace{1mm} %5mm vertical space
+
 La herramienta genera el fichero de cabecera con las declaraciones de la interfaz de las funciones GL y
 las estructuras de datos para la versión de GL que se elija, y genera un pequeño archivo fuente C que
 resuelve todas las funciones en tiempo de ejecución para ayudar al compilador en la definición de
 símbolos y tipos de datos de las funciones de la librería de OpenGL antes de enlazar con la librería
 gráfica binaria instalada en el sistema operativo y generar el fichero binario de la aplicación gráfica
 definida por el desarrollador.
+
+\vspace{1mm} %5mm vertical space
 
 A la hora de definir los includes en el programa con la definición de las funciones de la librería de
 OpenGL se debe cargar primero el fichero de cabecera generado por la herramienta GLAD para resolver de
@@ -1035,6 +1146,8 @@ GLFW es una biblioteca multiplataforma de código abierto para el desarrollo de 
 en plataformas de escritorio. Proporciona una API simple para crear ventanas, contextos y superficies
 gráficas y recibir entradas o eventos de los periféricos, está escrito en C y es compatible con los sistemas
 operativos Windows, macOS y Linux.
+
+\vspace{1mm} %5mm vertical space
 
 Las ventajas de usar la librería GLFW con la implementación de algunos de los estándares gráficos son
 las siguientes:
@@ -1075,21 +1188,27 @@ GLM proporciona clases y funciones diseñadas e implementadas con las mismas con
 y funcionalidades que GLSL para que cualquiera que conozca GLSL, pueda usar la librería GLM también
 en la CPU a través de lenguajes de programación cómo C++.
 
+\vspace{1mm} %5mm vertical space
+
 Este proyecto no se limita a las funciones GLSL. Un sistema de extensión, basado en las convenciones
 de extensión GLSL, proporciona capacidades extendidas: transformaciones matriciales, cuaterniones,
 empaquetamiento de datos, números aleatorios, ruido, etc. Por lo que muchas operaciones de lenguaje
 de shaders que se ejecutan dentro de la GPU pueden ser portadas también a la CPU, utilizando esta librería.
+
+\vspace{1mm} %5mm vertical space
 
 Esta biblioteca funciona perfectamente con OpenGL pero también garantiza la interoperabilidad con otras
 bibliotecas de terceros y SDK o librerías externas que no tengan que ver con OpenGL. Es un buen candidato
 para la representación de software (trazado de rayos / rasterización), procesamiento de imágenes,
 simulaciones físicas y cualquier contexto de desarrollo que requiera una biblioteca matemática gráfica.
 
+\vspace{1mm} %5mm vertical space
+
 GLM está escrito en C++ 98 pero puede aprovechar C++ 11 cuando es compatible con el compilador. Es una
 biblioteca independiente de la plataforma y oficialmente admite la mayoría de los compiladores de C++
 más utilizados en la industria.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.80, keepaspectratio]{img/logo_glm.png}
     \caption{Logotipo de la librería matemática compatible con las especificaciones del lenguaje GLSL.}
@@ -1103,6 +1222,8 @@ más utilizados en la industria.
 La librería glut es un conjunto de herramientas externas que trabajan con el core de OpenGL,
 su finalidad es servir de interfaz con diferentes dispositivos de entrada y salida heterogéneos,
 utilizados en el campo de realidad virtual.
+
+\vspace{1mm} %5mm vertical space
 
 Ahora se hablará de algunos de los motores gráficos que utilizan todas o algunas de estas
 tecnologías para que el usuario pueda realizar aplicaciones gráficas de forma sencilla evitando
@@ -1125,25 +1246,33 @@ comunidad activa que realizan aportaciones al desarrollo y diseño del motor ade
 que puedan tener otros usuarios. El motor está pensado como un conjunto de módulos y herramientas para
 facilitar la creación de contenido gráfico.
 
+\vspace{1mm} %5mm vertical space
+
 El desarrollo de las aplicaciones gráficas en Unreal puede desplegarse en multiplataforma, desde sistemas
 operativos Windows hasta máquinas embebidas de realidad virtual de Valve o Samsung, teléfonos móviles o
 consolas de manera gratuita. Unreal cobra por el uso de la plataforma el cinco por ciento de las aplicaciones que
 superen una cuota de mercado mayor de 3000 dólares.
 
+\vspace{1mm} %5mm vertical space
+
 Entre las características principales del motor Unreal cuenta con un módulo de renderizado de gráficos, este
 módulo se encarga de la simulación de luces, generación de sombras carga de materiales y texturas, efectos
 de partículas o post procesado. Es decir la parte principal de renderización y visualización de las geometrías.
+
+\vspace{1mm} %5mm vertical space
 
 Cuenta con un módulo para el desarrollo de interfaces de usuario Unreal Motion Graphics User Interfaces UMG.
 La interfaz de usuario hace uso de Widgets para la captura de eventos de usuario a través de botones barras
 de progreso, menús etc. Esta interfaz interactiva ayuda al desarrollador a crear contenido de manera muy
 sencilla y realizar cierta lógica de animación o jugabilidad sin tener conocimientos sobre programación.
 
+\vspace{1mm} %5mm vertical space
+
 Uno de los principales módulos de Unreal y más conocido con los Blueprint Visual Scripting. Este módulo
 está diseñado como un diagrama de flujo o una máquina de estados presentado como un visualización en
 bloques con un flujo de ejecución.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.30, keepaspectratio]{img/menu_unreal.png}
     \caption{Uso de flujo de programa utilizando la interfaz blue visual scripting}
@@ -1154,9 +1283,9 @@ La idea es utilizar esta interfaz de visualización para usuarios con poca exper
 y poder generar comportamientos animaciones u objetos gráficos con materiales de manera rápida y
 sencilla que solo podrían ser accesibles para desarrolladores o personas con conceptos de programación.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.30, keepaspectratio]{img/option1_unreal.jpg}
+    \includegraphics[scale=0.15, keepaspectratio]{img/option1_unreal.jpg}
     \caption{Uso de flujo de programa utilizando la interfaz blue visual scripting}
     \label{figura:option1_unreal}
 \end{figure}
@@ -1167,14 +1296,20 @@ previos de programación en este lenguaje para poder utilizar esta API. Esta dif
 con el uso del módulo de  Blueprint Visual Scripting que utiliza por debajo la misma API del motor para
 generar la lógica o flujo de ejecución de las animaciones.
 
+\vspace{1mm} %5mm vertical space
+
 Unreal trata de ser un motor gráfico genérico e innovador para la realización de contenido gráfico de
 simulaciones virtuales o animación cinematográfica. El uso de lenguaje C++ como el uso del editor o
 algunos módulos del motor requieren de un conocimiento previo del funcionamiento de físicas, geometrías
 o materiales en entornos gráficos, esto dificulta la curva de aprendizaje de la plataforma.
 
+\vspace{1mm} %5mm vertical space
+
 Uno de los principales puntos fuertes de Unreal es su buen uso de los recursos, con una buena gestión
 de la memoria y del cauce gráfico en el renderizado de los objetos o las físicas dentro de la plataforma
 a pesar de su complejidad. 
+
+\vspace{1mm} %5mm vertical space
 
 El competidor directo de Unreal en el desarrollo de videojuegos multiplataforma en la actualidad es el
 motor gráfico Unity 3D.
@@ -1187,12 +1322,14 @@ real. Sus principales usos son el desarrollo de videojuegos y la creación cinem
 La plataforma de Unity contiene partes gratuitas Open Source y otras privativas que pueden ser explotadas
 con la adquisición de licencias con un coste adicional.
 
+\vspace{1mm} %5mm vertical space
+
 Unity cuenta con una interfaz potente para importar archivos externos heterogéneos y su uso dentro del
 espacio de trabajo de un proyecto creado en Unity.  La importación de archivos cuenta con importación
 de ficheros de audio y sonido, renderizados 3D realizados en otras plataformas de diseño gráfico como
 autocad o malla o importación de fuentes de lenguaje e idiomas.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.60, keepaspectratio]{img/unity_assets.png}
     \caption{Visualización del uso de la librería Assets para importación de archivos en Unity}
@@ -1203,9 +1340,13 @@ Unity también cuenta con primitivas pre definidas para objetos geométricos bá
 ellipses o planos, parecido al utilizado en el proyecto, haciendo uso de funciones matemáticas parametrizadas
 para generar las primitivas, tamaños o formas de las superficies.
 
+\vspace{1mm} %5mm vertical space
+
 El foco de atención principal del usuario en Unity se hace a través de la ventana principal, dentro de
 la ventana principal se pueden cargar en diferentes pasos el desarrollo de las aplicaciones gráficas,
 es decir ventanas con funciones específicas del motor se cargan dentro de la ventana principal. 
+
+\vspace{1mm} %5mm vertical space
 
 En la ventana de proyecto se pueden manejar los materiales geometrías o archivos externos cargados con la
 interfaz Assets. La ventana de proyecto se puede gestionar en un panel adicional donde está contenida la
@@ -1213,31 +1354,41 @@ estructura de directorios del proyecto y los ficheros importados. En la ventana 
 una sub ventana en la que se pueden ver los tipos de archivos cargados en la estructura de directorios,
 geometrías, texturas, programas de shaders de materiales, ficheros de audio etc.
 
+\vspace{1mm} %5mm vertical space
+
 La vista de escena en la ventana principal, muestra al usuario una visión interactiva del mundo creado con
 Unity en la que se podrán editar las luces de la escena posición de los objetos y las cámaras. Esta vista
 es fácil de manejar para los usuarios que utilizan por primera vez el motor de Unity y para hacerse una
 idea del trabajo con el entorno de desarrollo.
 
+\vspace{1mm} %5mm vertical space
+
 En la vista de juego dentro de la ventana principal se podrá ver el resultado final de la aplicación gráfica
 creada con Unity en la que deberemos ver la perspectiva desde cámaras de la escena y el renderizado en tiempo
-real de la aplicación. 
+real de la aplicación.
+
+\vspace{1mm} %5mm vertical space
 
 En esta vista los cambios realizados de forma interactiva son temporales. Como la bajada de la resolución para
 emular el uso de dispositivos antiguos o con menor poder computacional. La ventana además avisa al usuario si
 no existen cámaras en la escena para advertir de que no hay ninguna vista que pueda ser utilizada por el módulo
 de renderizado.
 
+\vspace{1mm} %5mm vertical space
+
 En la ventana de jerarquías podemos ver las dependencias que existen entre los objetos de la escena, algunos de
 estos objetos pueden ser geometrías cargadas con la interfaz Asset o componentes del motor como luces o cámaras. 
+
+\vspace{1mm} %5mm vertical space
 
 La ventana de jerarquías nos da una visión del árbol de transformadas de Unity y de las dependencias de los
 objetos dentro de la escena de manera global. En esta vista se pueden también crear las dependencias entre
 los objetos creando nodos hijos de otro objetos y generar partes del árbol de jerarquía de la escena. Aunque
 su uso principal es la visualización del árbol de jerarquía, en escenas de juego más complejas.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.40, keepaspectratio]{img/editor_unity.png}
+    \includegraphics[scale=0.30, keepaspectratio]{img/editor_unity.png}
     \caption{Uso de ventanas en Unity}
     \label{figura:editor_unity}
 \end{figure}
@@ -1248,9 +1399,9 @@ realizar efectos gráficos control de físicas, comportamiento de los objetos o 
 artificial personalizado para los objetos de juego. El uso de programación en Unity se realiza a través de la
 API de Unity en C\#.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.60, keepaspectratio]{img/APIUnity.jpg}
+    \includegraphics[scale=0.40, keepaspectratio]{img/APIUnity.jpg}
     \caption{Ejemplo de uso de lenguaje de scripting en Unity 3D de componentes}
     \label{figura:APIUnity}
 \end{figure}
@@ -1260,11 +1411,17 @@ lenguaje de programación de componentes sencillo en C\#. El usuario puede ser c
 juego o aplicación virtual de forma rápida. Con el uso del módulo Asset es fácil insertar contenidos de terceros
 dentro del motor aunque puede que este contenido se quede corto cuando queremos realizar mundos algo más complejos. 
 
+\vspace{1mm} %5mm vertical space
+
 Los mayores problemas que podemos encontrar en Unity son la mala gestión de los recursos. Al estar implementados
 algunos módulos en .Net es posible tener problemas de rendimiento en la gestión de la memoria con el recolector de basura. 
 
+\vspace{1mm} %5mm vertical space
+
 También se encuentran restricciones al no ser un motor completamente Open Source como Unreal, si se quiere realizar
 alguna funcionalidad específica que no soporte el motor no se puede añadir.
+
+\vspace{1mm} %5mm vertical space
 
 La inestabilidad entre versiones intermedias también es un problema en Unity ya que en la realización de parches suelen
 meterse regresiones y bugs nuevos dentro de la plataforma.
@@ -1278,6 +1435,8 @@ realizar animaciones en 2D con blender. El motor blender soporta el cauce comple
 hasta la etapa final de renderizado. Blender se puede utilizar para crear visualizaciones en 3D, como imágenes fijas para
 crear texturas, animaciones en 3D, tomas de efectos visuales y edición de video, se adapta bien a desarrollos individuales
 y pequeños estudios que se benefician de su proceso unificado de desarrollo y respuesta.
+
+\vspace{1mm} %5mm vertical space
 
 El motor gráfico blender puede realizar desarrollos de aplicaciones gráficas multiplataforma que se ejecuta en sistemas Linux,
 macOS y Windows. Blender también tiene requisitos de memoria y procesamiento relativamente pequeños en comparación con otras
@@ -1302,14 +1461,13 @@ largometrajes.
   \item Tiene un pequeño ejecutable, que es opcionalmente portátil.
 \end{itemize}
 
-
 Blender hace posible realizar una amplia gama de tareas, y puede parecer desalentador cuando se trata de comprender los
 conceptos básicos. Sin embargo, con un poco de motivación y el material de aprendizaje adecuado, es posible familiarizarse
 con Blender después de algunas horas de práctica.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.30, keepaspectratio]{img/Blender.jpg}
+    \includegraphics[scale=0.20, keepaspectratio]{img/Blender.jpg}
     \caption{Visualización general de ventanas en blender para la creación de una escena virtual.}
     \label{figura:Blender}
 \end{figure}
@@ -1344,19 +1502,29 @@ del desarrollo del motor gráfico del proyecto.
 El motor está diseñado como una API de alto nivel desarrollada en C++. La interfaz de la API cuenta con un conjunto
 de clases públicas para definir abstracciones gráficas y métodos de estas clases para decidir el comportamiento del motor.
 
+\vspace{1mm} %5mm vertical space
+
 La arquitectura está formada por una estructura de datos principal en forma de árbol de nodos, los nodos del árbol
 serán los objetos de juego, concepto obtenido del motor gráfico de Unity y Blender.
+
+\vspace{1mm} %5mm vertical space
 
 El diseño de la arquitectura está especificado en un patrón de diseño basado en componentes que formarán la estructura
 principal del desarrollo del motor, siguiendo los principios de este diseño, utilizado en los motores Unity o Blender.
 Para trabajar el cauce gráfico se utilizará una jerarquía de clases de dibujadores o Drawers que tendrán un comportamiento
 de componente especial para saber que objetos de juego son renderizables y deben realizar las operaciones del cauce gráfico.
 
+\vspace{1mm} %5mm vertical space
+
 En la primera parte del desarrollo explicaremos la estructura estática de la arquitectura, la explicación de las clases que
 definen las estructuras de datos del motor y las dependencias que existen entre ellas. 
 
+\vspace{1mm} %5mm vertical space
+
 En la segunda parte del desarrollo se explicará de forma detallada la estructura dinámica de la arquitectura explicando paso
 a paso las fases de ejecución del motor.
+
+\vspace{1mm} %5mm vertical space
 
 La definición de la estructura estática y dinámica explicarán de forma detallada el funcionamiento del motor gráfico, las
 abstracciones gráficas realizadas y la solución al cauce gráfico de OpenGL transparente para el usuario, utilizando técnicas
@@ -1374,9 +1542,9 @@ para el manejador de eventos de entrada de polling de la interfaz de OpenGL y la
 En el constructor recibe como parámetro la escena creada por el usuario para su posterior renderizado en la ventana de OpenGL.
 La clase motor cuenta con tres métodos públicos; inicialización actualizado y bucle principal.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.30, keepaspectratio]{img/Engine.png}
+    \includegraphics[scale=0.20, keepaspectratio]{img/Engine.png}
     \caption{Diagrama de clases de la clase Engine}
     \label{figura:Blender}
 \end{figure}
@@ -1386,10 +1554,12 @@ controlar las diferentes etapas de la arquitectura y su orden de ejecución. Des
 juego hijos al objeto de juego raíz para formar el árbol de nodos de la escena. Los objetos de juego hijos a su vez podrán
 tener otros objetos de juego hijos que serán accedidos por la escena de forma recursiva en la etapa de ejecución.
 
+\vspace{1mm} %5mm vertical space
+
 La clase escena también contará con la colección de luces para la iluminación de los materiales de los objetos de juego en
 la escena y las cámaras, que podrán ser utilizadas para cambiar la perspectiva de vista de la escena desde otros objetos de juego.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.30, keepaspectratio]{img/Scene.png}
     \caption{Diagrama de clases de la clase Scene}
@@ -1399,34 +1569,48 @@ la escena y las cámaras, que podrán ser utilizadas para cambiar la perspectiva
 La clase objetos de juego almacena las componentes que definen el objeto de juego, la colección de objetos de juego hijos para generar
 el árbol de escena y el acceso a las luces para iluminar los modelos de los nodos hijos de objetos de juego que sean renderizables.
 
+\vspace{1mm} %5mm vertical space
+
 Todos los objetos de juego cuentan con una componente interna transformada que definen la posición de los nodos de la escena en el
 sistema de coordenadas de OpenGL. 
 
+\vspace{1mm} %5mm vertical space
+
 Los objetos cuentan con métodos para realizar operaciones de posicionamiento, escalado o rotación sobre su transformada que serán
 accesibles de forma pública para definir el comportamiento en el sistema de coordenadas de OpenGL por el usuario.
+
+\vspace{1mm} %5mm vertical space
 
 Existe un método público para calcular la distancia de un objeto de juego, que recibe como parámetro de entrada el identificador
 del objeto de juego del que se quiere saber su distancia dentro del sistema de coordenadas de OpenGL. Este método hará uso de
 un método interno de búsqueda que devolverá como resultado la referencia del objeto de juego para realizar el cálculo de distancia
 entre ambos objetos.
 
+\vspace{1mm} %5mm vertical space
+
 Para poder realizar técnicas gráficas de transparencia en la fase de renderizado se deben realizar el renderizado de los objetos
 que son transparentes con un criterio de ordenación. La clase objetos de juego cuenta con un método interno accesible por la clase
 escena para devolver una lista ordenada de objetos. Esta lista realizará el criterio de ordenación por la distancia relativa a la
 posición de la cámara principal.
- 
+
+\vspace{1mm} %5mm vertical space
+
 La clase objetos de juego cuenta también métodos para añadir una cámara al objeto de juego y recibir la lista de cámaras de los
 nodos hijos. Este método es utilizado por la clase escena para almacenar la colección de cámaras de la escena.
+
+\vspace{1mm} %5mm vertical space
 
 La clase objetos cuenta con los métodos de inicialización, actualización y renderizado que serán posteriormente utilizadas para
 llamar a cada una de las componentes en cada una de las etapas de la arquitectura. Estos métodos serán visibles por la clase escena.
 
+\vspace{1mm} %5mm vertical space
+
 Los objetos de juego podrán añadir componentes internas del motor gráfico o componentes externas definidas por el usuario a través
 de un método público para este propósito.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3, keepaspectratio]{img/GameObject.png}
+    \includegraphics[scale=0.4, keepaspectratio]{img/GameObject.png}
     \caption{Diagrama de clases de la clase GameObject}
     \label{figura:GameObject}
 \end{figure}
@@ -1435,10 +1619,12 @@ La clase componentes está definida como una clase virtual que cuenta con dos m�
 para seguir el patrón de diseño basado en componentes, el método de activación y el método de actualización de las componentes. Todas
 las componentes tendrán acceso al objeto de juego del que forman parte para poder realizar cambios en el comportamiento del objeto.
 
+\vspace{1mm} %5mm vertical space
+
 Las componentes externas serán clases definidas por el usuario que heredarán de la clase virtual componentes y que el usuario deberá
 redefinir sus métodos cuando defina la clase para posteriormente ser añadidas al objeto de juego.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3, keepaspectratio]{img/Component.png}
     \caption{Diagrama de clases de la clase Component}
@@ -1448,19 +1634,25 @@ redefinir sus métodos cuando defina la clase para posteriormente ser añadidas 
 Dentro de las componentes internas, la clase encargada de almacenar las matrices de posición para la gestión del árbol de escena dentro
 del sistema de coordenadas es la componente transformada.
 
+\vspace{1mm} %5mm vertical space
+
 La clase transformada guarda las estructura de datos matriciales que se definen en la librería matemática de OpenGL para posicionar los
 objetos en el sistema de coordenadas. La matriz cuenta con una matriz de modelo y otra matriz de modelo global que tienen sentido cuando
 se usan en la estructura de datos en árbol, generando dependencias de posición entre objetos de juego dentro del árbol.
 
+\vspace{1mm} %5mm vertical space
+
 Para realizar la recursividad de las transformadas dentro de la propia clase se utiliza un atributo interno que almacena las transformadas
 de los objetos de juego hijos de ese objeto de juego y realizar los cálculos matriciales dentro de la clase transformada.
+
+\vspace{1mm} %5mm vertical space
 
 El acceso a las matrices de modelo global y la matriz de modelo se realiza de manera pública por el objeto de juego para realizar operaciones
 de rotación, traslación y escalado de las matrices explicadas en la clase objeto de juego.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.2, keepaspectratio]{img/Transform.png}
+    \includegraphics[scale=0.3, keepaspectratio]{img/Transform.png}
     \caption{Diagrama de clases de la clase Transform}
     \label{figura:Component}
 \end{figure}
@@ -1469,13 +1661,15 @@ La siguiente clase es la componente cámara, esta componente también almacena u
 sistema de coordenadas de OpenGL y poder realizar los cálculos de la etapa de vértices de los objetos de juego con la posición de la cámara.
 Para realizar los cálculos de la etapa de vértices la cámara devuelve su posición invertida para seguir el modelo de proyección de OpenGL.
 
+\vspace{1mm} %5mm vertical space
+
 Esta clase cuenta con propiedades de la cámara para abrir el ángulo de visión y el aspecto de vista panorámico o en cuatro tercios y cambiar
 la forma de proyección de la cámara ya sea en modo de perspectiva para escenas en 3D o hacer uso de una cámara ortogonal para 
 escenas en 2D.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.2, keepaspectratio]{img/Camera.png}
+    \includegraphics[scale=0.3, keepaspectratio]{img/Camera.png}
     \caption{Diagrama de clases de la clase Camera}
     \label{figura:Component}
 \end{figure}
@@ -1483,20 +1677,26 @@ escenas en 2D.
 La clase de luces se define como una interfaz en C++, es una clase abstracta con un conjunto de métodos virtuales que implementan cada
 tipo de luz, existen luces direccionales, puntuales y focales que heredan de la clase virtual luces.
 
+\vspace{1mm} %5mm vertical space
+
 La clase virtual de luces cuenta con los métodos de posición, dirección, intensidad y distancia que son utilizados por el usuario cada
 vez que cree un tipo de luz. Cada uno de los tipos de luz que heredan de la clase luces realizan operaciones en los métodos de la
 interfaz teniendo en cuenta su naturaleza.
+
+\vspace{1mm} %5mm vertical space
 
 La clase de luces se define como una interfaz en C++, es una clase abstracta con un conjunto de métodos virtuales que implementan cada tipo
 de luz, existen luces direccionales, puntuales y focales que heredan de la clase virtual luces.
 
+\vspace{1mm} %5mm vertical space
+
 La clase virtual de luces cuenta con los métodos de posición, dirección, intensidad y distancia que son utilizados por el usuario cada
 vez que cree un tipo de luz. Cada uno de los tipos de luz que heredan de la clase luces realizan operaciones en los métodos de la
 interfaz teniendo en cuenta su naturaleza.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.08, keepaspectratio]{img/Litght.png}
+    \includegraphics[scale=0.30, keepaspectratio]{img/Litght.png}
     \caption{Diagrama de clases de la clase Litght}
     \label{figura:Component}
 \end{figure}
@@ -1510,22 +1710,30 @@ componentes de iluminación del modelo de pong.
 El modelo de phong es una técnica de iluminación gráfica para simular el comportamiento de las luces en el mundo real, este modelo
 cuenta con tres componentes de luz para este propósito; componente ambiental, difusa y especular.
 
+\vspace{1mm} %5mm vertical space
+
 La componente ambiental dará iluminación uniforme a todo el material iluminando las partes del objeto que no son influenciadas por
 una fuente de luz de manera directa y poder mostrar la caras ocultas de los objetos.
+
+\vspace{1mm} %5mm vertical space
 
 La componente difusa ilumina las superficies del material que tienen incidencia de manera directa con una fuente de luz, teniendo en
 cuenta la dirección y posición de la fuente de luz, esta componente puede sobreescribir la componente ambiental si queremos que las
 partes del objeto que no son visibles desde ninguna fuente de luz queden ocultas.
 
+\vspace{1mm} %5mm vertical space
+
 La componente especular da el efecto de brillo sobre el material, este efecto se consigue realizando un cálculo exponencial de reflejo
 sobre los fragmentos. La componente especular tiene en cuenta la posición de perspectiva de visión, la posición de la fuente de luz
 y la posición del fragmento.
+
+\vspace{1mm} %5mm vertical space
 
 El valor exponencial afectará a la precisión de brillo en el material. Los fragmentos iluminados por la componente especular serán
 filtrados por el reflejo y cambiará a medida que se mueva la posición del observador dando un mayor realismo a la iluminación del
 material.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, keepaspectratio]{img/basic_lighting_specular_shininess.png}
     \caption{Imagen que muestra el modelo de pong con diferentes valores del factor exponencial de la componente especular.}
@@ -1543,7 +1751,7 @@ Las luces direccionales están diseñadas como fuente de luz infinitas, la posic
 la dirección de la luz. Este tipo de luz puede ser útil para simular la iluminación del sol donde todos los objetos son iluminados de
 la misma manera independientemente de su posición en la escena respecto a la fuente de luz.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, keepaspectratio]{img/DirectionalLightDiagram.png}
     \caption{ Diagrama de ejemplo de luz direccional documentación de Unity.}
@@ -1555,7 +1763,7 @@ luz no tienen dirección. Los objetos son iluminados en la escena teniendo en cu
 a la posición de la fuente de luz puntual. El usuario podrá generar hasta 255 luces puntuales dentro de la escena y podrá situarlas en
 cualquier punto de la escena.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, keepaspectratio]{img/PointLightDiagram.png}
     \caption{Diagrama de ejemplo de luz puntual documentación de Unity.}
@@ -1572,18 +1780,24 @@ F_{att} = \frac{1} {(K_{c} + K_{l} \cdot d + K_{q} \cdot d^2)} [0 , 1]
 
 La ecuación \ref{distance} calcula la distancia de la fuente de luz al origen de la superificie del material.
 
+\vspace{1mm} %5mm vertical space
+
 Los valores constantes son sacados de una tabla que cambiarán el alcance de las luces puntuales. 
+
+\vspace{1mm} %5mm vertical space
 
 El factor cuadrático de la distancia es utilizado para simular el comportamiento físico de los rayos de luz
 en el mundo real. Si se utiliza este valor escalar con valores entre cero y uno en los fragmentos del material
 se puede variar el valor de intensidad de iluminación en mayor o menor medida sobre los fragmentos de las superficies.
+
+\vspace{1mm} %5mm vertical space
 
 Las luces de foco simulan un foco de luz, este tipo de luz tiene en cuenta su posición y el ángulo de apertura
 del foco. El motor puede simular una luz de foco para iluminar la escena. El usuario podrá configurar el alcance
 de la luz de foco con el factor de atenuación y su ángulo de apertura. Para realizar un mayor realismo de la
 luz de foco existe un parámetro de cutoff que se utiliza para simular los bordes de iluminación del foco de luz.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, keepaspectratio]{img/SpotLightDiagram.png}
     \caption{Diagrama de ejemplo de luz puntual documentación de Unity.}
@@ -1593,12 +1807,14 @@ luz de foco existe un parámetro de cutoff que se utiliza para simular los borde
 Una vez explicadas las técnicas de iluminación de la escena el siguiente paso es explicar las clases internas
 que determinan los objetos de juego renderizables.
 
+\vspace{1mm} %5mm vertical space
+
 Existe una clase específica Drawer para definir el comportamiento de las componentes renderizables del motor.
 Esta clase cuenta con tres atributos virtuales re definibles; activación, dibujado y añadir vista. Estos tres
 atributos definen el comportamiento de las clases renderizables del motor. Todas las clases renderizables contarán
 por defecto con la clase programa y la clase uniformes.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Drawer.png}
     \caption{Diagrama de clases de la clase Drawer}
@@ -1610,13 +1826,17 @@ modelo renderizable es o no transparente para el momento del encolado de los obj
 cuenta con una función para añadir la matriz de modelo del objeto de juego en la renderización y posicionar de forma
 correcta el objeto renderizado en la escena.
 
+\vspace{1mm} %5mm vertical space
+
 La clase de renderizado cuenta con un método para actualizar el sistema de luces en la escena y de esta manera poder mover
 la iluminación en los objetos de juego renderizables en tiempo real.
+
+\vspace{1mm} %5mm vertical space
 
 Los objetos renderizables contarán con clases internas del motor gráfico para definir las geometrías y los materiales que
 serán utilizados en las etapas de vértices y de fragmentos del cauce gráfico.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Render.png}
     \caption{Diagrama de clases de la clase Render}
@@ -1626,24 +1846,34 @@ serán utilizados en las etapas de vértices y de fragmentos del cauce gráfico.
 La clase de alto nivel que abstrae de las etapas del cauce gráfico como se puede ver en la definición de la clase de renderizado es
 la clase modelo que se define a continuación.
 
+\vspace{1mm} %5mm vertical space
+
 La clase modelo almacena el conjunto de geometrías, cada una de las geometrías que componen el modelo son almacenadas en la clase
 malla. La clase modelo ya no es una componente del objeto de juego ya que la componente es la clase renderizable que identifica
 si un objeto de juego es o no renderizable y debe pasar por el cauce gráfico. 
 
+\vspace{1mm} %5mm vertical space
+
 La clase modelo almacena una colección de mallas que almacenan las estructuras de datos de los vértices y las propiedades del
 material de cada malla. Incluyendo la definición de las texturas que se almacenan en la clase material.
 
+\vspace{1mm} %5mm vertical space
+
 Para la realización de carga de modelos complejos, la clase modelo almacena el directorio donde se encuentra el modelo y una clase
 de métodos internos para cargar un modelo compuesto de varias geometrías y cargar las texturas del material de cada geometría.
+
+\vspace{1mm} %5mm vertical space
 
 Esta clase contiene el acceso a la librería Assimp, librería utilizada en el motor para realizar la conversión de archivos de otras
 plataformas gráficas a datos entendibles por OpenGL, internamente la clase contiene métodos para el procesamiento de los datos
 recibidos por la librería Assimp y almacenarlos en las estructuras de datos del motor gráfico. 
 
+\vspace{1mm} %5mm vertical space
+
 Existen una serie de métodos de la clase modelo accesibles por la clase de renderizado para definir las etapas de cauce, activación
 y dibujado.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Model.png}
     \caption{Diagrama de clases de la clase Model}
@@ -1653,7 +1883,7 @@ y dibujado.
 La clase material contiene los datos del  programa de shaders de la etapa de fragmentos estos datos se definen en una estructura de
 datos común para todos los programas de shaders de la etapa de fragmentos del motor gráfico.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Material.png}
     \caption{Estructura de datos de material definido en el motor gráfico etapa de fragmentos}
@@ -1664,14 +1894,18 @@ Esta estructura de datos almacena una colección de texturas difusas, especulare
 varias texturas para definir las superficie del material. Además haciendo uso de los programas de shaders de usuario, puede definir
 diferentes comportamientos de los fragmentos de forma específica haciendo uso de las texturas definidas en el material de la malla.
 
+\vspace{1mm} %5mm vertical space
+
 La clase de materiales podrá activar y dibujar las texturas del material o decidir si la malla renderizable es o no transparente para
 las técnicas de blending del motor. 
+
+\vspace{1mm} %5mm vertical space
 
 Esta clase tiene su propia clase de uniformes donde se almacena la estructura de datos de la variable uniforme del programa de shaders
 de cualquier material del motor. En esta clase también se almacena la colección de texturas que definen el material del motor para
 su posterior renderizado.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, keepaspectratio]{img/material_class.png}
     \caption{Diagrama de clases de la clase Material}
@@ -1680,6 +1914,8 @@ su posterior renderizado.
 
 La clase modelo generará los valores de las texturas de la estructura de datos de material de forma dinámica en función del número de
 texturas que definen el material de la malla.
+
+\vspace{1mm} %5mm vertical space
 
 La siguiente definición de clases de bajo nivel almacena los datos del contexto de OpenGL y su máquina de estados y el acceso a la
 interfaz de la librería gráfica de OpenGL, comenzando con la clase de texturas y los tipos de texturas.
@@ -1692,10 +1928,12 @@ donde se almacenan las texturas de un proyecto realizado con el motor gráfico, 
 nombre del archivo de la imagen 2D para generar la textura. A no ser que la textura sea cargada desde Assimp utilizando un fichero
 con extensión .mtl.
 
+\vspace{1mm} %5mm vertical space
+
 La clase de texturas cuenta con dos métodos estáticos para cargar las texturas del directorio que se especifique como parámetro la ruta
 de la imagen 2D de la textura y almacenarla en el contexto de OpenGL. 
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Texture.png}
     \caption{Diagrama de clases de la clase Texture}
@@ -1704,17 +1942,23 @@ de la imagen 2D de la textura y almacenarla en el contexto de OpenGL.
 
 Existen tres tipos de texturas dentro del motor; texturas difusas, especulares y normales.
 
+\vspace{1mm} %5mm vertical space
+
 Las texturas difusas definen el material básico y los colores de la superficie para los programas de la etapa de fragmentos. Estas
 texturas reaccionan ante una componente de luz difusa siguiendo el modelo de phong.
 
+\vspace{1mm} %5mm vertical space
+
 Las texturas especulares definen las partes brillantes del material desde la perspectiva de la cámara reaccionando sobre la componente
 especular del modelo de pong.
+
+\vspace{1mm} %5mm vertical space
 
 Las texturas normales cambiarán la dirección de los vectores de las componentes normales de la superficie del material en la etapa de
 fragmentos dando la sensación de rugosidad sobre la superficie del material obteniendo un coste de rendimiento menor que definiendo
 esta rugosidad en la geometría del modelo.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.45, keepaspectratio]{img/custom-textures.jpg}
     \caption{Imagen con la definición de los tipos de texturas del motor, difusa, normal y especular de izquierda a derecha.}
@@ -1724,51 +1968,77 @@ esta rugosidad en la geometría del modelo.
 Una vez definido el material la siguiente clase de bajo nivel almacena las geometrías de las etapas previas a la etapa de ensamblado y
 realizando la especificación de vértices de manera transparente para el usuario.
 
-La clase malla    almacena el nombre de la malla a modo de identificador, este identificador es usado por la clase modelo para acceder
+\vspace{1mm} %5mm vertical space
+
+La clase malla almacena el nombre de la malla a modo de identificador, este identificador es usado por la clase modelo para acceder
 a las mallas del modelo. 
+
+\vspace{1mm} %5mm vertical space
 
 La clase malla contiene todas las funciones de OpenGL para el renderizado de los objetos e iniciar el cauce gráfico, por esta razón
 contiene los identificadores del contexto de OpenGL una vez definidos en la etapa de especificación de vértices VAO VBO y EBO. Estos
 identificadores son devueltos por la librería de OpenGL una vez enviados los datos de primitivas almacenados por la clase malla.
 También cuenta con la referencia a la clase de uniformes y la clase de programa para realizar la activación del cauce.
 
+\vspace{1mm} %5mm vertical space
+
 La clase malla tiene estructurados los atributos de la especificación de vértices en dos vectores uno que almacena los índices de
 orden de ensamblado de las primitivas y otro vector con los atributos de normales posición de vértices y coordenadas de texturas
 definidas en la estructura de datos Vertex.
 
+\vspace{1mm} %5mm vertical space
+
 La malla contiene el vector de texturas que componen en el material de la geometría para su activación en el contexto de OpenGL.
 Esta colección de texturas contará con las texturas del material definidas anteriormente, normal, difusa y especular.
 
+\vspace{1mm} %5mm vertical space
+
 Existen un conjunto de métodos de la clase malla accesibles por la clase modelo para activar y renderizar las mallas del modelo
 y sus texturas en las diferentes etapas del cauce gráfico.
+
+\vspace{1mm} %5mm vertical space
 
 El resto de atributos de la clase malla son utilizados para comunicarse con la librería de OpenGL, realizar la especificación de
 vértices y cambiar la máquina de estados de OpenGL antes del renderizado para realizar las técnicas de blending. Los métodos de
 blending son accesibles por la clase modelo ya que esta clase es la que tiene que decidir si el modelo es transparente u opaco
 para la ordenación de los objetos de juego en el renderizado. 
 
+\vspace{1mm} %5mm vertical space
+
 La clase malla tendrá acceso a las clases de bajo nivel de comunicación con las etapas programables del cauce para poder activar
 los programas de la malla que se quiera realizar su renderizado.
+
+\vspace{1mm} %5mm vertical space
 
 La clase uniformes realiza la abstracción de la librería matemática de OpenGL contiene una serie de mapas con los tipos de datos
 primitivos de la librería matemática. Los mapas utilizarán el nombre de la variable como clave y el valor el tipo de dato primitivo
 de la librería matemática de OpenGL; entero, flotante, vectorial de tres y cuatro dimensiones o matricial de tres o cuatro dimensiones. 
 
+\vspace{1mm} %5mm vertical space
+
 Esta clase almacena los datos de los programas de cada malla para facilitar la actualización de los datos de los programas de
 shaders de cada malla y sus materiales. Cada malla tendrá una instancia de uniformes con los datos de los programas de vértices
 y fragmentos de esa malla.
 
+\vspace{1mm} %5mm vertical space
+
 La clase de programas almacena las instrucciones de los programas de la etapa de vértices y fragmentos, almacena los identificadores
 de los dos programas devueltos por el contexto de OpenGL y un mapa de nombres de la variables uniformes como clave y valor el
 identificador de la variable devuelto por el contexto de OpenGL en el momento de su creación.
+
+\vspace{1mm} %5mm vertical space
 
 La clase programas además cuenta con las funciones para cargar las estructuras de datos comunes del motor gráfico y las funciones
 auxiliares para facilitar al usuario las técnicas de iluminación. En la carpeta utils del motor se encuentran las estructuras de
 datos del material ya explicados y las estructuras de datos de las luces básicas además de las funciones para añadir a los fragmentos
 de la malla los valores de iluminación de forma correcta.
 
+\vspace{1mm} %5mm vertical space
+
 Al generar los programas de shaders de usuario, estos pueden ser cargados desde un fichero de texto o utilizando un string hardcodeado
 dentro de su interfaz de programación.
+
+\vspace{1mm} %5mm vertical space
 
 El usuario podrá crear sus propias variables uniformes en su programa de shaders y estas serán leídas por el motor para añadirlas de
 forma correcta en el contexto de OpenGL. El motor filtra las líneas del programa de shader y parsea el nombre y tipo de las variables
@@ -1786,35 +2056,49 @@ la clase uniformes.
 
 La arquitectura cuenta con una clase de mapa de cubos esta clase es utilizada para simular un entorno dentro de la escena. 
 
+\vspace{1mm} %5mm vertical space
+
 El conjunto de atributos de la clase contienen los identificadores del buffer de vértices del cubo generado internamente y
 los nombres de las texturas que componen las texturas internas que componen el entorno como se puede ver en la siguiente imagen.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.40, keepaspectratio]{img/cubemaps_skybox.png}
-    \caption{Imagen con la definición de los tipos de texturas del motor, difusa, normal y especular de izquierda a derecha.}
+    \includegraphics[scale=0.20, keepaspectratio]{img/cubemaps_skybox.png}
+    \caption{Ejemplo de textura utilizada para generar el fondo de una escena dentro del motor.}
     \label{figura:cubemaps_skybox}
 \end{figure}
 
 La clase Skybox también cuenta con una serie de métodos privados para generar el programa de shaders del Skybox y almacenar la cámara
 activa y utilizarla en la fase de renderizado.
 
+\vspace{1mm} %5mm vertical space
+
 El motor generará de forma interna el programa de shaders necesario para generar un mapa cúbico dentro de la escena. El usuario únicamente
 definirá un objeto de juego al que añadirá un Drawer de tipo Skybox al objeto de juego y posteriormente será renderizado en la escena con
 los ficheros de las texturas que forman el cubo definidos por el usuario.
 
+\vspace{1mm} %5mm vertical space
+
 Para terminar la fase del modelo estático del motor existe una clase de geometrías esta clase es una clase abstracta de la que heredan el
 conjunto de geometrías básicas soportadas por el motor. 
+
+\vspace{1mm} %5mm vertical space
 
 La clase abstracta de geometrías define un método que deben implementar todas las geometrías básicas para devolver la malla de la geometría
 básica. Existen tres tipos de geometrías básicas; planos, esferas y cubos que el usuario podrá utilizar para renderizar objetos de juego con
 geometrías básicas dentro de la escena.
 
+\vspace{1mm} %5mm vertical space
+
 Para realizar los eventos de teclado y reloj existen dos clases, cada una de ellas genera una instancia única dentro de la clase Engine las
 instancias de las clases teclado y reloj serán visibles por la interfaz de usuario para trabajar con el teclado y el reloj del motor desde fuera.
 
+\vspace{1mm} %5mm vertical space
+
 La clase teclado cuenta con un método estático que será utilizado por la clase motor para activar el polling de entrada de datos del teclado
 usando este método como manejador, con ayuda de las funciones de GLFW para este propósito.
+
+\vspace{1mm} %5mm vertical space
 
 Como fase final de la definición de clases del motor se presenta un diagrama de clases, con los atributos de cada clase y sus dependencias
 dentro de la arquitectura.
@@ -1831,14 +2115,20 @@ clase escena; en sus diferentes etapas de definición, activación, actualizaci�
 Antes de realizar la ejecución del motor el usuario hará uso de la API para definir una escena, esta etapa previa de definición por el usuario,
 define el árbol de escena y las dependencias entre los objetos de juego. 
 
+\vspace{1mm} %5mm vertical space
+
 En esta etapa también se definen las componentes de los objetos de juego su posición inicial o el uso de componentes externas que serán añadidas
 al objeto de juego. Se realiza la decisión de qué objetos son renderizables con la componente renderizable y en caso de que el objeto de juego
 sea renderizable se añaden las instancias del material, texturas modelo y mallas del modelo. Una vez añadidos los datos de renderizado el usuario
 añade la componente de renderizado al objeto de juego. 
 
+\vspace{1mm} %5mm vertical space
+
 Finalizada la etapa de definición el usuario añadirá la escena en el constructor del motor y llamará a los métodos de inicialización y bucle
 principal del motor. En esta última llamada el programa se quedará ejecutando en el bucle principal hasta que el usuario cierre la ventana de
 OpenGL con algún evento de teclado.
+
+\vspace{1mm} %5mm vertical space
 
 Finalizada la llamada al bucle principal por el usuario, el motor primero ejecutará la etapa de activación, una vez finalizada la inicialización
 el motor entrará dentro del bucle principal y realizará las etapas de actualización y renderizado por cada vuelta del bucle.
@@ -1849,47 +2139,73 @@ el motor entrará dentro del bucle principal y realizará las etapas de actualiz
 En la primera fase de activación la clase motor generará un contexto de OpenGL y una ventana asociada al contexto donde se realizará el renderizado
 de los objetos.
 
+\vspace{1mm} %5mm vertical space
+
 En esta etapa la primera fase es llamar al método de inicialización de la escena. Esta llamada generará la inicialización de todos los objetos
 de juego desde el objeto raíz de manera recursiva.
+
+\vspace{1mm} %5mm vertical space
 
 Cada objeto de juego realizará la llamada al método de activación de las componentes y una vez acabado llamará al objeto de inicialización
 de sus objetos hijos.
 
+\vspace{1mm} %5mm vertical space
+
 En las componentes internas se realiza la funcionalidad específica de cada componente empezando por la componente de transformadas
 encargada del posicionamiento de los objetos en la escena.
+
+\vspace{1mm} %5mm vertical space
 
 Esta activación de posicionamiento de los objetos de la componente transformada define la posición inicial de los objetos de juego
 dentro de la escena. En caso de tener objetos de juego estáticos la activación de una componente externa del objeto de juego que
 defina esta posición inicial mantendrá al objeto de juego en su posición inicial durante todo el procesamiento de la escena.
 
+\vspace{1mm} %5mm vertical space
+
 Las cámaras se inicializan por defecto en un valor (0,0,5) del sistema de coordenadas de OpenGL para poder visualizar los objetos que
 se encuentren en el origen del sistema de coordenadas y mantener una distancia respecto a los objetos de juego que tengan una componente
 cámara simulando una visión en tercera persona del objeto de forma inicial.
 
+\vspace{1mm} %5mm vertical space
+
 Los Drawers realizan la inicialización de objetos renderizables para la preparación del cauce gráfico. Tanto la clase renderizable
 como la clase de Skybox realizan en la primera etapa del cauce la especificación de vértices y la activación de los programas de
 shaders en el contexto de OpenGL.
+
+\vspace{1mm} %5mm vertical space
 
 La clase Skybox realizará la activación del programa de shaders, la carga de la geometría cúbica y las texturas que simulan el entorno
 definido por el usuario. Al cargar la textura del cubo de mapa se indica a OpenGL que se tratan de texturas de cubo que se renderizan
 en las partes internas de la superficie de la geometría. Una vez cargadas la texturas de las caras del cubo se termina la parte de
 activación del Skybox.
 
+\vspace{1mm} %5mm vertical space
+
 En la activación de los objetos renderizables, se comprueba que el objeto cuente con un modelo y un material para su renderizado,
 una vez realizada esta comprobación se realiza la activación del modelo. 
 
+\vspace{1mm} %5mm vertical space
+
 La activación del modelo comprobará todas las mallas del objeto y realizará la asociación de texturas y programas de shaders de cada
 malla del modelo, finalizando con la activación de la geometría y texturas de cada malla.
+
+\vspace{1mm} %5mm vertical space
 
 En la activación de la malla se realiza la etapa del cauce de especificación de vértices. La estructura de datos almacenada en la malla
 cuenta con los valores de los atributos de normales, vértices, coordenadas de textura y tangenciales que serán cargadas en el contexto
 de OpenGL de la geometría definida por el usuario. 
 
+\vspace{1mm} %5mm vertical space
+
 La activación de las texturas llamará una a una las texturas de la malla y cargará la imagen en 2D en el contexto OpenGL con las
 funciones estáticas de carga de texturas de la clase Texturas. 
 
+\vspace{1mm} %5mm vertical space
+
 La librería gráfica de OpenGL devolverá el identificador de cada textura, cada una de ellas almacenadas en el contexto de OpenGL,
 la clase almacenará su identificador para las etapas posteriores del cauce.
+
+\vspace{1mm} %5mm vertical space
 
 Los programas de shaders de la etapa de fragmentos y la etapa de vértices definidos para cada malla será compilado y enlazado en
 ejecución dentro de la GPU utilizando las funciones de la librería gráfica de OpenGL. Si algún programa no compila o no es enlazado
@@ -1897,8 +2213,12 @@ el motor finalizará con un error de ejecución devolviendo el código de error 
 utilidad para el usuario para depurar los programas de shaders que defina ya que el motor le dará alguna pista de que puede estar
 fallando al generar el programa de shaders.
 
+\vspace{1mm} %5mm vertical space
+
 Una vez finalizada la activación de las mallas de los objetos renderizables, se realiza la activación de las componentes externas
 definidas por el usuario, cualquier operación realizada en el método de activación de las componentes se ejecutará en este momento.
+
+\vspace{1mm} %5mm vertical space
 
 Una vez finalizada la activación de las componentes externas y activación de los Drawers se realiza la etapa de actualización del
 motor gráfico.
@@ -1909,27 +2229,43 @@ motor gráfico.
 En la etapa de actualización el motor gráfico se mantendrá en un bucle hasta que el usuario realice una salida con un evento de teclado
 para cerrar la ventana de OpenGL. 
 
+\vspace{1mm} %5mm vertical space
+
 El bucle realizará una iteración cada diez milisegundos para mantener un control en el posicionamiento de los objetos de manera uniforme.
 El bucle realizará como primera operación la captura de eventos de teclado para su posterior procesamiento.
- 
+
+\vspace{1mm} %5mm vertical space
+
 Una vez realizado el poll events se realizará un limpiado del frame buffer en segundo plano de la ventana y posteriormente la actualización
 de la escena.
+
+\vspace{1mm} %5mm vertical space
 
 La finalización del bucle realizará el intercambio de los frame buffer de primer plano por el de segundo plano con los datos de renderizado
 realizados dentro de la actualización de la escena. El buffer en segundo plano volverá a limpiarse y rellenado por la escena de forma iterativa.
 
+\vspace{1mm} %5mm vertical space
+
 La actualización de la escena, se realiza en dos pasos un primer paso de actualización de la escena y el segundo paso de renderización
 de los objetos de juego renderizables.
+
+\vspace{1mm} %5mm vertical space
 
 En la etapa de actualización se llama al objeto raíz utilizando su método de actualización, el método de actualización de los objetos
 de juego llamará a las componentes externas y las componentes internas transformada y cámara.
 
+\vspace{1mm} %5mm vertical space
+
 Las componentes externas ejecutarán el código definido en su método update, realizando actualizaciones en el comportamiento de los objetos
 de juego como realizar cambios de posicionamiento, teniendo en cuenta si los hubiera eventos de teclado o tiempo.
+
+\vspace{1mm} %5mm vertical space
 
 La componente transformada actualizará los valores de sus matrices de modelo global y matriz de modelo. La matriz de modelo global almacena
 la posición del objeto respecto al sistema de coordenadas de OpenGL. La matriz de modelo almacena el valor de posición del objeto de juego
 respecto al objeto de juego padre del que depende en el árbol de escena.
+
+\vspace{1mm} %5mm vertical space
 
 La componente transformada realizará un cálculo matemático para obtener el valor de posición en el sistema de coordenadas de OpenGL,
 teniendo en cuenta su matriz de modelo global y la matriz de modelo de los objetos de juego hijos. La matriz de modelo será reiniciada
@@ -1943,9 +2279,13 @@ gModel_{child} = gModel_{parent} \cdot model_{child}
 
 La ecuación \ref{tf_dependency} representa la dependencia de movimientos y posicionamiento entre los objetos de la escena.
 
+\vspace{1mm} %5mm vertical space
+
 Al realizar esta operación desde el objeto de juego raiz, los objetos de juego estarán posicionados en las posiciones definidas para
 cada uno de ellos teniendo como referencia principal el objeto de juego raíz que en nuestro motor por defecto está situado en origen
 de coordenadas de OpenGL.
+
+\vspace{1mm} %5mm vertical space
 
 La componente cámara actualizará su valor de posicionamiento con los eventos de teclado de la cámara para su movimiento. Si un objeto
 de juego tiene una componente cámara podrá realizarse un seguimiento del objeto de juego y poder simular por ejemplo la visión de una
@@ -1957,6 +2297,8 @@ gModel_{view} = gModel_{GameObject} \cdot model_{view}
 
 La ecuación \ref{tf_dependency} representa la dependencia de movimientos y posicionamiento entre un objeto y la cámara.
 
+\vspace{1mm} %5mm vertical space
+
 Una vez finalizada la etapa de actualización de las componentes cámara, transformada y la llamada al método de actualización
 de las componentes externas comienza la etapa de renderizado del motor controlado por la clase escena.
 
@@ -1966,45 +2308,67 @@ de las componentes externas comienza la etapa de renderizado del motor controlad
 La etapa de renderizado está definida en tres partes; la actualización de la fuentes de luz para la iluminación de la escena,
 la selección de la cámara activa y la renderización de los objetos renderizables y sus correspondientes modelos.
 
+\vspace{1mm} %5mm vertical space
+
 La actualización de la fuentes de luz actualizará el valor de intensidad en tiempo real, esta actualización se realiza desde
 la componentes externas que tienen acceso a las luces a través de un nombre que el usuario definió cuando las creó, al
 actualizar los valores de intensidad de las luces estos nuevos valores afectarán a la intensidad de iluminación de los materiales. 
+
+\vspace{1mm} %5mm vertical space
 
 Existirá una única cámara activa que el usuario podrá cambiar a través de eventos de teclado. El cambio de la cámara activa
 actualizará los valores de la etapa de vértices con la matriz de vista global de la cámara que ponga en modo activo,
 modificando la perspectiva de vista de la escena y de todos los objetos en base a la nueva cámara activa de la escena.
 
+\vspace{1mm} %5mm vertical space
+
 Una vez elegida la cámara principal se realizará un encolado de los objetos para diferenciar objetos opacos de objetos transparentes. 
+
+\vspace{1mm} %5mm vertical space
 
 Los objetos opacos se renderizan primero sin importar su orden, los objetos transparentes se ordenarán siguiendo un orden
 de distancia relativa a la cámara principal para poder realizar técnicas de blending o transparencia en la escena. Una vez
 ordenados los objetos con materiales transparentes. El orden de renderizado de estos objetos es el dibujado en los objetos
 de juego más cercanos a la cámara principal primero.
 
+\vspace{1mm} %5mm vertical space
+
 La componente interna encargada del fondo de la escena cargará el programa de shaders y la textura cúbica del SkyBox
 que renderiza las tapas internas del cubo que rodean todos lo objetos de juego de la escena, con una función de OpenGL
 para indicar que la textura utilizada es un mapa de cubo y se que debe de renderizarse las texturas en las partes
 internas de la geometría cúbica.
 
+\vspace{1mm} %5mm vertical space
+
 En el caso de que el objeto renderizable no sea un Skybox se ejecutará la clase modelo del objeto de juego, esta clase
 actualizará los datos de programa de fragmentos almacenados en la clase material para cada malla del modelo almacenandose
 en la clase de uniformes.
 
+\vspace{1mm} %5mm vertical space
+
 El modelo llamará una a una a las mallas que lo componen, cada malla realizará el trabajo de actualizar sus datos de material
 del programa de shaders de fragmentos en la clase de uniformes.
 
+\vspace{1mm} %5mm vertical space
+
 Si la malla está compuesta por un material transparente se activará la funcionalidad de blending en la máquina de estados de
-OpenGL una vez determinado la propiedad de transparencia de las malla se ejecutará la llamada a renderizado de cada malla. 
+OpenGL una vez determinada la propiedad de transparencia de las malla se ejecutará la llamada a renderizado de cada malla. 
+
+\vspace{1mm} %5mm vertical space
 
 En el momento de renderizado de las mallas del modelo se activarán los programas de vértices y fragmentos utilizados para el
 renderizado de la malla se activarán los datos almacenados en la clase de uniformes serán actualizados en el programa de shaders
 de la malla una vez se halla indicando al contexto de OpenGL el programa de shaders de la malla y se cargarán las texturas a
 utilizar en el contexto de OpenGL desde la clase de materiales.
 
+\vspace{1mm} %5mm vertical space
+
 Por último se cambia en el contexto de OpenGL la definición de primitivas del objeto de juego renderizable anterior y se añade
 el VAO (Vertex Array Object) con la definición de las primitivas de la geometrías del objeto de juego actual en la etapa de
 especificación de vértices y se llama a la función de OpenGL para iniciar el cauce gráfico y la renderización de cada malla.
 Una vez terminada la renderización se mostrará en la ventana de OpenGL el resultado del objeto de juego renderizado.
+
+\vspace{1mm} %5mm vertical space
 
 Esta es la etapa final de renderizado de los objetos de juego renderizables para acabar con la fase de desarrollo e implementación
 del motor hablaremos de los eventos de teclado y reloj que el usuario puede usar para realizar cambios en el comportamiento de
@@ -2016,16 +2380,20 @@ los objetos de juego.
 El motor cuenta con una única instancia de teclado, esta instancia mapea el teclado del usuario y mantiene un estado de valores
 booleanos identificando si una tecla ha sido presionada o no. 
 
+\vspace{1mm} %5mm vertical space
+
 A la hora de realizar consultas a la instancia se buscará la tecla que el usuario desea consultar y se mandará un resultado
 booleano diciendo al usuario si la tecla ha sido pulsada y ejecutar instrucciones en caso de que se haya pulsado la tecla
 consultada en una componente externa.
+
+\vspace{1mm} %5mm vertical space
 
 En el caso de los eventos de reloj, la implementación es similar, el usuario puede consultar la marca de tiempo del contexto
 de OpengL y almacenar este valor en una variable para posteriormente comprobar si ha pasado un intervalo de tiempo y ejecutar
 operaciones en la componente externa, realizar una acción o cambiar el comportamiento o animación de un objeto de juego o
 iluminación de la escena. Una vez visto la arquitectura y desarrollo del motor se muestra la fase de resultados.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.80, keepaspectratio]{img/UserEvent.png}
     \caption{Esquema de ejecución UML de eventos de teclado y reloj desde el usuario a cambio del comportamiento del objeto de juego}
@@ -2051,7 +2419,7 @@ en una posición cercana al cubo y contiene un factor de atenuación bajo. El cu
 apagar y encender las luces pulsando una tecla. La componente externa tiene la lógica de un conmutador. Además el cubo rota sobre
 sí mismo dentro de la escena para mostrar las diferentes partes del cubo iluminadas por la escena en la animación.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.50, keepaspectratio]{img/SimpleCube.png}
     \caption{Ejemplo de uso de luces puntuales y eventos de teclado haciendo uso de las componentes externas del usuario.}
@@ -2062,7 +2430,7 @@ En esta simulación se muestran las ventajas del uso de las componentes externas
 cualquier tipo de simulación con total libertad de uso en el movimiento de los objetos, en el posicionamiento de las luces
 puntuales y el uso del teclado para simular acciones sobre la escena.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.45, keepaspectratio]{img/CubeEvents.png}
     \caption{Imagen de la escena de cubos con la utilización del teclado para generar un cambio dinámico en la iluminación.}
@@ -2072,14 +2440,16 @@ puntuales y el uso del teclado para simular acciones sobre la escena.
 En la figura 5.2 se puede observar la escena con un suelo y dos cajas y el cambio de iluminación de la luz puntual generado por
 el pulso de una tecla por parte del usuario generando el apagado o el encendido de la luz dentro de la simulación.
 
+\vspace{1mm} %5mm vertical space
+
 La segunda simulación muestra el uso de las texturas normales en un plano y haciendo uso de una luz direccional para mostrar
 el efecto de las texturas normales. El plano rota sobre sí mismo para ver el efecto de las componentes tangenciales de la
 geometría y demostrar que al cambiar la dirección de incidencia de la luz sobre la superficie del plano el efecto de la textura
 normal se mantiene, dando el efecto de rugosidad deseada sobre la superficie.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.75, keepaspectratio]{img/WallDiagram.png}
+    \includegraphics[scale=0.50, keepaspectratio]{img/WallDiagram.png}
     \caption{Esquema de la simulación del muro con texturas normales y uso de vectores tangenciales.}
     \label{figura:WallDiagram}
 \end{figure}
@@ -2087,9 +2457,9 @@ normal se mantiene, dando el efecto de rugosidad deseada sobre la superficie.
 A continuación se muestra la simulación del motor gráfico del uso de las texturas normales dentro del motor, haciendo uso de un
 material especificado por el usuario para generar la superficie normal sobre el material.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.75, keepaspectratio]{img/WallResult.png}
+    \includegraphics[scale=0.50, keepaspectratio]{img/WallResult.png}
     \caption{Imagen de la simulación de un muro haciendo uso de una textura normal simulando rugosidad en la superficie.}
     \label{figura:WallResult}
 \end{figure}
@@ -2101,11 +2471,13 @@ planetas como mercurio y marte rotarán también alrededor del sol. Existirá un
 simulando la  iluminación del sol y una luz direccional con una intensidad baja para no dejar completamente oscuras
 las caras ocultas de la luna o los planetas.
 
+\vspace{1mm} %5mm vertical space
+
 Para realizar el movimiento de rotación y traslación del planeta tierra respecto al sol se deben realizar dos tipos de
 movimientos diferentes, para ello se hará uso de dos transformadas. Un objeto de juego vacío con la transformada de
 traslación del planeta y otra transformada donde estará almacenada la geometría encargada de la rotación.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.50, keepaspectratio]{img/SolarMove.png}
     \caption{Esquema de movimiento de traslación y rotación de los planetas del sistema solar}
@@ -2116,6 +2488,8 @@ Como se puede ver en el ejemplo, la transformada auxiliar realiza dos operacione
 de traslación y un segundo movimiento de rotación. Esta secuencia genera el movimiento de traslación de los planetas.
 El segundo paso es la transformada de la geometría, esta transformada genera el movimiento de rotación del planeta.
 
+\vspace{1mm} %5mm vertical space
+
 Para realizar la dependencia de movimientos de rotación y traslación en la geometría se utiliza el árbol de transformadas
 creado dentro del motor. En el caso del movimiento de la luna los pasos son los mismos pero en lugar de realizar la operación
 respecto a la transformada del sol que coincide con la transformada raíz que define el valor absoluto de las posiciones de los
@@ -2124,7 +2498,7 @@ que genera su traslación dentro del sistema solar. La tierra contará con el ef
 de un objeto transparente, este objeto se sobre pondrá a la esfera de la tierra para que de la sensación de la atmósfera
 terrestre sobre el planeta.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.35, keepaspectratio]{img/Earth.png}
     \caption{Simulación del planeta tierra junto a la luna y el uso del objeto transparente para simular las nubes y su
@@ -2135,13 +2509,15 @@ terrestre sobre el planeta.
 En el caso de los demás planetas las acciones de movimiento son las mismas lo único que deberemos realizar de forma diferente
 será el anillo de saturno ya que deberemos añadir un objeto no esférico dentro de la escena.
 
+\vspace{1mm} %5mm vertical space
+
 Para realizar el anillo de saturno cargaremos un toroide realizado en blender que se exportará en formato .obj dentro de la carpeta
 de modelos del motor. Una vez cargado el anillo se añadirá la componente del anillo para generar movimiento o escalar el toroide
 para que quede acorde con el tamaño del planeta, se añade al árbol de escena cómo hijo de la transformada auxiliar del planeta
 saturno y el anillo queda en la misma posición del planeta completando el modelo completo que consta como podemos observar de
 dos geometrías diferentes.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.35, keepaspectratio]{img/saturno.png}
     \caption{Planeta Saturno compuesto de sus dos geometrías toroide simulando su anillo y esfera para simular el planeta.}
@@ -2153,9 +2529,9 @@ un fondo estelar haciendo uso del la técnica de skybox rodeando la textura a to
 componente cámara añadida al objeto de esta manera es posible realizar el seguimiento de cada planeta de manera independiente.
 Para terminar se muestra una visión general del sistema solar simulado con el motor gráfico desarrollado.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35, keepaspectratio]{img/SistemaSolar.png}
+    \includegraphics[scale=0.50, keepaspectratio]{img/SistemaSolar.png}
     \caption{Imagen del sistema solar mostrando los planetas desde mercurio hasta saturno.}
     \label{figura:Earth}
 \end{figure}
@@ -2164,11 +2540,13 @@ En la imagen es posible observar los diferentes planetas del sistema solar y el 
 el sol está completamente iluminado al diferenciarse de los demás planetas en que este objeto emite una fuente de luz y por tanto no está
 compuesto por el mismo material que los planetas.
 
+\vspace{1mm} %5mm vertical space
+
 En la siguiente simulación veremos el uso de geometrías más complicadas exportadas en el motor con el uso de la librería Assimp del
 motor gráfico. La simulación tratará un entorno virtual simulando un aeropuerto militar. La primera parte de la simulación será cargar
 un avión o una torre de control como se puede comprobar en la siguiente imagen.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Airplane.png}
     \caption{Ejemplo de carga de modelo geométrico avión de combate haciendo uso de la librería Assimp.}
@@ -2180,7 +2558,7 @@ material correspondiente. La carga de la geometría se realiza a través de los 
 en el motor en los ficheros .mtl. Además el usuario puede realizar la implementación de la reacción del material a la luz en los programas
 de shaders.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Tower.png}
     \caption{Ejemplo de carga de modelo geométrico torre de control haciendo uso de la librería Assimp.}
@@ -2191,10 +2569,12 @@ El entorno de la simulación de la torre de control y la pista de aterrizaje se 
 utiliza un modelo de plano con una textura añadida de forma manual, mientras que la torre de control cuenta con una geometría y unas texturas
 pre definidas en los ficheros .obj y .mtl del modelo.
 
+\vspace{1mm} %5mm vertical space
+
 Para acabar la simulación del aeropuerto se han añadido un fondo simulando el cielo y la utilización de diferentes objetos de juego para
 simular un conjunto de aviones estacionados en pista haciendo uso del árbol de transformadas y las componentes externas de usuario.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/AirportMultiplePlanes.png}
     \caption{Simulación de aeropuerto militar con Skybox y uso de las componentes externas y el árbol de transformadas para enseñar un
@@ -2208,8 +2588,12 @@ simular un conjunto de aviones estacionados en pista haciendo uso del árbol de 
 Para la simulación con blender se simulará un sistema solar realizado dentro de este motor gráfico haciendo uso de un árbol de transformadas,
 uso de texturas difusas, animación con los script de python de blender y uso de luces y Skybox. 
 
+\vspace{1mm} %5mm vertical space
+
 Una vez realizada la  simulación se realizará una comparativa de los frames por segundo de ambos motores gráficos para ver a modo de
 rendimiento quien obtiene mejores resultados haciendo uso del mismo hardware para la ejecución de ambas simulaciones.
+
+\vspace{1mm} %5mm vertical space
 
 Además veremos a modo de funcionalidad y características ambos motores para comprobar cual de los dos es más fácil de manejar a nivel
 de usuario.
@@ -2221,7 +2605,7 @@ En primer lugar se generarán las geometrías de las esferas para simular tanto 
 la geometría esférica de los planetas y el sol se distinguirá cada planeta por su material que tendrán adjuntados la textura de su
 correspondiente superficie planetaria de esta manera se distinguirá las esferas como planetas del sistema solar. 
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/Geometry.png}
     \caption{Visualización de la geometría y sus primitivas de vértices de una esfera.}
@@ -2231,7 +2615,7 @@ correspondiente superficie planetaria de esta manera se distinguirá las esferas
 En la figura 5.12 se puede ver las primitivas de vértices de la esfera, se ha realizado una subdivisión de los vértices para obtener una mayor
 resolución de la superficie cuando el usuario acerque la cámara al planeta y no sean apreciables los triángulos en la superficie
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/MaterialBlender.png}
     \caption{Visualización de materiales en blender.}
@@ -2242,9 +2626,8 @@ En la figura 5.13 se visualiza la especificación de materiales en blender aplic
 textura de tipo imagen de esta manera definimos la superficie del objeto con un material similar al usado en el proyecto. En blender
 se puede especificar propiedades como el valor especular, el valor difuso que en nuestro caso hemos añadido como valor de color
 de la superificie la textura de imagen.
-\pagebreak
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.45, keepaspectratio]{img/SceneSolar.png}
     \caption{Visualización del árbol de escena en blender.}
@@ -2255,7 +2638,7 @@ En la figura 5.14 se observa el árbol de transformadas de la escena donde hemos
 vacía a la que hemos llamado EarthAux similar a la utilizada en el proyecto. La transformada vacía EarthAux tiene como objeto padre el
 sol, de esta manera podremos realizar el mismo movimiento de traslación realizado en el proyecto para la animación. 
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.20, keepaspectratio]{img/Scripting.png}
     \caption{Visualización de scripting de la API de python para blender para generar movimientos.}
@@ -2267,20 +2650,19 @@ escena y a sus matrices global y local, con el acceso a las matrices de los obje
 traslación haciendo uso del árbol de transformadas modificando el valor de la matriz local de modelo y de esta manera mantener las
 dependencias de las posiciones del árbol.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.45, keepaspectratio]{img/AnimationBlender.png}
     \caption{Visualización de la animación de movimiento de la tierra alrededor del sol.}
     \label{figura:materialesBlender}
 \end{figure}
-\pagebreak
 
 En la figura 5.16 se presenta la animación de la escena de la tierra alrededor del sol la parte de abajo de ventanas de blender
 muestra el frame actual de la animación la barra amarilla muestra los registros de movimientos del objetos EarthAux y Earth en
 la simulación el movimiento de rotación de la tierra y traslación se puede observar en los dos pasos de la imagen con dos
 capturas diferentes en dos frames diferentes.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.25, keepaspectratio]{img/MoonAux.png}
     \caption{Ejemplo de uso del árbol de transformadas en blender para el movimiento de la luna.}
@@ -2290,11 +2672,121 @@ capturas diferentes en dos frames diferentes.
 Para realizar el movimiento de la luna se realiza el mismo procedimiento que para la tierra pero añadiendo la transformada de la
 luna y su transformada auxiliar objetos hijos de la transformada auxiliar de la tierra dando el resultado de la figura 5.17
 
+\vspace{1mm} %5mm vertical space
+
 La siguiente parte a definir una vez visto el árbol de transformadas la definición de las primitivas de la esfera y su material con
 una textura basada en imagen es aplicar un Skybox desde blender para ello se siguen dos etapas diferentes añadir el cubo y definir
 las coordenadas de texturas para el cubo y definir el material del Skybox.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65, keepaspectratio]{img/SkyBoxBlender.png}
+    \caption{Visualización de la definición de vértices del cubo para generar el SkyBox y las coordenadas de textura correspondiente.}
+    \label{figura:materialesBlender}
+\end{figure}
 
+En esta figura se puede observar cómo se ha definido de forma manual el orden de alineación de los vértices de la geometría esta
+modificación permitirá en el siguiente paso añadir una textura de Skybox a la geometría ya que hemos modificado como están
+ordenadas las coordenadas de textura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65, keepaspectratio]{img/SkyBoxVertex.png}
+    \caption{Redefinición de las coordenadas de textura del cubo para añadir una textura de Skybox a la geometría.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+En este paso se añade la imagen que se quiere añadir cómo SkyBox una vez añadida la textura se debe redefinir las coordenadas
+de textura del cubo para que cuadren con la imagen y de esta manera añadir la textura como material y cuadre de forma correcta
+con las caras del cubo, por último se añade un material al cubo con una textura con la imagen definiendo de esta manera las
+superficies del cubo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/SkyBoxFinal.png}
+    \caption{Redefinición de las coordenadas de textura del cubo para añadir una textura de Skybox a la geometría.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+Se puede observar el resultado del Skybox dentro de la escena a forma de paisaje en segundo plano de una nebulosa dentro
+del sistema solar. Estas son las partes básicas del motor gráfico blender utilizadas para realizar una simulación parecida
+al sistema solar utilizado en el motor gráfico desarrollado dentro del proyecto. 
+
+\vspace{1mm} %5mm vertical space
+
+En la siguiente parte de la memoria se realiza una serie de medidas de rendimiento y comparativas de funcionalidad entre
+blender y el motor gráfico desarrollado.
+
+\section{Comparativas de funcionalidad y rendimiento}
+\label{sec:CompEngine}
+
+Este apartado muestra la funcionalidad desarrollada en el proyecto para consolidar que estas funcionalidades son comunes en
+el uso de motores gráficos:
+
+\begin{enumerate}
+  \item La generación de un árbol de transformadas es utilizado también en blender para realizar el posicionamiento de
+  los objetos dentro de la escena de renderizado.
+
+  \item La utilización de shaders o materiales es utilizada también en ambos motores, haciendo uso de texturas para
+  describir las superficies de los objetos gráficos.
+  
+  \item Realización de animaciones a través de lenguaje de programación haciendo uso de una API del motor gráfico.
+  Blender además de contar con la GUI puede realizar todas las operaciones del motor a través de su API gráfica BPY. 
+  El motor gráfico del proyecto cuenta con una API para realizar las escenas animaciones y definición de los objetos.
+
+  \item La capacidad de realizar entornos a través de skybox es posible en blender aunque es una tarea mucho más 
+  complicada que la desarrollada en el proyecto.
+
+  \item Blender es capaz de importar y exportar geometrías con la definición de los materiales de un objeto gráfico,
+  el motor del proyecto es capaz de importar esta clase de objetos y realizar un renderizado de forma sencilla.
+
+  \item El uso de la iluminación en blender se realiza a través de diferentes tipos de luz que reflejan el material
+  según sus propiedades, el motor gráfico desarrollado cuenta con tres tipos de luces que pueden ser animadas dentro
+  de la escena.
+
+  \item Blender cuenta con cámaras ortográficas para entornos 2D y cámaras de perspectiva para realizar renderizaciones
+   en 3D, el motor gráfico desarrollado puede crear ambos tipos de cámara a través de sus propiedades.
+
+  \item Uso de controlador de cámara, a partir de la API en blender es posible realizar un movimiento de cámara dentro
+  de la animación configurando qué teclas se utilizan para mover la cámara, al igual que en el motor gráfico del proyecto.
+
+\end{enumerate}
+
+Blender cuenta con muchas otras funcionalidades no investigadas en el proyecto, ya que se trata de un motor gráfico profesional,
+sin embargo las funcionalidades desarrolladas en el proyecto cumplen los objetivos mínimos de funcionalidades del motor gráfico de blender.
+
+\vspace{1mm} %5mm vertical space
+
+La siguiente parte del capítulo muestra las medidas de rendimiento obtenidas en ambos motores con simulaciones de un sistema
+solar parecido y con la misma limitación de imágenes por segundo.
+
+\subsection{Medidas de rendimiento}
+
+Para realizar las comparativas de rendimiento hemos utilizado dos simulaciones del sistema solar parecidas en ambos motores hasta
+encontrar diferencias significativas en el rendimiento  dentro de la misma máquina. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25, keepaspectratio]{img/FPSBlender.png}
+    \caption{Gráfica de rendimiento de motor gráfico blender durante la animación del sistema solar}
+    \label{figura:materialesBlender}
+\end{figure}
+
+La primera medida de rendimiento muestra el sistema solar renderizado por blender donde se puede observar que se llega al máximo de
+imágenes por segundo a las que está limitado el motor sin embargo es bastante inestable mientras avanza la animación, ya que hay
+picos de bajada de imágenes de hasta diez o veinte imágenes, esto es apreciable por el usuario a la hora de ver la renderización
+de su escena.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50, keepaspectratio]{img/FPSEngine.png}
+    \caption{Gráfica de rendimiento de motor gráfico del proyecto durante la simulación del sistema solar}
+    \label{figura:materialesBlender}
+\end{figure}
+
+En la segunda gráfica de rendimiento se muestra las medidas realizadas sobre el motor gráfico del proyecto, en este segundo
+caso se puede observar una mayor estabilidad en la cantidad de imágenes generadas por segundo durante la renderización
+aunque no se llegue a obtener el máximo de FPS configurado dentro del motor gráfico por la carga de trabajo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2309,66 +2801,127 @@ las coordenadas de texturas para el cubo y definir el material del Skybox.
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos,
-donde se planteaba el objetivo general y se elaboraban los específicos.
-\bigbreak
-Es aquí donde hay que debatir qué se ha conseguido y qué no. Cuando algo no
-se ha conseguido, se ha de justificar, en términos de qué problemas se han
-encontrado y qué medidas se han tomado para mitigar esos problemas.
-
-
-\section{Aplicación de lo aprendido}
-\label{sec:aplicacion}
-
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado
-en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y
-comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+En la realización del proyecto se ha conseguido realizar de forma existosa, la funcionalidad básica de un motor gráfico orientado
+a realizar aplicaciones gráficas capaces de realizar operaciones interactivas con el usuario. Entre los objetivos definidos se ha
+conseguido realizar las siguientes tareas:
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item Realizacion de un motor gráfico con renderización de objetos en 3D, simulación de luces y movimiento de los objetos
+  \item Importación de objetos geométricos complejos a partir de un formato estándar .obj
+  \item Realización de eventos dentro de la animación con el uso del teclado y reloj
+  \item Utilización de una API gráfica de alto nivel para realizar las simulaciones gráficas a partir de componentes.
+  \item Definición de materiales de manera dinámica donde el usuario decide las propiedes de los modelos que cargue en el motor.
+  \item Comparación con otros motóres gráficos dentro de la industria de los videojuegos y animación, incluyendo medidas de 
+  rendimiento utilizadas en las aplicaciones gráficas en la renderización.
 \end{enumerate}
 
+El motor cumple con los módulos gráficos básicos para realizar simulaciones virtuales interactivas, aunque la parte de comparativas haya
+quedado simplificado por la complejidad de la curva de aprendizaje de los motores gráficos sin experiencia previa, se ha conseguido realizar
+una simulación dentro de Blender que muestra las funcionalidades desarrolladas en el proyecto. 
 
-\section{Lecciones aprendidas}
-\label{sec:lecciones_aprendidas}
+\vspace{1mm} %5mm vertical space
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+El trabajo admeás ha servido para aprender las partes básicas de funcionamiento de un motor gráfico a través de la interfaz gráfica OpenGL, 
+incluyendo el estudio de otras interfáces gráficas actuales, Vulkan y DirectX y la decisión del uso de la API gráfica de OpenGL, para
+la comunicación del desarrollador con la GPU para el programación de gráficos.
 
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+\vspace{1mm} %5mm vertical space
 
+El proyecto también a servido para enseñar al alumno las abstracciones más comunes dentro de un motor gráfico, modelos, geometrías, materiales
+o tipos de luces, con un modelo de iluminación y el estudio de un motor gráfico para justificar el desarrollo de los módulos del motor 
+gráfico desarrollado.
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ningún software se termina, así que aquí vienen ideas y funcionalidades
-que estaría bien tener implementadas en el futuro.
+\subsubsection{Uso de instanciación}
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+Para mejorar el rendimiento del motor gráfico, se puede realizar el uso de la instanciación, este método de renderizado
+permite replicar una misma geometría sin hacer uso de la comunicación continua de la CPU con la GPU, realizando el cauce
+gráfico para estas múltiples geometrías homogéneas en una única estructura de datos en forma de array. El motor gráfico
+debería tener en cuenta la posibilidad de renderizar el mismo objeto con un contador de número de veces de replicación.
+Al obtener el número de objetos a renderizar el usuario podría hacer uso de la API gráfica para definir los materiales
+de cada objeto de forma específica indicando el material de cada geometría.
+
+\vspace{1mm} %5mm vertical space
+
+En el caso de la simulación del sistema solar o la simulación de aviones este método reduciría la carga de trabajo entre
+la CPU y la GPU optimizando de forma significativa el rendimiento del motor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40, keepaspectratio]{img/instanciacint_asteroids.png}
+    \caption{Ejemplo de instanciación de los asteroides del anillo de Saturno en Learn OpenGL.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+\subsubsection{Post procesamiento}
+
+Otra característica a añadir dentro del motor gráfico es el uso del postprocesado. Esta característica permite
+al desarrollador manejar la renderización final como si fuera una textura. Al realizar esta operación dentro del
+contexto de OpenGL se puede realizar operaciones sobre la imagen final con técnicas de procesado de imágenes, cómo
+inversión de color, filtrado de bordes o realización de desenfoque de la imagen. Actualmente el motor gráfico utiliza
+el buffer de renderización por defecto de OpenGL, este buffer realiza las operaciones del cauce gráfico y en el
+momento de realizar la etapa de rasterización almacena la información de los fragmentos en este buffer por defecto.
+El uso de un framebuffer específico permite realizar operaciones en el buffer de renderizado una vez se ha almacenado
+con los datos de los fragmentos.
+
+\vspace{1mm} %5mm vertical space
+
+El resultado final es una textura con los datos de los fragmentos que puede ser utilizada para realizar las operaciones
+sobre las imágenes explicadas anteriormente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35, keepaspectratio]{img/framebuffers_inverse.png}
+    \caption{Realización de operación de imagen inversa. 1 - x.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+Una de las operaciones realizadas en el uso del post procesado en la etapa de fragmentos sobre la textura de la pantalla
+es realizar el valor negativo de los colores de la imagen. Otro uso muy utilizado en procesamiento de imágenes es el uso
+de kernels, estas matrices de 3x3 permite realizar operaciones de convolución sobre la imagen realizando la detección de
+bordes o el desenfoque de las imágenes.
+
+\begin{equation} \label{distance}
+    Imagen_{final} = Imagen_{screen} * Kernel
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35, keepaspectratio]{img/PostProcessing.png}
+    \caption{Muestra del uso de procesado de imagen para detección de bordes y desenfoque.}
+    \label{figura:materialesBlender}
+\end{figure}
+
+Las matrices 3x3 de kernel tienen valores conocidos y son utilizados para obtener el efecto deseado sobre la imagen final 
+de renderizado, en este caso la imagen muestra un procesado para detección de bordes y desenfoque. Estas operaciones son
+muy utilizadas en aplicaciones de imagen como photoshop donde las operaciones sobre los pixeles son fácilmente paralelizables
+ya que cada pixel de la imagen se procesa de manera independiente haciendo fácil el uso de las tarjetas gráficas para este
+tipo de operaciones.
 
 
 \section{Valoración personal}
 \label{sec:valoracion}
 
-Finalmente (y de manera opcional), hay gente que se anima a dar su punto de
-vista sobre el proyecto, lo que ha aprendido, lo que le gustaría haber aprendido,
-las tecnologías utilizadas y demás.
+Este trabajo trata de explicar los módulos básicos necesarios dentro de un motor capaz de realizar aplicaciones gráficas
+interactivas y simulación de un mundo animado. El trabajo intenta explicar cómo funcionan este tipo de plataformas que utilizan
+las interfaces de las tarjetas gráficas para el procesamiento de video. El trabajo está formado por las partes más sencillas
+importantes para un comienzo de proyecto de motor gráfico utilizando la librería gráfica OpenGL y mostrando al lector los
+pasos a seguir para realizar un motor gráfico sencillo.
 
+\vspace{1mm} %5mm vertical space
+
+Las realizaciones de comparativas con otro motores gráficos a resultado un trabajo complicado debido a la inexperiencia en
+este campo por parte del alumno, aunque se ha realizado una comparativas de rendimientos entre un motor gráfico profesional
+y un motor gráfico del proyecto, lo más importante es comprobar que el motor gráfico del proyecto cumple con funcionalidades
+similares a la de un motor gráfico profesional.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % APÉNDICE(S) %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\appendix
-\chapter{Manual de usuario}
-\label{app:manual}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2379,8 +2932,13 @@ las tecnologías utilizadas y demás.
 
 % Las siguientes dos instrucciones es todo lo que necesitas
 % para incluir las citas en la memoria
-\bibliographystyle{abbrv}
-\bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
+
+\bibliographystyle{apalike}
+\bibliography{memoria}
+
+\nocite{*}
+
+% memoria.bib es el nombre del fichero que contiene
 % las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
 % formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
