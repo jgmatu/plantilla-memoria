@@ -90,63 +90,14 @@ Tutor : Cristian Rodríguez Bernal
 \mbox{}
 \thispagestyle{empty} % para que no se numere esta pagina
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Para firmar
-\clearpage
-\pagenumbering{gobble}
-\chapter*{}
-
-\vspace{-4cm}
-\begin{center}
-\LARGE
-\textbf{Proyecto Fin de Master}
-
-\vspace{1cm}
-\large
-Implementación de un motor gráfico basado en componentes
-
-\vspace{1cm}
-\large
-\textbf{Autor :} Fº Javier Gutierrez-Maturana Sánchez \\
-\textbf{Tutor :} Cristian Rodríguez Bernal
-
-\end{center}
-
-\vspace{1cm}
-La defensa del presente Proyecto Fin de Master se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2020, siendo calificada por el siguiente tribunal:
-
-
-\vspace{0.5cm}
-\textbf{Presidente:}
-
-\vspace{1.2cm}
-\textbf{Secretario:}
-
-\vspace{1.2cm}
-\textbf{Vocal:}
-
-
-\vspace{1.2cm}
-y habiendo obtenido la siguiente calificación:
-
-\vspace{1cm}
-\textbf{Calificación:}
-
-
-\vspace{1cm}
-\begin{flushright}
-Móstoles, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2020
-\end{flushright}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Dedicatoria
 
 \chapter*{}
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
-\textit{Dedicado a \\
-mis padres y a mi amigo Nacho y su familia que lo han dado todo y han luchado por mí cuando más lo necesitaba. Gracias.}
+\textit{Dedicado a mis padres, a mi amigo Nacho y al hiphop que lo han dado todo
+y han luchado por mí cuando más lo necesitaba. Gracias.}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -159,7 +110,7 @@ mis padres y a mi amigo Nacho y su familia que lo han dado todo y han luchado po
 Quería agradecer este trabajo a todas las personas que me han acompañado a lo largo de la
 carrera, compañeros y profesores, con los que he aprendido tecnologías punteras que son
 utilizadas en toda la industria actual, a mis padres y mis hermanas, y a mi segunda familia,
-la familia de Nacho, que me han dado el último empujon para que decidiera terminar y
+la familia de Nacho, que me han dado el último empujón para que decidiera terminar y
 presentar este trabajo.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -171,26 +122,26 @@ presentar este trabajo.
 Este trabajo está formado por algunas de las características que forman los módulos
 y abstracciones, de un motor gráfico para videojuegos y entornos virtuales. Se utilizará
 la librería gráfica de OpenGL, y se realizará un desarrollo haciendo uso de algoritmos
-gráficos, y un patrón de diseño basado en componentes utilizado en la mayoría de motores
-gráficos actuales.
+gráficos y el uso de un patrón de diseño basado en componentes utilizado en la mayoría
+de motores gráficos actuales.
 
  %5mm vertical space
 
 El motor contará con un árbol de transformadas, para gestionar el espacio de coordenadas
-dentro de una escena con objetos en movimiento. La escena contará con objetos de iluminación,
-y objetos geométricos con materiales. Los objetos geométricos podrán ser cargados desde el
+dentro de una escena con objetos en movimiento, la escena contará con objetos de iluminación,
+y objetos geométricos con materiales, los objetos geométricos podrán ser cargados desde el
 propio motor o desde ficheros externos, para cargar objetos geométricos más complejos y
 cargar materiales basados en texturas difusas, especulares y normales de manera dinámica.
 El usuario del motor será capaz de cargar escenas animadas, haciendo uso de componentes
 externas implementadas en cualquier objeto. Además, el motor contará con un conjunto de
 cámaras para poder realizar el renderizado de la escena desde puntos de vista diferentes,
 o realizar seguimiento de objetos en la escena y de esta manera tener cámaras de los
-objetos en tercera persona, que podrán ser controladas por el usuario. El sistema de
-iluminación contará con luces puntuales, direccionales y focales, y el usuario podrá
+objetos en tercera persona, que podrán ser controladas por el usuario, por otro lado, 
+el sistema de iluminación contará con luces puntuales, direccionales y focales, y el usuario podrá
 definir sus propios materiales para decidir la reacción de las superficies de los
-objetos renderizables, a la iluminación definida en la escena. Por último el usuario
+objetos renderizables a la iluminación definida en la escena. Por último el usuario
 podrá definir controles de teclado para mover las cámaras o los objetos que se encuentran
-dentro de la escena.
+dentro de la escena definida y renderizada con el motor.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -289,59 +240,14 @@ El problema presentado en la mayoría de motores gráficos es que suelen tener u
 de entender para usuarios que no estén familiarizados con el uso de programación gráfica, pero su punto fuerte
 suele ser un buen rendimiento a la hora del desarrollo de las aplicaciones gráficas y su posterior renderizado.
 Otros motores suelen tener una curva de aprendizaje más fácil de seguir con editores o abstracciones más complejas y entendibles,
-sin embargo, a la hora de medir el rendimiento de estos motores suelen tener un coste computacional más elevado.
+sin embargo, a la hora de medir el rendimiento de estos motores suelen tener un coste computacional más elevado \cite{unreal:_vsunity}.
 La idea de este proyecto es la realización de una plataforma sencilla y con una optimización en el rendimiento de la
 plataforma y enseñar los conceptos básicos utilizados en la mayoría de motores gráficos para realizar aplicaciones gráficas.
 La decisión de realizar el motor utilizando la librería gráfica de \textit{OpenGL} 3.3 es la facilidad de puesta en marcha del
 entorno, los conocimientos previos de \textit{OpenGL} obtenidos en asignaturas previas y la facilidad de búsqueda de tutoriales
 realizados por la comunidad, al tratarse de una especificación que lleva siendo utilizada desde hace tiempo.
 
-\section{Estructura del documento}
-\label{sec:estructura}
-
-El documento comienza con un primer capítulo donde existirá una pequeña introducción de la resolución
-del problema, como enfocar un diseño de un motor gráfico basado en componentes y uso de librerías gráficas
-para conseguir el objetivo. Existe un apartado de motivación y contexto donde se explica a qué parte del
-mercado de los videojuegos está enfocado el proyecto. En el apartado de objetivos se explica una serie de
-hitos a conseguir en el proyecto y finalizados de manera correcta, para terminar el capítulo uno, el
-apartado de estructura de la memoria define la composición de capítulos del documento.
-
-El segundo capítulo describe las tecnologías utilizadas en el desarrollo del proyecto, además de otras
-tecnologías a forma de comparativa, de esta manera se defienden las tecnologías utilizadas en el desarrollo. También
-se explican otros competidores en el desarrollo de motores gráficos y plataformas para el desarrollo de aplicaciones
-gráficas. La arquitectura e implementación del motor gráfico se explica en el capítulo tres, este capítulo realiza 
-una definición estática del proyecto donde se podrán ver las técnicas gráficas utilizadas y el patrón de diseño basado en
-componentes que forma la estructura principal del motor. La segunda parte del capítulo describe como
-funciona de forma dinámica el motor, en este punto se puede ver la interacción del motor con la tarjeta
-gráfica y la ejecución del renderizado basado en etapas.
-
-El cuarto capítulo muestra diferentes simulaciones realizadas con el motor y el uso de \textit{Blender} para realizar
-comparaciones de rendimiento, además de la facilidad de uso o similitud de ambos motores. Las simulaciones mostrarán
-entornos virtuales, explicando las técnicas gráficas que soporta el motor y la funcionalidad completa. Cada simulación
-resaltará una parte importante de la funcionalidad del motor y su finalización de forma exitosa. Por último en el capítulo cinco,
-capítulo de conclusiones, comentará la valoración final de los objetivos conseguidos posibles trabajos futuros y cuál ha sido la
-complejidad del desarrollo.
-
-%% \begin{itemize}
-%%  \item En el primer capítulo se hace una intro al proyecto.
-
-%%  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos del proyecto.
-
-%%  \item A continuación se presenta el estado del arte.
-
-%%  \item \ldots
-%% \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% OBJETIVOS %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\chapter{Objetivos}
-\label{chap:objetivos}
-
-\section{Objetivo general}
+\section{Objetivos}
 \label{sec:objetivo-general}
 
 En el transcurso del proyecto se determinaron una serie de objetivos o hitos a conseguir dentro del motor gráfico.
@@ -351,7 +257,7 @@ subobjetivos que definen los conceptos principales que tienen en común gran par
 abstracciones utilizadas dentro de los motores gráficos que son comunes en su diseño, e implementadas en el
 proyecto como subobjetivos que se definen a continuación:
 
-\section{Objetivos específicos}
+\subsection{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
 \begin{itemize}
@@ -382,7 +288,7 @@ proyecto como subobjetivos que se definen a continuación:
 
 \end{itemize}
 
-\section{Planificación temporal}
+\subsection{Planificación temporal}
 \label{sec:planificacion-temporal}
 
 En este apartado se especifica las tareas a realizar durante el proyecto, el tiempo utilizado para el desarrollo de cada una
@@ -406,6 +312,32 @@ y pudiéndose alargar en caso de que se encuentren dificultades a la hora de la 
 estimación apróximada del alumno dónde según su criterio ha indicado un mayor número de \textit{Sprints}
 a las tareas con una mayor complejidad de desarrollo.
 
+\section{Estructura del documento}
+\label{sec:estructura}
+
+El documento comienza con un primer capítulo donde existirá una pequeña introducción de la resolución
+del problema, como enfocar un diseño de un motor gráfico basado en componentes y uso de librerías gráficas
+para conseguir el objetivo. Existe un apartado de motivación y contexto donde se explica a qué parte del
+mercado de los videojuegos está enfocado el proyecto. En el apartado de objetivos se explica una serie de
+hitos a conseguir en el proyecto y finalizados de manera correcta, para terminar el capítulo uno, el
+apartado de estructura de la memoria define la composición de capítulos del documento.
+
+El segundo capítulo describe las tecnologías utilizadas en el desarrollo del proyecto, además de otras
+tecnologías a forma de comparativa, de esta manera se defienden las tecnologías utilizadas en el desarrollo. También
+se explican otros competidores en el desarrollo de motores gráficos y plataformas para el desarrollo de aplicaciones
+gráficas. La arquitectura e implementación del motor gráfico se explica en el capítulo tres, este capítulo realiza 
+una definición estática del proyecto donde se podrán ver las técnicas gráficas utilizadas y el patrón de diseño basado en
+componentes que forma la estructura principal del motor. La segunda parte del capítulo describe como
+funciona de forma dinámica el motor, en este punto se puede ver la interacción del motor con la tarjeta
+gráfica y la ejecución del renderizado basado en etapas.
+
+El cuarto capítulo muestra diferentes simulaciones realizadas con el motor y el uso de \textit{Blender} para realizar
+comparaciones de rendimiento, además de la facilidad de uso o similitud de ambos motores. Las simulaciones mostrarán
+entornos virtuales, explicando las técnicas gráficas que soporta el motor y la funcionalidad completa. Cada simulación
+resaltará una parte importante de la funcionalidad del motor y su finalización de forma exitosa. Por último en el capítulo cinco,
+capítulo de conclusiones, comentará la valoración final de los objetivos conseguidos posibles trabajos futuros y cuál ha sido la
+complejidad del desarrollo.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ESTADO DEL ARTE %
@@ -415,7 +347,7 @@ a las tareas con una mayor complejidad de desarrollo.
 \chapter{Antecedentes y estado del arte}
 
 En este apartado se hablará de tecnologías utilizadas en el proyecto relacionadas con el campo de investigación
-computacional de HPG \textit{High Performance Graphics}. Primero se hablará de cual es concepto de HPG
+computacional de HPG \textit{(High Performance Graphics)}. Primero se hablará de cual es concepto de HPG
 dando una introducción a qué campo de investigación están basadas las tecnologías del proyecto, después
 se hablará de las tecnologías y otras similares para realizar comparativas y justificar las utilizadas. En 
 la parte final se dará una breve introducción de otros motores gráficos que hacen uso de estas tecnologías,
@@ -424,7 +356,7 @@ mismos patrones de diseño y misma modularización de las funcionalidades gráfi
 \section{Concepto de rendimiento gráfico de altas prestaciones}
 \label{sec:HPG}
 
-\textit{High Performance Graphics} ó (HPG) \cite{HPG:assoc} está compuesto por un foro internacional de investigación de sistemas gráficos
+\textit{High Performance Graphics} \cite{HPG:assoc} está compuesto por un foro internacional de investigación de sistemas gráficos
 orientados al rendimiento y utilización de algoritmos innovadores, e implementaciones eficientes de arquitecturas
 de hardware, orientadas a la computación gráfica de las máquinas. Los ingenieros e investigadores realizan conferencias
 sobre los algoritmos su eficiencia y el diseño de nuevo hardware orientado a gráficos. Las compañías especializadas
@@ -479,30 +411,33 @@ de librería gráfica definida por el grupo \textit{Khronos} para funcionalidade
 \subsection{Introducción a Vulkan}
 \label{subsec:IntroVulkan}
 
-Al igual que las \textit{APIs} de gráficos anteriores, \textit{Vulkan} está diseñado como una abstracción multiplataforma
-sobre la \textit{GPU}. El problema con la mayoría de estas \textit{APIs} es que la era en la que se diseñaron presentaba
-hardware de gráficos que se limitaba principalmente a una funcionalidad fija configurable. Los programadores tenían que
-proporcionar los datos de vértice en un formato estándar y estaban a merced de los fabricantes de \textit{GPU} con respecto
-a las opciones de iluminación, sombreado y renderizado. A medida que maduraban las arquitecturas de las tarjetas gráficas,
-comenzaron a ofrecer más y más funcionalidades programables. Toda esta nueva funcionalidad tuvo que integrarse de alguna manera
-con las \textit{APIs} existentes. Esto resultó en abstracciones menos que ideales y muchas conjeturas en el lado del controlador
-de gráficos para asignar la intención del programador a las arquitecturas gráficas modernas. Es por eso que hay tantas actualizaciones
-de controladores para mejorar el rendimiento en los juegos. Debido a la complejidad de estos controladores, los desarrolladores de aplicaciones
-también deben lidiar con inconsistencias entre los proveedores, como la sintaxis que se acepta para los programas de
-\textit{shaders} o sombreado.  Además de estas nuevas características, la década pasada también vio una afluencia de dispositivos
-móviles con hardware de gráficos potente. Estas \textit{GPUs} móviles tienen arquitecturas diferentes en función de sus requisitos de
-energía y espacio. Un ejemplo de ello es la representación en mosaico, que se beneficiaría de un rendimiento mejorado al ofrecer al
-programador más control sobre esta funcionalidad. Otra limitación que se origina a partir de la antigüedad de estas \textit{APIs}
-es la compatibilidad limitada de múltiples subprocesos, que puede provocar un cuello de botella en el lado de la \textit{CPU}. \textit{Vulkan}
-resuelve estos problemas al ser diseñado desde cero para arquitecturas gráficas modernas. Reduce la sobrecarga
-del controlador al permitir que los programadores especifiquen claramente su intención utilizando una \textit{API} más detallada,
-y permite que múltiples hilos creen y envíen comandos de forma paralela. La idea detrás de la interfaz es realizar drivers
-sencillos que sean compatibles con la especificación y aprovechen al máximo las capacidades de hardware paralelamente
-masivo actual. Como se mencionó anteriormente, \textit{Vulkan} está diseñado para un alto rendimiento y una baja sobrecarga del controlador.
-Por lo tanto, incluirá capacidades muy limitadas de verificación y depuración de errores de forma predeterminada.
-El controlador a menudo fallará en lugar de devolver un código de error si se hace algo mal, o peor aún, parecerá que
-funciona en la tarjeta gráfica de desarrollo y fallará en otros controladores. \textit{Vulkan} permite habilitar extensas comprobaciones a
-través de una función conocida como capas de validación.
+Al igual que las \textit{APIs gráficas} anteriores, \textit{Vulkan} está diseñado como una abstracción multiplataforma
+para la interfaz de comunicación con la \textit{GPU}. El problema con la mayoría de estas \textit{APIs gráficas} es la era en la que se diseñaron, 
+presentaban hardware de gráficos que se limitaba principalmente a una funcionalidad fija configurable. Los programadores tenían que
+proporcionar los datos de vértice en un formato estándar y estaban a merced de los fabricantes de las \textit{GPUs} con respecto
+a las opciones de iluminación, sombreado y renderizado, a medida que maduraban las arquitecturas de las tarjetas gráficas,
+comenzaron a ofrecer más y más funcionalidades programables. Toda esta nueva funcionalidad tuvo que integrarse de modificando la arquitectura
+de las \textit{APIs gráficas} existentes, lo que resultó en abstracciones menos que ideales y muchas conjeturas o suposiciones en el lado del
+controlador de gráficos para asignar la intención del programador a las arquitecturas gráficas existentes, es por eso que hay tantas actualizaciones
+de controladores para mejorar el rendimiento en los juegos, debido a la complejidad de estos controladores. Los desarrolladores de aplicaciones
+también deben lidiar con inconsistencias entre los proveedores, como la sintaxis que se acepta para los programas de \textit{shaders} o sombreado, 
+dependiendo de la funcionalidad implementada de la \textit{API gráfica} de cada fabricante.
+
+Además de estas nuevas características, la década pasada también vio una afluencia de dispositivos
+móviles con hardware de gráficos potente, estas \textit{GPUs} móviles tienen arquitecturas diferentes en función de sus requisitos de
+energía y espacio, un ejemplo de ello es la representación en mosaico, que se beneficiaría de un rendimiento mejorado al ofrecer al
+programador más control sobre esta funcionalidad en \textit{API gráficas} modernas, otra limitación que se origina a partir de la antigüedad
+de estas \textit{APIs} es la compatibilidad limitada de múltiples subprocesos, que puede provocar un cuello de botella en el lado de la
+\textit{CPU}. \textit{Vulkan} resuelve estos problemas al ser diseñado desde cero para arquitecturas gráficas modernas, reduciendo la sobrecarga
+del controlador al permitir que los programadores especifiquen claramente su intención utilizando una \textit{API gráfica} más detallada,
+y permite que múltiples hilos creen y envíen comandos de forma paralela desde la \textit{CPU} a la \textit{GPU}. La idea detrás de la interfaz
+es realizar drivers sencillos que sean compatibles con la especificación, y aprovechen al máximo las capacidades de hardware paralelamente
+masivo actual. Como se mencionó anteriormente, \textit{Vulkan} está diseñado para un alto rendimiento y una baja sobrecarga del controlador, la 
+especificación de la \textit{API gráfica} incluye capacidades muy limitadas de verificación y depuración de errores de forma predeterminada,
+el controlador de la tarjeta a menudo fallará en lugar de devolver un código de error si se hace algo mal, o peor aún, parecerá que
+funciona en la tarjeta gráfica de desarrollo y fallará en otros controladores. La \textit{API gráfica} de \textit{Vulkan} soluciona estos problemas 
+habilitando extensas comprobaciones en tiempo de compilación y en ejecución en modo depuración a través de una característica de la 
+\textit{API gráfica} conocida como capas de validación.
 
 \subsubsection{Capas de Validación}
 \label{subsec:CapsVulkan}
@@ -682,7 +617,7 @@ Microsoft lanza su propia especificación para que los fabricantes puedan vender
 implementando la especificación de DirectX en el driver de sus tarjetas gráficas. Microsoft realiza la especificación teniendo en
 cuenta las tecnologías de las nuevas generaciones de GPUs que aparecen en el mercado, añadiendo nuevas funcionalidades en la
 especificación de la librería, actualmente la versión más reciente de la especificación es la \textit{DirectX 12} compatible con la
-especificación \textit{Vulkan} del grupo \textit{Khronos}. La tecnología de DirectX está pensada como un conjunto de\textit{APIs} y cada
+especificación \textit{Vulkan} del grupo \textit{Khronos}. La tecnología de DirectX está pensada como un conjunto de \textit{APIs} y cada
 una de ellas se encarga de realizar un trabajo independiente de computación gráfica. La librería DirectX Math se encarga de realizar las
 operaciones matemáticas sobre vectores o matrices de coma flotante. Las librerías Direct2D y Direct3D se encargan de realizar las renderizaciones
 de modelos de gráficos en 2D y 3D respectivamente. También existen librerías para realizar programas compatibles con
@@ -728,7 +663,7 @@ Esta transformación está controlada por la configuración de la ventana gráfi
     \centering
     \includegraphics[width=9cm, keepaspectratio]{img/d3dxfrm61.png}
     \caption{Etapas de transformación de los vértices en el cauce gráfico de \textit{OpenGL} hasta la coordenada final
-    del pixel de renderizado de la geometría por pantalla}
+    del pixel de renderizado de la geometría por pantalla.}
     \label{d3dxfrm61}
 \end{figure}
 
@@ -999,7 +934,7 @@ gráfica binaria instalada en el sistema operativo y generar el fichero binario 
 definida por el desarrollador. A la hora de definir los \textit{includes} en el programa con la definición de las funciones de la librería de
 \textit{OpenGL} se debe cargar primero el fichero de cabecera generado por la herramienta \textit{GLAD} para resolver de
 manera correcta las estructuras de datos y las definiciones de funciones de \textit{OpenGL} en el entorno de
-desarrollo. \cite{opengl:_glad}
+desarrollo. \cite{Khronos:_glad}
 
 \subsection{GLFW}
 \label{subsec:GLFW}
@@ -1093,12 +1028,12 @@ teléfonos móviles o consolas de manera gratuita. Unreal cobra por el uso de la
 superen una cuota de mercado mayor de 3000 dólares. Entre las características principales del motor, Unreal cuenta con un
 módulo de renderizado de gráficos, este módulo se encarga de la simulación de luces, generación de sombras carga de materiales
 y texturas, efectos de partículas o post procesado. Es decir la parte principal de renderización y visualización de las geometrías. Cuenta
-con un módulo para el desarrollo de interfaces de usuario, \textit{Unreal Motion Graphics User Interfaces UMG}. La 
+con un módulo para el desarrollo de interfaces de usuario, \textit{Unreal Motion Graphics User Interfaces UMG} \cite{book:_unreal}. La 
 interfaz de usuario hace uso de Widgets para la captura de eventos de usuario a través de botones barras
 de progreso, menús etc. Esta interfaz interactiva ayuda al desarrollador a crear contenido de manera muy
 sencilla y realizar cierta lógica de animación o jugabilidad sin tener conocimientos sobre programación. Uno de los principales módulos
-de Unreal y más conocido, \textit{Blueprint Visual Scripting}. Este módulo está diseñado como un diagrama de flujo o una máquina de
-estados presentado como una visualización en bloques con un flujo de ejecución.
+de Unreal y más conocido, \textit{Blueprint Visual Scripting} \cite{book:_unreal_vs}. Este módulo está diseñado como un diagrama de flujo o una
+máquina de estados presentado como una visualización en bloques con un flujo de ejecución.
 
 \begin{figure}[H]
     \centering
@@ -1119,7 +1054,7 @@ sencilla que solo podrían ser accesibles para desarrolladores o personas con co
 \end{figure}
 
 Hace uso de una \textit{API} para realizar un flujo de ejecución y lógica de las aplicaciones, en lenguajes de
-programación C++ y Luna. La\textit{API} de C++ es clara y sencilla de utilizar aunque se deben tener conocimientos
+programación C++ y Luna. La \textit{API} de C++ es clara y sencilla de utilizar aunque se deben tener conocimientos
 previos de programación en este lenguaje para poder utilizar esta \textit{API}. Esta dificultad puede ser resuelta
 con el uso del módulo de  \textit{Blueprint Visual Scripting} que utiliza por debajo la misma \textit{API} del motor para
 generar la lógica o flujo de ejecución de las animaciones. Unreal trata de ser un motor gráfico genérico e innovador
@@ -1149,26 +1084,32 @@ Autocad o Maya 3D o importación de fuentes de lenguaje e idiomas.
 \end{figure}
 
 Unity también cuenta con primitivas pre definidas para objetos geométricos básicos como esferas cubos
-ellipses o planos, parecido al utilizado en el proyecto, haciendo uso de funciones matemáticas parametrizadas
-para generar las primitivas, tamaños o formas de las superficies. El foco de atención principal del usuario en Unity
-se hace a través de la ventana principal, dentro de la ventana principal se pueden cargar en diferentes pasos el desarrollo
-de las aplicaciones gráficas, es decir ventanas con funciones específicas del motor se cargan dentro de la ventana principal. En la
-ventana de proyecto se pueden manejar los materiales geometrías o archivos externos cargados con la interfaz \textit{Assets}. La ventana de
-proyecto se puede gestionar en un panel adicional donde está contenida la estructura de directorios del proyecto y los ficheros
-importados. En la ventana de proyecto se puede cargar una subventana en la que se pueden ver los tipos de archivos cargados en la
-estructura de directorios, geometrías, texturas, programas de shaders de materiales, ficheros de audio etc. La vista de escena en la ventana
-principal, muestra al usuario una visión interactiva del mundo creado con Unity en la que se podrán editar las luces de la escena posición
-de los objetos y las cámaras. Esta vista es fácil de manejar para los usuarios que utilizan por primera vez el motor de Unity y para
-hacerse una idea del trabajo con el entorno de desarrollo. En la vista de juego dentro de la ventana principal se podrá ver el resultado
-final de la aplicación gráfica creada con Unity en la que deberemos ver la perspectiva desde cámaras de la escena y el renderizado en tiempo
-real de la aplicación. En esta vista los cambios realizados de forma interactiva son temporales. como la bajada de la resolución para
-emular el uso de dispositivos antiguos o con menor poder computacional. La ventana además avisa al usuario si no existen cámaras en la
-escena para advertir de que no hay ninguna vista que pueda ser utilizada por el módulo de renderizado. En la ventana de jerarquías podemos
-ver las dependencias que existen entre los objetos de la escena, algunos de estos objetos pueden ser geometrías cargadas con la interfaz
-Asset o componentes del motor como luces o cámaras.  La ventana de jerarquías nos da una visión del árbol de transformadas de Unity y de
-las dependencias de los objetos dentro de la escena de manera global. En esta vista se pueden también crear las dependencias entre
-los objetos creando nodos hijos de otro objetos y generar partes del árbol de jerarquía de la escena. Aunque
-su uso principal es la visualización del árbol de jerarquía, en escenas de juego más complejas.
+ellipses o planos, el motor hace uso de funciones matemáticas parametrizadas para generar las primitivas, tamaños o formas de las
+superficies, de los objetos simples.
+
+El foco de atención principal del usuario en Unity se hace a través de la \textit{ventana principal},
+dentro de esta ventana se pueden cargar en diferentes pasos, el desarrollo de las aplicaciones gráficas, es decir, ventanas con funciones
+específicas del motor se cargan dentro de la ventana principal, como es el caso de la \textit{ventana de proyecto}, esta ventana puede manejar
+los materiales geometrías o archivos externos cargados con el módulo \textit{Assets} de Unity. La ventana de
+proyecto se puede gestionar en un panel adicional donde está contenida la estructura de directorios del proyecto, o los ficheros
+importados, esta ventana puede cargar una ventana adicional en la que se pueden ver los tipos de archivos cargados en la
+estructura de directorios, geometrías, texturas, programas de sombreado, materiales o ficheros de audio, otra visualización importante dentro
+del motor gráfico de Unity es \textit{vista de escena}, dentro de la ventana principal, muestra al usuario una visión interactiva del mundo creado
+con Unity en la que se podrán editar las luces, posición de los objetos y las cámaras. La vista de escena es fácil de manejar para los usuarios
+que utilizan por primera vez el motor de Unity y para hacerse una idea del trabajo realizado con el entorno de desarrollo.
+
+Cuando el desarrollador  utiliza el modo \textit{vista de juego} dentro de la ventana principal se podrá ver el resultado final de la aplicación gráfica 
+creada con Unity, en la que puede observar desde las cámaras de la escena y el renderizado en tiempo real de la aplicación. En esta vista los cambios
+realizados de forma interactiva son temporales, también se puede simular la bajada de la resolución para emular el uso de dispositivos antiguos
+o con menor poder computacional y adaptar nuestras aplicaciones gráficas a un mayor número de dispositivos, este modo de vista también avisa al usuario
+sino existen cámaras en la escena para advertir de que no hay ninguna cámara para realizar el renderizado, otra visualización importante dentro del
+motor gráfico de Unity es la ventana de jerarquías, donde se pueden obervar las dependencias que existen entre los objetosde la escena,
+algunos de estos objetos pueden ser geometrías cargadas con la interfaz \textit{Asset} o componentes del motor como luces o cámaras, cargados como
+objetos de juego. La \textit{ventana de jerarquías} nos da una visión global del árbol de transformadas de Unity y de
+las dependencias de los objetos dentro de la escena, en esta vista se pueden también crear las dependencias entre
+los objetos, creando nodos hijos de otro objetos y generar partes del árbol de jerarquía de la escena de forma interactiva con la interfaz gráfica
+de usuario, aunque su uso principal es la visualización del árbol de jerarquía, para visualizar escenas de juego desarrolladas
+más complejas. \cite{unity:_unity_book}
 
 \begin{figure}[H]
     \centering
@@ -1178,7 +1119,7 @@ su uso principal es la visualización del árbol de jerarquía, en escenas de ju
 \end{figure}
 
 El uso de programación también es algo a tener en cuenta dentro de Unity. Muchas aplicaciones necesitan el uso
-de programas para responder a eventos de usuario en el momento que sea necesario, en los scripts es posible
+de programas y lógica para responder a eventos de usuario en el momento que sea necesario, en los scripts es posible
 realizar efectos gráficos, control de físicas, comportamiento de los objetos o creación de un sistem de inteligencia
 artificial personalizado para los objetos de juego. El uso de programación en Unity se realiza a través de la
 API de Unity en C\#.
@@ -1534,7 +1475,7 @@ datos común para todos los programas de shaders de la etapa de fragmentos del m
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=9cm, keepaspectratio]{img/material.png}
+    \includegraphics[width=7.5cm, keepaspectratio]{img/material.png}
     \caption{Estructura de datos de material definido en el motor gráfico etapa de fragmentos}
     \label{Material}
 \end{figure}
@@ -1594,48 +1535,71 @@ esta rugosidad en la geometría del modelo y haciendo uso de los valore tangenci
 \begin{figure}[H]
     \centering
     \includegraphics[width=9cm, keepaspectratio]{img/custom-textures.jpg}
-    \caption{Imagen con la definición de los tipos de texturas del motor, difusa, normal y especular de izquierda a derecha.}
+    \caption{Imagen con la definición de los tipos de texturas del motor, difusa, normal y especular.}
     \label{custom_textures}
 \end{figure}
 
-Una vez definido el material la siguiente clase de bajo nivel almacena las geometrías de las etapas previas a la etapa de ensamblado y
-realizando la especificación de vértices de manera transparente para el usuario. La clase malla almacena el nombre de la malla a modo de
-identificador, este identificador es usado por la clase modelo para acceder a las mallas del modelo. La clase malla contiene
+Una vez definido el material la siguiente clase de bajo nivel que almacena las geometrías de las etapas previas a la etapa de ensamblado y
+realizando la especificación de vértices de manera transparente para el usuario, es la clase malla, esta clase almacena el nombre de la malla a
+modo de identificador, este identificador es usado por la clase modelo para acceder a las mallas del modelo, además la clase malla contiene
 todas las funciones de \textit{OpenGL} para el renderizado de los objetos e iniciar el cauce gráfico, por esta razón contiene los
-identificadores del contexto de \textit{OpenGL} una vez definidos en la etapa de especificación de vértices \textit{VAO VBO y EBO}. Estos
-identificadores son devueltos por la librería de \textit{OpenGL} una vez enviados los datos de primitivas almacenados por la clase malla.
-También cuenta con la referencia a la clase de uniformes y la clase de programa para realizar la activación del cauce. La clase malla tiene
-estructurados los atributos de la especificación de vértices en dos vectores; uno que almacena los índices de
+identificadores del contexto de \textit{OpenGL}, después de haberse definido en la etapa de especificación de vértices \textit{VAO VBO y EBO}. Estos
+identificadores son devueltos por la librería de \textit{OpenGL}, una vez enviados los datos de primitivas almacenados de la malla, también cuenta
+con la referencia a la clase de uniformes y la clase de programa para realizar la activación del cauce.
+
+\subsection{Definición estática del cauce gráfico}
+
+La clase malla tiene estructurados los atributos de la especificación de vértices en dos vectores; uno que almacena los índices de
 orden de ensamblado de las primitivas y otro vector con los atributos de geometría de normales, posición de vértices y coordenadas de texturas
-definidas en la estructura de datos interna Vertex. La malla contiene el vector de texturas que componen el material de la geometría para su
-activación en el contexto de \textit{OpenGL}. Esta colección de texturas contará con las texturas almacenadas en la clase material definida 
-anteriormente con las texturas; normales, difusas y especulares. Existen un conjunto de métodos de la clase malla accesibles por la clase modelo
-para activar y renderizar las mallas del modelo y las texturas de cada material en las diferentes etapas del cauce gráfico.
+definidas en la estructura de datos interna \textit{Vertex}. La malla contiene el vector de texturas que componen el material de la geometría para su
+activación en el contexto de \textit{OpenGL}, por lo que la colección de texturas contará con las texturas almacenadas en la clase material definida 
+anteriormente con las texturas; normales, difusas y especulares, el motor cuenta con un conjunto de métodos de la clase malla accesibles por la clase
+modelo para activar y renderizar las mallas del modelo y las texturas de cada material en las diferentes etapas del cauce gráfico.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=9cm, keepaspectratio]{img/StaticPipe.png}
+    \caption{Visualización estática del núcleo de la clase malla y comunicación con el cauce gráfico.}
+    \label{custom_textures}
+\end{figure}
 
 El resto de atributos de la clase malla son utilizados para comunicarse con la librería de \textit{OpenGL}, realizar la especificación de
-vértices y cambiar la máquina de estados de \textit{OpenGL} antes del renderizado para realizar por ejemplo las técnicas de 
-\textit{blending} \cite{article:_transparnet_shadows}. Los métodos de \textit{blending} son accesibles por la clase modelo ya que esta
-clase es la que tiene que decidir si el modelo es transparente u opaco
-para la ordenación de los objetos de juego en el renderizado. La clase malla tendrá acceso a las clases de bajo nivel de comunicación
-con las etapas programables del cauce para poder activar los programas de la malla que quiera realizar su renderizado. La clase uniformes
-realiza la abstracción de la librería matemática de \textit{OpenGL GLM} y contiene una serie de mapas con los tipos de datos
-primitivos de la librería matemática. Los mapas utilizarán el nombre de la variable como clave y el valor de cada mapa el tipo de dato primitivo
-de la librería matemática de \textit{OpenGL GLM}; entero, flotante, vectorial de tres y cuatro dimensiones o matricial de tres o cuatro dimensiones.
-Esta clase almacena los datos de los programas de cada malla para facilitar la actualización de los datos de los programas de
-sombreado de cada malla y sus materiales. Cada malla tendrá una instancia de uniformes con los datos de los programas de vértices
-y fragmentos de esa malla. La clase de programas almacena las instrucciones de los programas de la etapa de vértices y fragmentos, almacena
-los identificadores de los dos programas devueltos por el contexto de \textit{OpenGL} y un mapa de nombres de la variables uniformes como
-clave y como valor el identificador de la variable devuelto por el contexto de \textit{OpenGL} en el momento de su creación en el contexto. La
-clase programas además cuenta con las funciones para cargar las estructuras de datos comunes del motor gráfico y las funciones auxiliares para
-facilitar al usuario las técnicas de iluminación. En la carpeta \textit{utils} del motor se encuentran las estructuras de datos del material ya
-explicados y las estructuras de datos de las luces básicas además de las funciones para añadir a los fragmentos de la malla los valores de iluminación de forma correcta. Al
-generar los programas de sombreado de usuario, estos pueden ser cargados desde un fichero de texto o utilizando un string hardcodeado
-dentro de su interfaz de programación. El usuario podrá crear sus propias variables uniformes en su programa de sombreado y estas serán
-leídas por el motor para añadirlas de forma correcta en el contexto de \textit{OpenGL}. El motor filtra las líneas del programa de shader y parsea
-el nombre y tipo de las variables uniformes añadiendo la variable al mapa de uniformes del motor y posteriormente realizar su declaración
-y añadir un valor que será actualizado en el programa de sombreado correspondiente definido por el usuario.
+vértices y cambiar la máquina de estados de \textit{OpenGL} antes del renderizado, para realizar por ejemplo las técnicas de 
+\textit{Blending} \cite{article:_transparnet_shadows}, accesibles por la clase modelo ya que esta clase es la que tiene que decidir si el modelo
+es transparente u opaco para la ordenación de los objetos de juego en el renderizado.
 
+\begin{itemize}
+
+\item La clase malla tendrá acceso a las clases de bajo nivel de comunicación con las etapas programables del cauce para poder activar los programas
+de la malla que quieran realizar su renderizado.
+
+\item La clase uniformes realizará la abstracción de la librería matemática de \textit{OpenGL GLM} y contendrá una serie de
+mapas con los tipos de datos primitivos de la librería matemática a forma de caché de uniformes de cada malla.
+
+\end{itemize}
+
+Los mapas utilizarán el nombre de la variable como clave y el valor de cada mapa será el tipo de dato primitivo de la librería matemática
+de \textit{OpenGL GLM}; entero, flotante, vectorial de tres y cuatro dimensiones o matricial de tres o cuatro dimensiones, esta clase almacena
+los datos de los programas de cada malla para facilitar la actualización de los datos de los programas de sombreado de cada malla y sus 
+materiales, cada malla tendrá una instancia de uniformes con los datos de los programas de vértices y fragmentos de esa malla. La clase de programas
+almacena las instrucciones de los programas de la etapa de vértices y fragmentos, almacena los identificadores de los dos programas devueltos por
+el contexto de \textit{OpenGL} y un mapa de nombres de la variable uniforme como clave y como valor el identificador de la variable devuelto por
+el contexto de \textit{OpenGL} en el momento de su declaración dentro del contexto. La
+clase de programas además contará con las funciones para cargar las estructuras de datos comunes del motor gráfico y las funciones auxiliares para
+facilitar al usuario las técnicas de iluminación, estos datos comunes se encuentran en la carpeta \textit{utils} del motor y forman las estructuras de
+datos del material ya explicados, las estructuras de datos de las luces básicas, además de las funciones para añadir a los fragmentos de la malla
+los valores de iluminación de forma correcta.
+
+Al generar los programas de sombreado de usuario, estos pueden ser cargados desde un fichero de texto o utilizando un string hardcodeado
+dentro de su interfaz de programación de componentes. El usuario podrá crear sus propias variables uniformes en
+su programa de sombreado y estas serán leídas por el motor para añadirlas de forma correcta en el contexto de \textit{OpenGL}. El motor filtra las
+líneas del programa del programa de sombreado de usuario y parsea el nombre y tipo de las variables uniformes añadiendo la variable al mapa de uniformes
+del motor y posteriormente realizar su declaración, añadiendo un valor que será actualizado en el programa de sombreado correspondiente definido por
+el usuario.
+
+\vspace{0.5cm}
 \centerline{\textbf{Sintaxis declaración variables uniformes:\ \ [uniform]\ \ \ \ [type]\ \ \ \ [name];}}
+\vspace{0.5cm}
 
 La primera palabra es una palabra reservada del lenguaje de sombreado de \textit{GLSL}. La segunda palabra especifica el tipo de variable. El motor
 será capaz de interpretar los tipos básicos del lenguaje; float, int, vec2, vec3, vec4, mat3 y mat4, que son los valores que puede mapear
@@ -1859,7 +1823,7 @@ la descripción de la arquitectura dinámcica del motor y a continuación se mue
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=9cm, keepaspectratio]{img/UserEvent.png}
+    \includegraphics[width=6cm, keepaspectratio]{img/UserEvent.png}
     \caption{Esquema de ejecución UML de eventos de teclado y reloj generados por el usuario a cambio del comportamiento del objeto de juego}
     \label{UserEvent}
 \end{figure}
@@ -1974,7 +1938,7 @@ dos geometrías diferentes.
 \begin{figure}[H]
     \centering
     \includegraphics[width=9cm, keepaspectratio]{img/saturno.png}
-    \caption{Planeta Saturno compuesto de sus dos geometrías toroide simulando su anillo y esfera para simular el planeta.}
+    \caption{Planeta Saturno compuesto de sus dos geometrías toroide simulando su anillo}
     \label{saturno}
 \end{figure}
 
@@ -1999,11 +1963,11 @@ La primera parte de la simulación será cargar un avión o una torre de control
 \begin{figure}[H]
     \centering
     \includegraphics[width=9cm, keepaspectratio]{img/Airplane.png}
-    \caption{Ejemplo de carga de modelo geométrico avión de combate haciendo uso de la librería Assimp.}
+    \caption{Ejemplo de carga de modelo geométrico avión de combate en movimiento}
     \label{Airplane}
 \end{figure}
 
-En la imagen se muestra el uso de la librería assimp del motor para realizar la carga de la geometría de un avión de combate con su
+En la imagen se muestra el uso de la librería Assimp del motor para realizar la carga de la geometría de un avión de combate con su
 material correspondiente. La carga de la geometría se realiza a través de los ficheros .obj mientras que los materiales son cargados
 en el motor en los ficheros .mtl. Además el usuario puede realizar la implementación de la reacción del material a la luz en los programas
 de shaders.
@@ -2148,7 +2112,7 @@ superficies del cubo.
 Se puede observar el resultado del Skybox dentro de la escena a forma de paisaje en segundo plano de una nebulosa dentro
 del sistema solar. Estas son las partes básicas del motor gráfico blender utilizadas para realizar una simulación parecida
 al sistema solar utilizado en el motor gráfico desarrollado dentro del proyecto. En la siguiente parte de la memoria se realiza
-una serie de medidas de rendimiento y comparativas de funcionalidad entre blender y el motor gráfico desarrollado.
+una serie de medidas de rendimiento y comparativas de funcionalidad entre blender y el motor gráfico desarrollado. \cite{blender:_manual}
 
 \section{Comparativas de funcionalidad y rendimiento}
 \label{sec:CompEngine}
@@ -2205,7 +2169,9 @@ encontrar diferencias significativas en el rendimiento  dentro de la misma máqu
 La primera medida de rendimiento muestra el sistema solar renderizado por blender donde se puede observar que se llega al máximo de
 imágenes por segundo a las que está limitado el motor sin embargo es bastante inestable mientras avanza la animación, ya que hay
 picos de bajada de imágenes de hasta diez o veinte imágenes, esto es apreciable por el usuario a la hora de ver la renderización
-de su escena.
+de su escena. La principal la razón de este bloqueo es el uso de un portatil con una GPU integrada, esto puede causar bloqueos en el 
+renderizado de la aplicación con blender ya que no se han realizado optimizaciones en el renderizado de las geometrías de los planetas, 
+en una máquina con una tarjeta gráfica dedicada los resultados con blender no tienen bloqueos en el renderizado de la aplicación gráfica.
 
 \begin{figure}[H]
     \centering
@@ -2334,8 +2300,8 @@ bordes o el desenfoque de las imágenes.
 
 Las matrices 3x3 de kernel tienen valores conocidos y son utilizados para obtener el efecto deseado sobre la imagen final
 de renderizado, en este caso la imagen muestra un procesado para detección de bordes y desenfoque. Estas operaciones son
-muy utilizadas en aplicaciones de imagen como photoshop donde las operaciones sobre los pixeles son fácilmente paralelizables
-ya que cada pixel de la imagen se procesa de manera independiente haciendo fácil el uso de las tarjetas gráficas para este
+muy utilizadas en aplicaciones de imagen como photoshop donde las operaciones sobre los píxeles son fácilmente paralelizables
+ya que cada píxel de la imagen se procesa de manera independiente haciendo ideales el uso de las tarjetas gráficas para este
 tipo de operaciones.
 
 
@@ -2343,14 +2309,14 @@ tipo de operaciones.
 \label{sec:valoracion}
 
 Este trabajo trata de explicar los módulos básicos necesarios dentro de un motor capaz de realizar aplicaciones gráficas
-interactivas y simulación de un mundo animado. El trabajo intenta explicar como funcionan este tipo de plataformas que utilizan
-las interfaces de las tarjetas gráficas para el procesamiento de video. El trabajo está formado por las partes más sencillas
-importantes para un comienzo de proyecto de motor gráfico utilizando la librería gráfica \textit{OpenGL} y mostrando al lector los
-pasos a seguir para realizar un motor gráfico sencillo. Las realizaciones de comparativas con otro motores gráficos a resultado un
-trabajo complicado debido a la inexperiencia en este campo por parte del alumno, aunque se ha realizado una comparativas de rendimientos
-entre un motor gráfico profesional y un motor gráfico del proyecto, lo más importante es comprobar que el motor gráfico del proyecto
-cumple con funcionalidades similares a la de un motor gráfico profesional.
-
+interactivas y simulación de un mundo animado, explicando como funcionan este tipo de plataformas que utilizan
+las interfaces de las tarjetas gráficas para el procesamiento de video. El motor está formado por las partes más sencillas e
+importantes para un comienzo de proyecto de motor gráfico, haciendo uso de la librería gráfica \textit{OpenGL} y mostrando al lector los
+pasos a seguir para realizar un motor gráfico sencillo. Las realizaciones de comparativas con otro motores gráficos ha resultado un
+trabajo complicado debido a la inexperiencia en este campo por parte del alumno, aunque se han realizado comparativas básicas de rendimientos
+entre un motor gráfico profesional y el motor gráfico del proyecto, lo más importante es comprobar que el motor gráfico desarrollado
+cumple con funcionalidades y abstracciones similares a las implementadas en cualquier motor gráfico profesional para la creación de 
+aplicaciones gráficas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
