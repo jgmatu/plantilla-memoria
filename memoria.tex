@@ -359,13 +359,13 @@ mismos patrones de diseño y misma modularización de las funcionalidades gráfi
 \textit{High Performance Graphics} \cite{HPG:assoc} está compuesto por un foro internacional de investigación de sistemas gráficos
 orientados al rendimiento y utilización de algoritmos innovadores, e implementaciones eficientes de arquitecturas
 de hardware, orientadas a la computación gráfica de las máquinas. Los ingenieros e investigadores realizan conferencias
-sobre los algoritmos su eficiencia y el diseño de nuevo hardware orientado a gráficos. Las compañías especializadas
+sobre los algoritmos, su eficiencia y el diseño de nuevo hardware orientado a gráficos. Las compañías especializadas
 en este sector de la industria de las TIC’s, discuten entre ellos las complejas interacciones entre el hardware masívamente
 paralelo, modelos de programación novedosos y algoritmos gráficos eficientes para realizar nuevas implementaciones de
-librerías gráficas que harán uso otros desarrolladores. Dentro de esta sección se comentará las diferentes \textit{API’s}
+librerías gráficas que harán uso otros desarrolladores. Dentro de esta sección se comentarán las diferentes \textit{API’s}
 gráficas que se utilizan de forma masiva en la industria: \textit{Vulkan, DirectX y OpenGL}. Para acabar en la sección de
 antecedentes se explicarán algunos de los motores gráficos más utilizados en la actualidad y algunas de las características
-comunes con el motor gráfico desarrollado, finalizando con la herramientas y entorno del proyecto.
+comunes con el motor gráfico desarrollado, finalizando con las herramientas y entorno del proyecto.
 
 \section{Grupo Khronos}
 \label{sec:Grupo Khronos}
@@ -416,7 +416,7 @@ para la interfaz de comunicación con la \textit{GPU}. El problema con la mayor�
 presentaban hardware de gráficos que se limitaba principalmente a una funcionalidad fija configurable. Los programadores tenían que
 proporcionar los datos de vértice en un formato estándar y estaban a merced de los fabricantes de las \textit{GPUs} con respecto
 a las opciones de iluminación, sombreado y renderizado, a medida que maduraban las arquitecturas de las tarjetas gráficas,
-comenzaron a ofrecer más y más funcionalidades programables. Toda esta nueva funcionalidad tuvo que integrarse de modificando la arquitectura
+comenzaron a ofrecer más y más funcionalidades programables. Toda esta nueva funcionalidad tuvo que integrarse, modificando la arquitectura
 de las \textit{APIs gráficas} existentes, lo que resultó en abstracciones menos que ideales y muchas conjeturas o suposiciones en el lado del
 controlador de gráficos para asignar la intención del programador a las arquitecturas gráficas existentes, es por eso que hay tantas actualizaciones
 de controladores para mejorar el rendimiento en los juegos, debido a la complejidad de estos controladores. Los desarrolladores de aplicaciones
@@ -434,7 +434,7 @@ y permite que múltiples hilos creen y envíen comandos de forma paralela desde 
 es realizar drivers sencillos que sean compatibles con la especificación, y aprovechen al máximo las capacidades de hardware paralelamente
 masivo actual. Como se mencionó anteriormente, \textit{Vulkan} está diseñado para un alto rendimiento y una baja sobrecarga del controlador, la 
 especificación de la \textit{API gráfica} incluye capacidades muy limitadas de verificación y depuración de errores de forma predeterminada,
-el controlador de la tarjeta a menudo fallará en lugar de devolver un código de error si se hace algo mal, o peor aún, parecerá que
+el controlador de la tarjeta a menudo fallará, en lugar de devolver un código de error si se hace algo mal, o peor aún, parecerá que
 funciona en la tarjeta gráfica de desarrollo y fallará en otros controladores. La \textit{API gráfica} de \textit{Vulkan} soluciona estos problemas 
 habilitando extensas comprobaciones en tiempo de compilación y en ejecución en modo depuración a través de una característica de la 
 \textit{API gráfica} conocida como capas de validación.
@@ -444,8 +444,8 @@ habilitando extensas comprobaciones en tiempo de compilación y en ejecución en
 
 Las capas de validación son piezas de código que se pueden insertar entre la \textit{API} y el controlador de gráficos
 para hacer cosas como ejecutar comprobaciones adicionales en los parámetros de función y rastrear problemas
-de gestión de memoria. Lo bueno es que puede habilitarse durante el desarrollo, para posteriormente deshabilitarlos por
-al lanzar la aplicación obteniendo un mayor rendimiento en la aplicación final. Cualquiera puede escribir sus propias capas de validación,
+de gestión de memoria. Lo bueno es que puede habilitarse durante el desarrollo, para posteriormente deshabilitarlos
+al lanzar la aplicación, obteniendo un mayor rendimiento en la aplicación final. Cualquiera puede escribir sus propias capas de validación,
 pero el \textit{Vulkan SDK de LunarG} proporciona un conjunto estándar de capas de validación. También debe registrarse
 una función de devolución de llamada para recibir mensajes de depuración de las capas. Debido a que \textit{Vulkan} es tan explícito
 sobre cada operación y las capas de validación son tan extensas, en realidad puede ser mucho más fácil descubrir por qué la pantalla
@@ -478,7 +478,7 @@ y las \textit{etapas de configuración}.
 
   \item El sombreador de vértices se ejecuta para cada vértice y generalmente aplica transformaciones
   para convertir las posiciones de vértice del espacio de modelo al espacio de la pantalla. También pasa
-  datos de cada vértice por el \textit{pipeline}.
+  datos de cada vértice por el cauce.
 
   \item Los sombreadores de teselación permiten subdividir la geometría según ciertas reglas para aumentar
   la calidad de la malla. Esto se usa a menudo para hacer que las superficies como las paredes de ladrillo
@@ -490,17 +490,17 @@ y las \textit{etapas de configuración}.
   tan bueno en la mayoría de las tarjetas gráficas, a excepción de las \textit{GPUs} integradas de \textit{Intel}.
 
   \item La etapa de rasterización discretiza las primitivas en fragmentos. Estos son los elementos de píxel
-  que rellenan en el \textit{framebuffer}. Los fragmentos que quedan fuera de la pantalla se descartan y los atributos
-  generados por la etapa de vértices se interpolan a través de los fragmentos, como se muestra en la figura.
+  que se rellenan en el \textit{framebuffer}. Los fragmentos que quedan fuera de la pantalla se descartan y los atributos
+  generados por la etapa de vértices se interpolan a través de los fragmentos, como se muestra en la figura \ref{vulkan_simplified_pipeline}.
   Por lo general, los fragmentos que están detrás de otros fragmentos de otras primitivas también se descartan
   aquí debido a los tests de profundidad.
 
-  \item El sombreador de fragmentos se invoca para cada fragmento que sobrevive y determina en qué framebuffer
+  \item El sombreador de fragmentos se invoca para cada fragmento que sobrevive y determina en qué \textit{framebuffer}
   se escriben los fragmentos y con qué valores de color y profundidad. Puede hacerse utilizando los datos interpolados
   del shader de vértices, que pueden incluir elementos como coordenadas de textura y normales para la iluminación.
 
   \item La etapa de mezcla de colores aplica operaciones para mezclar diferentes fragmentos que se asignan al mismo píxel
-  en el framebuffer. Los fragmentos pueden simplemente sobrescribirse entre sí, sumarse o mezclarse en función de la transparencia.
+  en el \textit{framebuffer}. Los fragmentos pueden simplemente sobrescribirse entre sí, sumarse o mezclarse en función de la transparencia.
 
 \end{itemize}
 
@@ -532,7 +532,7 @@ haciendo uso de esta librería gráfica en lugar de otras especificaciones. En l
 se han añadido funcionalidades para protección de memoria restricciones de copia de recursos en el renderizado y protección
 de contenido multimedia o procesamiento de imagen, además de ofrecer un conjunto de operaciones paralelas de forma nativa
 en las etapas de shaders del cauce gráfico. Con estas nuevas operaciones paralelas se consiguen nuevas formas de comunicación
-y compartición de memoria al realizar las operaciones en la \textit{GPU} de forma paralela y la renderización final de objetos 
+y compartición de memoria al realizar las operaciones en la \textit{GPU} de forma paralela y la renderización final de objetos
 geométricos. \cite{vulkan:_spec11}
 
 \begin{figure}[H]
@@ -589,7 +589,7 @@ utilizado en las muestras es simplemente agregar la siguiente línea a todos los
 
 \begin{equation} gl\_Position.y = -gl\_Position.y \end{equation}
 
-En \textit{OpenGL} teníamos un espacio \textit{NDC dextrógiro} a la izquierda, en \textit{Vulkan} tenemos un espacio \textit{NDC dextrógiro}
+En \textit{OpenGL} teníamos un espacio \textit{NDC dextrógiro} a la izquierda, en \textit{Vulkan} tenemos un espacio \textit{NDC levógiro}
 a la derecha, también cambia el valor de profundidad de las muestras, la función de profundidad es:
 
 \begin{equation} \frac{GL\_LEQUAL}  {VK\_COMPARE\_OP\_LESS\_OR\_EQUAL} \end{equation}
@@ -701,7 +701,7 @@ el rasterizador, el sombreador de píxeles y la fusión de salida se almacenan e
 canalización unificado que es inmutable después de la creación. El PSO seleccionado actualmente se puede cambiar de forma rápida
 y dinámica, y el hardware y los controladores pueden convertir directamente un PSO en instrucciones de hardware y estado nativo,
 preparando la \textit{GPU} para el procesamiento de gráficos. Para aplicar un PSO, el hardware copia una cantidad mínima de estado
-precalculado directamente en los registros del hardware. Esto elimina la sobrecarga causada por el controlador de gráficos que vuelve a calcular
+precalculado directamente en los registros del hardware, esto elimina la sobrecarga causada por el controlador de gráficos que vuelve a calcular
 continuamente el estado del hardware en función de todas las configuraciones de canalización y representación actualmente
 aplicables. El resultado es una reducción significativa de la sobrecarga de llamadas de extracción, un mayor rendimiento
 y más llamadas de extracción por trama. El PSO aplicado actualmente define y conecta todos los sombreadores que se utilizan en la
@@ -727,41 +727,38 @@ La librería viene con una serie de funciones que aprovechan las característica
 El hardware debe proveer al usuario de un driver que cumpla con las especificaciones de \textit{OpenGL} para poder aprovechar
 sus características de cómputo gráfico. \textit{OpenGL} funciona en sistemas operativos Linux y MacOS y también funciona en
 sistemas operativos Windows al ser una especificación que debe seguir el fabricante del driver de la tarjeta gráfica y
-no depender del sistema operativo. La\textit{API} \textit{OpenGL} facilita el desarrollo de aplicaciones multiplataformas
+no depender del sistema operativo. La \textit{API OpenGL} facilita el desarrollo de aplicaciones multiplataformas
 pudiendo desplegar el proyecto realizado en diferentes entornos hardware que cumplan con la especificación del estándar
 en algunas o en la totalidad de sus versiones de \textit{OpenGL}.
 
 \subsection{Introducción a OpenGL}
 \label{subsec:IntroOpenGL}
 
-En las versiones anteriores de \textit{OpenGL} 3.3, la especificación no daba una flexibilidad a los desarrolladores, era una
+En las versiones anteriores de \textit{OpenGL 3.3}, la especificación no daba una flexibilidad a los desarrolladores, era una
 especificación más simple donde el driver era el encargado de realizar la mayoría de las tareas de computación
 gráfica pero de manera poco eficiente, en las nuevas especificaciones de \textit{OpenGL} se deja más libertad al desarrollador
 pudiendo interferir en el núcleo del cauce de procesamiento gráfico, dando más flexibilidad y aumentando la eficiencia
 de las aplicaciones gráficas. Estos dos modelos de programación son lo que se denominan \textit{modo inmediato} y \textit{modo perfilado
 del núcleo}, siendo el segundo el usado en las nuevas especificaciones de la \textit{API}. En el uso del modo perfilado del núcleo
-a partir de \textit{OpenGL} 3.3, las versiones posteriores únicamente añaden nueva funcionalidad y eficiencia sin cambiar el
-modelo de programación por este motivo se ha decidido realizar el proyecto utilizando la versión de \textit{OpenGL} 3.3.
-
- %5mm vertical space
+a partir de \textit{OpenGL 3.3}. Las versiones posteriores únicamente añaden nueva funcionalidad y eficiencia sin cambiar el
+modelo de programación por este motivo se ha decidido realizar el proyecto utilizando la versión de \textit{OpenGL 3.3}.
 
 Es posible utilizar funcionalidades que soporte el fabricante de la tarjeta gráfica fuera de la especificación de \textit{OpenGL}
 como extensiones. Cuando una extensión se hace popular o es realmente útil a la hora de realizar un procesamiento o
 técnica gráfica es añadida a la especificación de \textit{OpenGL}, sin embargo, a la hora de la implementación podemos añadir
 extensiones y comprobar que en la plataforma donde se va a utilizar la extensión el driver la soporta y en tal caso
-utilizarla o si no realizar el algoritmo gráfico a la manera antigua o \textit{legacy}. \textit{OpenGL} está pensada como una máquina de estados, 
-esta máquina de estados es lo que se denomina el contexto de OpenGL. La máquina de estados está definida como un conjunto de variables que
-determinan cuál va a ser el comportamiento de \textit{OpenGL}. La idea del uso del contexto es cambiar la máquina de estados a través de
-variables añadiendo opciones y renderizar usando el contexto actual de la máquina de estados. Muchas de las funciones de
-\textit{OpenGL} son utilizadas únicamente para realizar un cambio en la máquina de estados de la que luego beneficiarse a la
-hora de realizar la renderización de los objetos. La especificación de \textit{OpenGL} debe estar escrita en C, los drivers de los
-fabricantes de tarjetas gráficas que han seguido las especificaciones de \textit{OpenGL} han desarrollado el driver en C y por
+utilizarla o si no realizar el algoritmo gráfico a la manera antigua o \textit{legacy}.
+
+\textit{OpenGL} está pensada como una máquina de estados, esta máquina de estados es lo que se denomina el contexto de OpenGL. La máquina de
+estados está definida como un conjunto de variables que determinan cuál va a ser el comportamiento de \textit{OpenGL}. La idea del uso del
+contexto es cambiar la máquina de estados a través de variables añadiendo opciones y renderizar usando el contexto actual de la máquina
+de estados. Muchas de las funciones de \textit{OpenGL} son utilizadas únicamente para realizar un cambio en la máquina de estados de la
+que luego beneficiarse a la hora de realizar la renderización de los objetos. La especificación de \textit{OpenGL} debe estar escrita en C,
+los drivers de los fabricantes de tarjetas gráficas que han seguido las especificaciones de \textit{OpenGL} han desarrollado el driver en C y por
 tanto no cuentan con características de lenguajes de alto nivel, para solucionar este problema \textit{OpenGL} cuenta con abstracciones
 para el uso de objetos a través de estructuras de datos.
 
- %5mm vertical space
-
-Para terminar comentar que un objeto de \textit{OpenGL} que utilizaremos en el desarrollo del proyecto son un subconjunto de estados
+Para terminar, comentar que un objeto de \textit{OpenGL} que utilizaremos en el desarrollo del proyecto son un subconjunto de estados
 de \textit{OpenGL} y que representan una entidad como puede ser la ventana de \textit{OpenGL} donde podemos modificar algunos atributos del
 objeto como su tamaño, la cantidad de colores que soporta la ventana, o si la ventana es panorámica o no, entre otras
 propiedades de la entidad ventana. Una vez explicado \textit{OpenGL} en el siguiente apartado se define la estructura dinámica de ejecución
@@ -775,9 +772,9 @@ El cauce gráfico de \textit{OpenGL} se inicia cuando se quiere renderizar algú
 pasar de un objeto geométrico 3D a un conjunto de valores RGB como parte final del renderizado se realiza a través de un \textit{pipeline}
 definido por etapas. El cauce gráfico está dividido en dos grandes etapas divididas en etapas más especializadas. La primera etapa se
 pasa de un objeto o geometría en un espacio de coordenadas en 3D a un objeto plano 2D. En la segunda etapa del cauce se rellenan los píxeles
-de la pantalla con los colores de la parte final de los objetos ya en 2D de la etapas previas del cauce. Cada etapa del cauce cuenta con una
+de la pantalla con los colores de la parte final de los objetos ya en 2D de las etapas previas del cauce. Cada etapa del cauce cuenta con una
 entrada de datos y una salida procesada que será la entrada de la siguiente etapa del cauce hasta obtener un valor final de renderizado
-y rellenar los píxeles de pantalla con un valor RGB.
+y rellenar los píxeles de pantalla con un valor \textit{RGB}.
 
 \begin{figure}[H]
     \centering
@@ -793,7 +790,7 @@ flexibilidad de la etapa se podrán realizar programas implementando algoritmos 
 estas etapas más flexibles del cauce son las etapas programables mientras que otras etapas son únicamente etapas configurables.
 
 \begin{itemize}
-  \item Los programas que se desarrollan y ejecutarán en la \textit{GPU} con los datos de entrada del cauce anterior se denominan programas
+  \item Los programas que se desarrollan y ejecutan en la \textit{GPU} con los datos de entrada del cauce anterior se denominan programas
   de shaders y existen en todas las librerías de gráficos.
 
   \item Las etapas del cauce de la especificación de \textit{OpenGL} están definidas como etapas que se denominan primitivas hasta las etapas
@@ -804,20 +801,20 @@ En la primera etapa la etapa de especificación de vértices, se define una list
 total de los datos. Estos datos son representados en forma de atributos, como subconjunto de datos, cada subconjunto de datos
 representa un vértice de la primitiva. El conjunto total de atributos o vértices se denomina \textit{VAO (Vertex Array Object)}.
 Un ejemplo de definición de primitivas o array de vértices puede tener un total de dieciocho valores, si definimos el valor de medida
-de un atributo en tres unidades, \textit{OpenGL} interpretará que tiene seis vértices dentro buffer de vértices representado por tres
+de un atributo en tres unidades, \textit{OpenGL} interpretará que tiene seis vértices dentro búffer de vértices representado por tres
 datos, que en las siguientes etapas del cauce se definirá como un vector de tres dimensiones. El valor del conjunto de atributos es
 arbitrario en esta etapa, es en las siguientes etapas de vértices donde esta definición de atributo tiene un sentido espacial. Una vez
-terminada la especificación del buffer de vértices en la \textit{CPU} se realiza el renderizado de vértices con la llamada de función
-de pintar primitivas de \textit{OpenGL} \textit{glDrawArrays} y comienzan a procesarse las diferentes etapas del cauce dentro de
+terminada la especificación del búffer de vértices en la \textit{CPU} se realiza el renderizado de vértices con la llamada de función
+de pintar primitivas de \textit{OpenGL glDrawArrays} y comienzan a procesarse las diferentes etapas del cauce dentro de
 la \textit{GPU}. La siguiente etapa importante del cauce ya dentro del procesamiento de la \textit{GPU} es la etapa de sombreado
 de vértices, una etapa programable del cauce.
 
 \begin{itemize}
-  \item La etapa realiza un procesamiento básico sobre cada vértice de forma individual y define un valor de salida de vértice
-  definido por el procesamiento del programa de shaders realizado por el desarrollador.
+  \item La etapa de sombreado de vértices realiza un procesamiento básico sobre cada vértice de forma individual y define un valor
+  de salida de vértice definido por el procesamiento del programa de shaders realizado por el desarrollador.
 
   \item Las salidas están definidas por el desarrollador pero siempre espera una salida para cada atributo de entrada, mapeado 1:1
-  la entrada y salida de vértices, esto se debe a que no pueden compartirse estados entre vértices por propósitos de rendimiento
+  de entrada y salida de vértices, esto se debe a que no pueden compartirse estados entre vértices por propósitos de rendimiento
   en el paralelismo del procesamiento de los mismos.
 \end{itemize}
 
@@ -836,7 +833,7 @@ Una vez finalizada la etapa de geometrías empiezan las siguientes etapas del ca
 de los vértices o primitivas.
 
 \begin{itemize}
-  \item La etapa de clipping o recorte, se encarga de separar las primitivas en un subconjunto de primitivas que están dentro de la
+  \item La etapa de \textit{clipping} o recorte, se encarga de separar las primitivas en un subconjunto de primitivas que están dentro de la
   ventana y de la perspectiva eliminando las primitivas interiores del volumen que no pueden ser vistas en el renderizado final,
   teniendo como referencia la matriz de vista del modelo proyectado generalmente por una cámara.
 
@@ -845,26 +842,26 @@ de los vértices o primitivas.
   generarán 10 triángulos en base a la definición previa de la primitiva básica y el orden de definición de los vértices de la
   primitiva, ya sea por orden de entrada o por el orden definido en un array de índices de la primitiva.
 
-  \item Existe una última operación en el post procesamiento de vértices, etapa de culling, esta etapa se encarga de descartar las
+  \item Existe una última operación en el post procesamiento de vértices, etapa de \textit{culling}, esta etapa se encarga de descartar las
   primitivas finales que no estén dentro de la ventana proyectada por la cámara, evitando el cómputo innecesario de primitivas en
   el renderizado final de los fragmentos.
 
-  \item En la etapa de rasterización las primitivas son rasterizadas en el orden que entran por esta etapa dividiendo las primitivas
+  \item En la etapa de rasterización las primitivas son rasterizadas en el orden que entran por esta etapa, dividiendo las primitivas
   en una estructura de datos denominados fragmentos.
 \end{itemize}
 
 Un fragmento es un conjunto de estados que se utiliza para calcular los datos finales de un pixel o de una muestra si se tiene
-habilitado el \textit{MSAA (Multiple Sampling Anti Aliasing)} en el framebuffer de salida. El estado del fragmento incluye su posición
+habilitado el \textit{MSAA (Multiple Sampling Anti Aliasing)} en el \textit{framebuffer} de salida. El estado del fragmento incluye su posición
 en el espacio de la pantalla y una lista de datos arbitrarios que se obtuvieron del vértice o en la etapa de shaders de geometrías
 después de pasar por la etapa de rasterización.
 
 \begin{itemize}
   \item En la etapa de shaders de fragmentos se realiza un procesamiento sobre los fragmentos. La salida de la etapa de fragmentos es
-  un valor de color dado a cada fragmento, incluyendo un valor de profundidad del fragmento previo.  En esta etapa tenemos control
+  un valor de color dado a cada fragmento, incluyendo un valor de profundidad del fragmento previo. En esta etapa tenemos control
   del valor de salida tanto de profundidad como de color final del fragmento.
 
   \item La etapa de fragmentos es una etapa programable y es un etapa opcional, si no se define un programa de shaders para la etapa
-  de fragmentos el valor de renderización final es el buffer de profundidad, calculado por el posicionamiento de las primitivas de
+  de fragmentos el valor de renderización final es el búffer de profundidad, calculado por el posicionamiento de las primitivas de
   las etapas anteriores.
 
   \item Las etapas de fragmentos realizan una serie de operaciones por pixel o muestra. Estas etapas están definidas por un conjunto
@@ -874,23 +871,23 @@ después de pasar por la etapa de rasterización.
 \end{itemize}
 
 La última parte del cauce realiza una serie de test sobre los fragmentos decidiendo si el fragmento se renderiza o no por pantalla en
-su posterior valor a pixel de pantalla.
+su posterior valor a píxel de pantalla.
 
 \begin{itemize}
   \item  La etapa de transparencia de color realiza la operaciones de test para cada color de fragmento, se realizan una serie de
-  operaciones lógicas entre el fragmento y el framebuffer de colores permitiendo el paso de color entre objetos y poder renderizar
+  operaciones lógicas entre el fragmento y el \textit{framebuffer} de colores permitiendo el paso de color entre objetos y poder renderizar
   materiales que puedan ser transparentes.
 \end{itemize}
 
-Por último el fragmento es escrito en el framebuffer de salida que está estructurado por los canales de color y profundidad, mostrando
+Por último el fragmento es escrito en el \textit{framebuffer} de salida que está estructurado por los canales de color y profundidad, mostrando
 finalmente la renderización final al usuario por pantalla. \cite{article:_opengl_arch} \cite{article:_opengl_bottlenecks} \cite{book:_opengl} \cite{book:rendering}
 
 \subsection{Sistema de coordenadas en OpenGL}
 \label{subsec:SysOpenGL}
 
-Por convención, \textit{OpenGL} es un sistema dextrógiro. Lo que esto básicamente dice es que el eje x positivo está a su derecha, el eje y
+Por convención, \textit{OpenGL} es un sistema dextrógiro, lo que esto básicamente dice es que el eje x positivo está a su derecha, el eje y
 positivo está hacia arriba, el eje z positivo está hacia atrás. Pensando en la pantalla como el centro de los 3 ejes, el eje z positivo
-que atraviesa la pantalla hacia el usuario del ordenador. Los ejes se dibujan de la siguiente manera:
+atraviesa la pantalla hacia el usuario del ordenador. Los ejes se dibujan de la siguiente manera:
 
 \begin{figure}[H]
     \centering
@@ -909,25 +906,26 @@ Para entender por qué se llama dextrógiro, se debe hacer lo siguiente:
 \end{itemize}
 
 Si se sigue ese procedimiento, el pulgar debe apuntar hacia el eje x positivo, el dedo índice hacia
-el eje y positivo y el dedo medio hacia el eje z positivo. Si se hace esto con el brazo izquierdo,
+el eje y positivo y el dedo corazón hacia el eje z positivo. Si se hace esto con el brazo izquierdo,
 el eje z está invertido. Esto se conoce como un sistema levógiro y es utilizado comúnmente por DirectX.
 Hay que tener en cuenta que en las coordenadas de dispositivo normalizadas, \textit{OpenGL} en realidad usa un
-sistema zurdo, la matriz de proyección es la encargada de cambiar la mano al modo dextrógiro. \cite{opengl:_learn_opengl}
+sistema zurdo, la matriz de proyección es la encargada de cambiar la mano al modo dextrógiro en la etapa de
+sombreado de vértices. \cite{opengl:_learn_opengl}
 
 \section{Entorno y herramientas}
 \label{sec:Entorno}
 
 A continuación se nombran las implementaciones abiertas de la librería de \textit{OpenGL}, entorno y herramientas
-utilizadas para el proyecto, en este caso el uso de \textit{glfw3} con \textit{glad} y la ayuda de la librería de matemática
+utilizadas para el proyecto, en este caso el uso de \textit{glfw3} con \textit{glad} y la ayuda de la librería matemática
 para gráficos compatible con la especificación de \textit{OpenGL}, \textit{GLM (OpenGL Mathematics Library)}.
 
 \subsection{Glad}
 \label{subsec:Glad}
 
-Esta es una herramienta para generar cargadores de funciones OpenGL. Selecciona el lenguaje, las versiones
-de \textit{OpenGL} / \textit{OpenGL ES} , los perfiles principales o compatibles, y los genera en un fichero de cabecera. La herramienta
+Esta es una herramienta para generar cargadores de funciones \textit{OpenGL}. Selecciona el lenguaje, las versiones
+de \textit{OpenGL}, los perfiles principales o compatibles, y los genera en un fichero de cabecera. La herramienta
 genera el fichero de cabecera con las declaraciones de la interfaz de las funciones \textit{GL} y
-las estructuras de datos para la versión de \textit{GL} que se elija, y genera un pequeño archivo fuente C que
+las estructuras de datos para la versión \textit{GL} que se elija, y genera un pequeño archivo fuente C que
 resuelve todas las funciones en tiempo de ejecución para ayudar al compilador en la definición de
 símbolos y tipos de datos de las funciones de la librería de \textit{OpenGL} antes de enlazar con la librería
 gráfica binaria instalada en el sistema operativo y generar el fichero binario de la aplicación gráfica
@@ -939,7 +937,7 @@ desarrollo. \cite{Khronos:_glad}
 \subsection{GLFW}
 \label{subsec:GLFW}
 
-\textit{GLFW} es una biblioteca multiplataforma de código abierto para el desarrollo de \textit{OpenGL}, \textit{OpenGL ES} y \textit{Vulkan},
+\textit{GLFW} es una biblioteca multiplataforma de código abierto para el desarrollo de \textit{OpenGL} y \textit{Vulkan},
 en plataformas de escritorio. Proporciona una \textit{API} simple para crear ventanas, contextos y superficies
 gráficas y recibir entradas o eventos de los periféricos, está escrito en C y es compatible con los sistemas
 operativos Windows, MacOS y Linux. Las ventajas de usar la librería \textit{GLFW} con la implementación de algunos de los
@@ -949,7 +947,7 @@ estándares gráficos son las siguientes:
   \item Se puede obtener una ventana y un contexto de \textit{OpenGL} utilizando dos llamadas a la
   función de la \textit{API}.
 
-  \item Soporta \textit{OpenGL} \textit{OpenGL ES}, \textit{Vulkan} y algunas de las opciones extendidas de las
+  \item Soporta \textit{OpenGL}, \textit{Vulkan} y algunas de las opciones extendidas de las
   especificaciones.
 
   \item Soporta el uso de múltiples ventanas y múltiples monitores con alta densidad de
@@ -975,7 +973,7 @@ La herramienta \textit{GLFW} es la encargada de generar la entidad o ventana del
 \subsection{OpenGL Mathematics Library GLM}
 \label{subsec:GLM}
 
-\textit{OpenGL Mathematics (GLM)} es una biblioteca matemática desarrollada en C++ solo para software
+\textit{OpenGL Mathematics (GLM)} es una biblioteca matemática desarrollada en C++ para software
 de gráficos basada en las especificaciones de \textit{OpenGL} de su lenguaje de shaders \textit{Shading Language (GLSL)}.
 \textit{GLM} proporciona clases y funciones diseñadas e implementadas con las mismas convenciones de nombres
 y funcionalidades que \textit{GLSL} para que cualquiera que conozca \textit{GLSL}, pueda usar la librería \textit{GLM} también
@@ -1003,9 +1001,11 @@ más utilizados en la industria. \cite{glm:_manual}
 
 La librería \textit{GLUT} es un conjunto de herramientas externas que trabajan con el core de \textit{OpenGL},
 su finalidad es servir de interfaz con diferentes dispositivos de entrada y salida heterogéneos,
-utilizados en el campo de realidad virtual. Ahora se hablará de algunos de los motores gráficos que utilizan
-todas o algunas de estas tecnologías para que el usuario pueda realizar aplicaciones gráficas de forma sencilla evitando
-el uso de las librerías gráficas y paradigmas de programación vistos de bajo nivel. \cite{glut:docs}
+utilizados en el campo de realidad virtual. \cite{glut:docs}
+
+Ahora se hablará de algunos de los motores gráficos que utilizan todas o algunas de estas tecnologías para que el usuario
+pueda realizar aplicaciones gráficas de forma sencilla evitando el uso de las librerías gráficas y paradigmas de programación
+vistos de bajo nivel.
 
 \section{Motores Gráficos}
 \label{sec:Motores}
@@ -1033,7 +1033,8 @@ interfaz de usuario hace uso de Widgets para la captura de eventos de usuario a 
 de progreso, menús etc. Esta interfaz interactiva ayuda al desarrollador a crear contenido de manera muy
 sencilla y realizar cierta lógica de animación o jugabilidad sin tener conocimientos sobre programación. Uno de los principales módulos
 de Unreal y más conocido, \textit{Blueprint Visual Scripting} \cite{book:_unreal_vs}. Este módulo está diseñado como un diagrama de flujo o una
-máquina de estados presentado como una visualización en bloques con un flujo de ejecución.
+máquina de estados presentado como una visualización en bloques con un flujo de ejecución. Además se caracteriza por tener un módulo de 
+físicas puntero.
 
 \begin{figure}[H]
     \centering
@@ -1044,7 +1045,7 @@ máquina de estados presentado como una visualización en bloques con un flujo d
 
 La idea es utilizar esta interfaz de visualización para usuarios con poca experiencia en programación
 y poder generar comportamientos animaciones u objetos gráficos con materiales de manera rápida y
-sencilla que solo podrían ser accesibles para desarrolladores o personas con conceptos de programación.
+sencilla que sólo podrían ser accesibles para desarrolladores o personas con conceptos de programación.
 
 \begin{figure}[H]
     \centering
@@ -1084,7 +1085,7 @@ Autocad o Maya 3D o importación de fuentes de lenguaje e idiomas.
 \end{figure}
 
 Unity también cuenta con primitivas pre definidas para objetos geométricos básicos como esferas cubos
-ellipses o planos, el motor hace uso de funciones matemáticas parametrizadas para generar las primitivas, tamaños o formas de las
+elipses o planos, el motor hace uso de funciones matemáticas parametrizadas para generar las primitivas, tamaños o formas de las
 superficies, de los objetos simples.
 
 El foco de atención principal del usuario en Unity se hace a través de la \textit{ventana principal},
@@ -1098,12 +1099,12 @@ del motor gráfico de Unity es \textit{vista de escena}, dentro de la ventana pr
 con Unity en la que se podrán editar las luces, posición de los objetos y las cámaras. La vista de escena es fácil de manejar para los usuarios
 que utilizan por primera vez el motor de Unity y para hacerse una idea del trabajo realizado con el entorno de desarrollo.
 
-Cuando el desarrollador  utiliza el modo \textit{vista de juego} dentro de la ventana principal se podrá ver el resultado final de la aplicación gráfica 
+Cuando el desarrollador utiliza el modo \textit{vista de juego} dentro de la ventana principal se podrá ver el resultado final de la aplicación gráfica 
 creada con Unity, en la que puede observar desde las cámaras de la escena y el renderizado en tiempo real de la aplicación. En esta vista los cambios
 realizados de forma interactiva son temporales, también se puede simular la bajada de la resolución para emular el uso de dispositivos antiguos
 o con menor poder computacional y adaptar nuestras aplicaciones gráficas a un mayor número de dispositivos, este modo de vista también avisa al usuario
 sino existen cámaras en la escena para advertir de que no hay ninguna cámara para realizar el renderizado, otra visualización importante dentro del
-motor gráfico de Unity es la ventana de jerarquías, donde se pueden obervar las dependencias que existen entre los objetosde la escena,
+motor gráfico de Unity es la ventana de jerarquías, donde se pueden obervar las dependencias que existen entre los objetos de la escena,
 algunos de estos objetos pueden ser geometrías cargadas con la interfaz \textit{Asset} o componentes del motor como luces o cámaras, cargados como
 objetos de juego. La \textit{ventana de jerarquías} nos da una visión global del árbol de transformadas de Unity y de
 las dependencias de los objetos dentro de la escena, en esta vista se pueden también crear las dependencias entre
@@ -1120,7 +1121,7 @@ más complejas. \cite{unity:_unity_book}
 
 El uso de programación también es algo a tener en cuenta dentro de Unity. Muchas aplicaciones necesitan el uso
 de programas y lógica para responder a eventos de usuario en el momento que sea necesario, en los scripts es posible
-realizar efectos gráficos, control de físicas, comportamiento de los objetos o creación de un sistem de inteligencia
+realizar efectos gráficos, control de físicas, comportamiento de los objetos o creación de un sistema de inteligencia
 artificial personalizado para los objetos de juego. El uso de programación en Unity se realiza a través de la
 API de Unity en C\#.
 
@@ -1133,28 +1134,29 @@ API de Unity en C\#.
 
 Unity es un motor con una curva de aprendizaje sencilla en el uso del editor, los conceptos del motor o uso de un
 lenguaje de programación de componentes sencillo en C\#. El usuario puede ser capaz de realizar un prototipo de
-juego o aplicación virtual de forma rápida. Con el uso del módulo Asset es fácil insertar contenidos de terceros
+juego o aplicación virtual de forma rápida, con el uso del módulo Asset es fácil insertar contenidos de terceros
 dentro del motor aunque puede que este contenido se quede corto cuando queremos realizar mundos algo más complejos. Los mayores
-problemas que podemos encontrar en Unity son la mala gestión de los recursos. Al estar implementados
+problemas que podemos encontrar en Unity son la mala gestión de los recursos, al estar implementados
 algunos módulos en .Net es posible tener problemas de rendimiento en la gestión de la memoria con el recolector de basura. También se
 encuentran restricciones al no ser un motor completamente Open Source como Unreal, si se quiere realizar
 alguna funcionalidad específica que no soporte el motor no se puede añadir. La inestabilidad entre versiones intermedias
-también es un problema en Unity ya que en la realización de parches suelen meterse regresiones y errores nuevos dentro de la plataforma. \cite{unity:_manual}
+también es un problema en Unity ya que en la realización de parches suelen meterse regresiones y errores nuevos dentro de
+la plataforma. \cite{unity:_manual}
 
 \subsection{Blender}
 \label{subsec:Blender}
 
-Blender es un motor gráfico open source gratuito para la creación de mundos en 3D. El motor blender da soporte completo
+Blender es un motor gráfico Open Source gratuito para la creación de mundos en 3D. El motor Blender da soporte completo
 para la creación en 3D desde el modelado, la animación, el renderizado, o el seguimiento de objetos. También es posible
 realizar animaciones en 2D con Blender. El motor Blender soporta el cauce completo desde la creación de los objetos 3D
 hasta la etapa final de renderizado. Blender se puede utilizar para crear visualizaciones en 3D, como imágenes fijas para
 crear texturas, animaciones en 3D, tomas de efectos visuales y edición de video, se adapta bien a desarrollos individuales
-y pequeños estudios que se benefician de su proceso unificado de desarrollo y respuesta. El motor gráfico blender puede realizar
+y pequeños estudios que se benefician de su proceso unificado de desarrollo y respuesta. El motor gráfico Blender puede realizar
 desarrollos de aplicaciones gráficas multiplataforma que se ejecuta en sistemas Linux, macOS y Windows. Blender también tiene requisitos
 de memoria y procesamiento relativamente pequeños en comparación con otras plataformas de creación 3D. Su interfaz utiliza \textit{OpenGL}
-para proporcionar una experiencia consistente en todo el hardware y las plataformas compatibles con OpenGL. Tiene una amplia variedad de
+para proporcionar una experiencia consistente en todo el hardware y las plataformas compatibles con \textit{OpenGL}. Tiene una amplia variedad de
 herramientas que lo hacen adecuado para casi cualquier tipo de producción de medios, personas y estudios de todo el mundo que lo
-usan para proyectos de pasatiempos, comerciales y largometrajes. \cite{blender:_manual}
+usan para proyectos de pasatiempos y comerciales, para por ejemplo cortometrajes. \cite{blender:_manual}
 
 \begin{itemize}
   \item Blender es un conjunto de módulos para creación de contenido 3D totalmente integrado, que ofrece una amplia gama de
@@ -1162,7 +1164,7 @@ usan para proyectos de pasatiempos, comerciales y largometrajes. \cite{blender:_
   texturizado y muchos tipos de simulaciones.
 
   \item Es multiplataforma, con una interfaz gráfica de usuario \textit{OpenGL} que es uniforme en todas las plataformas principales
-  (y personalizable con scripts de Python).
+  y personalizable con scripts de Python con la libreria \textit{BPY}.
 
   \item Tiene una arquitectura 3D de alta calidad, lo que permite un flujo de trabajo de creación rápido y eficiente.
 
